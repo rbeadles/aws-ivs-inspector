@@ -2,18 +2,14 @@ name: AWS IVS Inspector Infra
 
 on: 
   workflow_dispatch:
-    account_id:
-      description: 'Provide Account ID'     
-      required: true
-      default: 'account_id'
-    region:
-      description: 'Provide Region'     
-      required: true
-      default: 'ap-south-1'
-    project_name:
-      description: 'Provide Project Name'     
-      required: true
-      default: 'project_name'
+    # region:
+    #   description: 'Provide Region'     
+    #   required: true
+    #   default: 'ap-south-1'
+    # project_name:
+    #   description: 'Provide Project Name'     
+    #   required: true
+    #   default: 'project_name'
 
 jobs:
   terraform:
@@ -21,7 +17,7 @@ jobs:
     environment: terraform_admin
     env: 
       TF_LOG: INFO
-      account_id: ${{ secrets.AWS_ACCOUNT_ID }}
+      region: ap-south-1
       project_name: ${{ secrets.PROJECT_NAME }}
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
