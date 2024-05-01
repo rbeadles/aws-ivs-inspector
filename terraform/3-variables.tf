@@ -1,6 +1,6 @@
 variable "account_id" {
-  type = string
-  # default = "740024244647"
+  type    = string
+  default = ""
 }
 
 variable "region" {
