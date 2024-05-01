@@ -39,7 +39,7 @@ jobs:
 
       - name: Terraform init
         id: init
-        run: terraform init -backend-config="backend-configs/ap-south-1.conf"
+        run: terraform init -backend-config="bucket=ivs-inspector-tfstate"
 
       - name: Terraform format
         id: fmt
