@@ -1,11 +1,9 @@
 variable "account_id" {
-  type    = string
-  default = ""
+  type = string
 }
 
 variable "region" {
   type = string
-  # default = "ap-south-1"
 }
 
 variable "project_name" {
