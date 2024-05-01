@@ -1,6 +1,9 @@
 name: AWS IVS Inspector Infra
 
-on: workflow_dispatch
+on: #workflow_dispatch
+  push:
+    branches:
+      - main
   # workflow_dispatch:
     # region:
     #   description: 'Provide Region'     
