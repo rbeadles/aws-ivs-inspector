@@ -7,11 +7,3 @@ output "api_ids" {
     }
   }
 }
-
-# output "amplify_app_arn" {
-#   value = module.aws-infra.amplify_app_arn
-# }
-
-# output "amplify_app_url" {
-#   value = module.aws-infra.amplify_app_url
-# }

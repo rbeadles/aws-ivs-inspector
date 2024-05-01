@@ -1,4 +1,4 @@
-name: IVS Inspector Prerequisites Deployment Pipeline with GitHub Actions
+name: AWS IVS Inspector Web
 
 on: 
   workflow_dispatch:
@@ -10,11 +10,11 @@ on:
       description: 'Provide Region'     
       required: true
       default: 'region'
-  # push:
-  #   branches:
-  #     - 'main'
-  #     - 'release/**'
-
+    project_name:
+      description: 'Provide Project Name'     
+      required: true
+      default: 'project_name'
+      
 env:
   TF_LOG: INFO
   AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}

@@ -42,8 +42,6 @@ resource "aws_security_group" "ecs_tasks" {
     from_port   = 443
     to_port     = 443
     cidr_blocks = ["0.0.0.0/0"]
-    # prefix_list_ids = [aws_vpc_endpoint.s3.prefix_list_id]
-
   }
   lifecycle {
     create_before_destroy = true
@@ -140,23 +138,3 @@ resource "aws_vpc_endpoint" "ecr_api_endpoint" {
     "Name" = "${var.project_name}-${var.region}-ecr-api"
   }
 }
-
-# resource "aws_vpc_endpoint_policy" "s3_vpc_endpoint_policy" {
-#   count           = var.az_count
-#   vpc_endpoint_id = aws_vpc_endpoint.s3_vpc_endpoint.id
-#   policy = jsonencode({
-#     "Version" : "2012-10-17",
-#     "Statement" : [
-#       {
-#         "Sid" : "AllowAll",
-#         "Effect" : "Allow",
-#         "Principal" : {
-#           "AWS" : "*"
-#         },
-#         "Action" : ["s3:*"],
-#         "Resource" : "*"
-#       }
-#     ]
-#   })
-# }
-
