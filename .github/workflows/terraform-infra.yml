@@ -38,6 +38,7 @@ jobs:
       - name: Terraform Init
         id: init
         run: |
+          cd terraform
           terraform fmt
           terraform init -upgrade
 
