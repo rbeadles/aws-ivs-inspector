@@ -42,7 +42,7 @@ jobs:
           terraform fmt
           terraform init
             -backend-config="bucket=${{ secrets.BUCKET_TF_STATE }}"
-            -backend-config="key=${{ TF_VAR_region }}.terraform.tfstate"
+            -backend-config="key=${ TF_VAR_region }.terraform.tfstate"
         # env:
         #   TF_VAR_aws_s3_bucket: ${{ secrets.BUCKET_TF_STATE }}
 
