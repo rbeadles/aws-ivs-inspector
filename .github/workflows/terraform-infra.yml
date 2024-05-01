@@ -40,7 +40,9 @@ jobs:
         run: |
           cd terraform
           terraform fmt
-          terraform init -upgrade
+          terraform init -backend-config="./backend-configs/ap-south-1.conf" -reconfigure
+        # env:
+        #   TF_VAR_aws_s3_bucket: ${{ secrets.BUCKET_TF_STATE }}
 
       # - name: Terraform format
       #   id: fmt
