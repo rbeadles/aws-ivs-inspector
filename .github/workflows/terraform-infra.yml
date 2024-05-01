@@ -6,25 +6,26 @@ on:
       description: 'Provide Account ID'     
       required: true
       default: 'account_id'
-    branch:
+    region:
       description: 'Provide Region'     
       required: true
-      default: 'region'
+      default: 'ap-south-1'
     project_name:
       description: 'Provide Project Name'     
       required: true
       default: 'project_name'
 
-env:
-  TF_LOG: INFO
-  AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
-  AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
-  BUCKET_TF_STATE: ${{ secrets.BUCKET_TF_STATE}}
-
 jobs:
   terraform:
     runs-on: ubuntu-latest
     environment: terraform_admin
+    env: 
+      TF_LOG: INFO
+      account_id: ${{ secrets.AWS_ACCOUNT_ID }}
+      project_name: ${{ secrets.PROJECT_NAME }}
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      BUCKET_TF_STATE: ${{ secrets.BUCKET_TF_STATE}}
     defaults:
       run:
         shell: bash
