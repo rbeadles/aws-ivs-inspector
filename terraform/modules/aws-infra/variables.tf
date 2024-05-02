@@ -390,7 +390,7 @@ variable "dynamodb_tables" {
 variable "token" {
   type        = string
   description = "github token to connect github repo"
-  default     = "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" //classic
+  default     = "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" //classic
   sensitive   = true
 }
 
