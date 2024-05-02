@@ -24,7 +24,7 @@ jobs:
       TF_VAR_region: ap-south-1
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      BUCKET_TF_STATE: ${{ secrets.BUCKET_TF_STATE}}
+      BUCKET_TF_STATE: ${{ secrets.BUCKET_TF_STATE }}
     # defaults:
     #   run:
     #     shell: bash
@@ -44,7 +44,7 @@ jobs:
           cd terraform
           terraform fmt
           terraform init \
-           -backend-config="bucket=$BUCKET_TF_STATE" \
+           -backend-config="bucket=${{ secrets.BUCKET_TF_STATE }}" \
            -backend-config="key=prod/$TF_VAR_region/terraform.tfstate" \
            -backend-config="region=us-west-2"
 
