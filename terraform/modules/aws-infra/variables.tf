@@ -394,7 +394,7 @@ variable "token" {
 variable "repository" {
   type        = string
   description = "AWS IVS Inspector Web Application Repo"
-  default     = "https://github.com/sathia-s/aws-ivs-inspector"
+  default     = "https://github.com/sathia-s/aws-ivs-inspector-web"
 }
 
 variable "branch_name" {
