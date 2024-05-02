@@ -49,8 +49,6 @@ resource "aws_amplify_app" "amplify_app" {
     enable_auto_build       = true
     enable_performance_mode = true
   }
-
-  depends_on = [aws_api_gateway_deployment.deployment, aws_apigatewayv2_stage.stage]
 }
 
 resource "aws_amplify_branch" "amplify_branch" {
