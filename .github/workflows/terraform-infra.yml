@@ -35,27 +35,25 @@ jobs:
 
       - name: Setup Terraform with specific version on the runner
         uses: hashicorp/setup-terraform@v2
-        # with:
-        #   terraform_version: 1.8.2
-      - name: 'Terraform Init'
-        uses: hashicorp/terraform-github-actions@master
         with:
-          tf_actions_version: 0.12.13
-          tf_actions_subcommand: 'init'
-          tf_actions_working_dir: '.'
-          tf_actions_comment: true
-          args: '-backend-config="bucket=ivs-inspector-tfstate-test" -backend-config="key=${TF_VAR_region}.terraform.tfstate"'
+          terraform_version: 1.8.2
+      # - name: 'Terraform Init'
+      #   uses: hashicorp/terraform-github-actions@master
+      #   with:
+      #     tf_actions_version: 0.12.13
+      #     tf_actions_subcommand: 'init'
+      #     tf_actions_working_dir: '.'
+      #     tf_actions_comment: true
+      #     args: '-backend-config="bucket=ivs-inspector-tfstate-test" -backend-config="key=${TF_VAR_region}.terraform.tfstate"'
         
-      # - name: Terraform Init
-      #   id: init
-      #   run: |
-      #     cd terraform
-      #     terraform fmt
-      #     terraform init
-      #     -backend-config="bucket=ivs-inspector-tfstate-test"
-      #     -backend-config="key=${TF_VAR_region}.terraform.tfstate"
-      #   # env:
-      #   #   TF_VAR_aws_s3_bucket: ${{ secrets.BUCKET_TF_STATE }}
+      - name: Terraform Init
+        id: init
+        run: |
+          cd terraform
+          terraform fmt
+          terraform init -backend-config="bucket=ivs-inspector-tfstate-test" -backend-config="key=prod/ap-south-1/terraform.tfstate"
+        # env:
+        #   TF_VAR_aws_s3_bucket: ${{ secrets.BUCKET_TF_STATE }}
 
       # - name: Terraform format
       #   id: fmt
