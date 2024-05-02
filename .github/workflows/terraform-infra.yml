@@ -4,15 +4,6 @@ on: workflow_dispatch
   # push:
   #   branches:
   #     - main
-  # # workflow_dispatch:
-  #   # region:
-  #   #   description: 'Provide Region'     
-  #   #   required: true
-  #   #   default: 'ap-south-1'
-  #   # project_name:
-  #   #   description: 'Provide Project Name'     
-  #   #   required: true
-  #   #   default: 'project_name'
 
 jobs:
   terraform:
@@ -41,7 +32,7 @@ jobs:
           terraform fmt
           terraform init \
            -backend-config="bucket=${{ secrets.BUCKET_TF_STATE }}" \
-           -backend-config="key=prod/$TF_VAR_region/terraform.tfstate" \
+           -backend-config="key=infra/$TF_VAR_region/terraform.tfstate" \
            -backend-config="region=us-west-2"
 
       - name: Terraform Validate

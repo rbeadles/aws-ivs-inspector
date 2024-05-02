@@ -13,10 +13,10 @@ resource "aws_amplify_app" "amplify_app" {
       phases:
         preBuild:
           commands:
-            - yarn install
+            - npm install
         build:
           commands:
-            - yarn run build
+            - npm run build
       artifacts:
         baseDirectory: dist/spa
         files:
