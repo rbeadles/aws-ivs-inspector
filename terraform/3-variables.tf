@@ -15,3 +15,8 @@ variable "environment" {
   type    = string
   default = "ivs"
 }
+
+variable "token" {
+  type      = string
+  sensitive = true
+}
