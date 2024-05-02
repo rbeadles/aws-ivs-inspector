@@ -35,9 +35,6 @@ resource "aws_amplify_app" "amplify_app" {
 
   environment_variables = {
     VITE_ACCOUNT_ID : var.account_id,
-    VITE_REST_API : "${aws_api_gateway_deployment.deployment.rest_api_id}",
-    VITE_WSS_GET_LIVE_STREAMS : "${aws_apigatewayv2_stage.stage["get-live-streams"].api_id}",
-    VITE_WSS_GET_SESSION_EVENTS : "${aws_apigatewayv2_stage.stage["get-session-events"].api_id}",
   }
 
   enable_auto_branch_creation = true
