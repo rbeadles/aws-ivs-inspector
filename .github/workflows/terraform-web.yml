@@ -10,7 +10,7 @@ env:
   AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
 
 jobs:
-  terraform:
+  web-app:
     runs-on: ubuntu-latest
     environment: terraform_admin
     # steps:
@@ -47,7 +47,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
 
     - name: configure amplify
-      uses: ambientlight/amplify-cli-action@0.1.2
+      uses: ambientlight/amplify-cli-action@v0.1.2
       with:
         amplify_command: configure
         amplify_env: prod
@@ -64,7 +64,7 @@ jobs:
         # npm run test
     
     - name: deploy
-      uses: ambientlight/amplify-cli-action@0.1.2
+      uses: ambientlight/amplify-cli-action@v0.1.2
       with:
         amplify_command: publish
         amplify_env: prod
