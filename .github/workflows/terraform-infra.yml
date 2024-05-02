@@ -41,7 +41,6 @@ jobs:
       - name: Terraform Init
         id: init
         run: |
-          # cd terraform
           terraform fmt
           terraform init \
            -backend-config="bucket=ivs-inspector-tfstate-test" \
