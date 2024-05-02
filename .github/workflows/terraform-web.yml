@@ -1,4 +1,4 @@
-name: AWS IVS Inspector Web
+name: AWS IVS Inspector - Web Application
 
 on: #workflow_dispatch
   push:
@@ -24,6 +24,9 @@ jobs:
 
       - name: Configure Amplify
         run: amplify configure  # This step might require some interactive setup
+        env:
+          AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
+          AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
 
       - name: Deploy to Amplify
-        run: amplify pull d2nmdzktuwpd59
+        run: amplify pull --appId d2nmdzktuwpd59 --envName ivs
