@@ -4,4 +4,5 @@ module "aws-infra" {
   environment  = var.environment
   account_id   = var.account_id
   region       = var.region
+  token        = var.token
 }
