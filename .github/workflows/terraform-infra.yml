@@ -25,10 +25,10 @@ jobs:
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       BUCKET_TF_STATE: ${{ secrets.BUCKET_TF_STATE}}
-    # defaults:
-    #   run:
-    #     shell: bash
-    #     working-directory: ./terraform
+    defaults:
+      run:
+        shell: bash
+        working-directory: ./terraform
     steps:
       - name: Checkout the repository to the runner
         uses: actions/checkout@v2
@@ -37,30 +37,16 @@ jobs:
         uses: hashicorp/setup-terraform@v3
         with:
           terraform_version: 1.8.2
-      # - name: 'Terraform Init'
-      #   uses: hashicorp/terraform-github-actions@master
-      #   with:
-      #     tf_actions_version: 0.12.13
-      #     tf_actions_subcommand: 'init'
-      #     tf_actions_working_dir: '.'
-      #     tf_actions_comment: true
-      #     args: '-backend-config="bucket=ivs-inspector-tfstate-test" -backend-config="key=${TF_VAR_region}.terraform.tfstate"'
         
       - name: Terraform Init
         id: init
         run: |
-          cd terraform
+          # cd terraform
           terraform fmt
           terraform init \
            -backend-config="bucket=ivs-inspector-tfstate-test" \
            -backend-config="key=prod/ap-south-1/terraform.tfstate" \
            -backend-config="region=ap-south-1"
-        # env:
-        #   TF_VAR_aws_s3_bucket: ${{ secrets.BUCKET_TF_STATE }}
-
-      # - name: Terraform format
-      #   id: fmt
-      #   run: terraform fmt -check
 
       - name: Terraform Validate
         id: validate
@@ -80,14 +66,4 @@ jobs:
         if: github.ref == 'refs/heads/main'
         run: |
           cd terraform
-          terraform apply -auto-approve -input=false
-
-      # - name: Terraform Apply
-      #   uses: hashicorp/terraform-github-actions@master
-      #   with:
-      #     tf_actions_version: 0.12.13
-      #     tf_actions_subcommand: 'apply -auto-approve'
-      #     tf_actions_working_dir: '.'
-      #     tf_actions_comment: true
-      #     args: '-backend-config="bucket=ivs-inspector-tfstate-test" -backend-config="key=${TF_VAR_region}.terraform.tfstate"'
-      
+          terraform destroy -auto-approve -input=false

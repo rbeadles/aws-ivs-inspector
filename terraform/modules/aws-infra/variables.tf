@@ -385,6 +385,8 @@ variable "dynamodb_tables" {
   ]
 }
 
+# {"rest":"tjunzsa8q1","wss_get_live_streams":"7lif8mdja7","wss_get_session_events":"pqa0502c66"}
+
 variable "token" {
   type        = string
   description = "github token to connect github repo"
