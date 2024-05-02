@@ -51,13 +51,13 @@ jobs:
       - name: Terraform Validate
         id: validate
         run: |
-          cd terraform
+          cd terraform-infra
           terraform validate
 
       - name: Terraform Plan
         id: plan
         run: |
-          cd terraform
+          cd terraform-infra
           terraform plan -no-color -input=false
         continue-on-error: true
 
@@ -65,5 +65,5 @@ jobs:
         id: apply
         if: github.ref == 'refs/heads/main'
         run: |
-          cd terraform
+          cd terraform-infra
           terraform destroy -auto-approve -input=false

@@ -1,18 +1,6 @@
 name: AWS IVS Inspector Amplify App
 
-on: #workflow_dispatch
-  push:
-    branches:
-      - main
-  # workflow_dispatch:
-    # region:
-    #   description: 'Provide Region'     
-    #   required: true
-    #   default: 'ap-south-1'
-    # project_name:
-    #   description: 'Provide Project Name'     
-    #   required: true
-    #   default: 'project_name'
+on: workflow_dispatch
 
 jobs:
   terraform:
@@ -52,13 +40,13 @@ jobs:
       - name: Terraform Validate
         id: validate
         run: |
-          cd terraform
+          cd terraform-amplify
           terraform validate
 
       - name: Terraform Plan
         id: plan
         run: |
-          cd terraform
+          cd terraform-amplify
           terraform plan -no-color -input=false
         continue-on-error: true
 
@@ -66,5 +54,5 @@ jobs:
         id: apply
         if: github.ref == 'refs/heads/main'
         run: |
-          cd terraform
+          cd terraform-amplify
           terraform apply -auto-approve -input=false
