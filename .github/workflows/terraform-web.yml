@@ -48,7 +48,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
 
     - name: configure amplify
-      uses: AresFitness/amplify-cli-action@0.4.5
+      uses: MorFix/amplify-cli-action@0.4.5
       with:
         amplify_command: configure
         amplify_env: prod
@@ -65,7 +65,7 @@ jobs:
         npm run test
     
     - name: deploy
-      uses: AresFitness/amplify-cli-action@0.4.5
+      uses: MorFix/amplify-cli-action@0.4.5
       with:
         amplify_command: publish
         amplify_env: prod
