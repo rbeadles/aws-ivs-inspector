@@ -22,7 +22,7 @@ jobs:
           cd web-application
           aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID 
           aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY 
-          aws amplify start-deployment --app-id dneert3iqopmm --branch-name ivs --region ap-south-1
+          aws amplify start-job --app-id dneert3iqopmm --branch-name ivs --job-type RELEASE --region ap-south-1
         # shell: bash
 
       # - name: Install Amplify CLI
