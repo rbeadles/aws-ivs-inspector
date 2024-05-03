@@ -60,7 +60,8 @@ jobs:
 
       - name: Add Amplify Env Var 
         run: |
-          echo "api_ids: ${{ steps.apply.outputs.api_ids }}"
+          AWS_IVS_APP_IDS: '${{ steps.apply.outputs.api_ids }}' | jq '@json'
+          echo "api_ids: $AWS_IVS_APP_IDS"
           aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID 
           aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY 
           aws configure set region "ap-south-1"
