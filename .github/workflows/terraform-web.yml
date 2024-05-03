@@ -57,16 +57,16 @@ jobs:
           \"awscloudformation\":$AWSCLOUDFORMATIONCONFIG\
           }"
 
-          echo "Initializing Amplify project for env: $ENV_NAME"
+          # echo "Initializing Amplify project for env: $ENV_NAME"
 
-          amplify init \
-          --amplify $AMPLIFY \
-          --frontend $FRONTEND \
-          --providers $PROVIDERS \
-          --yes
+          # amplify init \
+          # --amplify $AMPLIFY \
+          # --frontend $FRONTEND \
+          # --providers $PROVIDERS \
+          # --yes
 
-          echo "Check Status Amplify project for env: $ENV_NAME"
-          amplify status
+          echo "Configure Amplify project for env: $ENV_NAME"
+          amplify configure
 
           echo "Console Amplify project for env: $ENV_NAME"
           amplify console
