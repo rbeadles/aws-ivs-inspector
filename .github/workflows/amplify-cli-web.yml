@@ -17,12 +17,12 @@ jobs:
       - name: Checkout the repositoring to the runner
         uses: actions/checkout@v3
 
-      - name: Run AWS CLI
+      - name: Configure AWS CLI
         run: |
           cd web-application
           aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID 
           aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY 
-          # aws amplify create-backend-environment --app-id d3r4d07bnze5jj --environment-name backend --region ap-south-1
+          aws amplify create-backend-environment --app-id dneert3iqopmm --environment-name backend --region ap-south-1
         shell: bash
 
       - name: Install Amplify CLI
@@ -74,25 +74,25 @@ jobs:
           # --yes
 
           echo "Pull Amplify project for env: $ENV_NAME"
-          amplify pull --appId d3r4d07bnze5jj --providers $PROVIDERS
+          amplify pull --appId dneert3iqopmm --providers $PROVIDERS
 
           # echo "amplify hosting add for env: $ENV_NAME"
           # amplify add hosting
 
           echo "Publish Amplify project for env: $ENV_NAME"
-          amplify publish --appId d3r4d07bnze5jj --providers $PROVIDERS
+          amplify publish --appId dneert3iqopmm --providers $PROVIDERS
 
       # - name: Configure Amplify
       #   run: |
-      #     amplify configure --appId d3r4d07bnze5jj --yes
+      #     amplify configure --appId dneert3iqopmm --yes
       #   env:
       #     AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
       #     AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
 
       # - name: Deploy to Amplify
       #   run: |
-      #     amplify pull --appId d3r4d07bnze5jj --envName backend
-      #     amplify publish --appId d3r4d07bnze5jj --branch ivs --envName backend
+      #     amplify pull --appId dneert3iqopmm --envName backend
+      #     amplify publish --appId dneert3iqopmm --branch ivs --envName backend
       #   env:
       #     AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
       #     AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
