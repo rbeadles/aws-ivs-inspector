@@ -8,6 +8,7 @@ env:
   TF_LOG: INFO
   AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
   AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
+  AWS_AMPLIFY_APP_ID: "de48zca21vccw"
 
 jobs:
   web-app:
@@ -23,7 +24,7 @@ jobs:
           aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID 
           aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY 
           aws configure set region "ap-south-1"
-          aws amplify start-job --app-id dneert3iqopmm --branch-name ivs --job-type RELEASE --commit-message "commit from GitHub"
+          aws amplify start-job --app-id $AWS_AMPLIFY_APP_ID --branch-name ivs --job-type RELEASE --commit-message "commit from GitHub"
         # shell: bash
 
       # - name: Install Amplify CLI
@@ -75,25 +76,25 @@ jobs:
       #     # --yes
 
       #     echo "Pull Amplify project for env: $ENV_NAME"
-      #     amplify pull --appId dneert3iqopmm --providers $PROVIDERS
+      #     amplify pull --appId $AWS_AMPLIFY_APP_ID --providers $PROVIDERS
 
       #     # echo "amplify hosting add for env: $ENV_NAME"
       #     # amplify add hosting
 
       #     echo "Publish Amplify project for env: $ENV_NAME"
-      #     amplify publish --appId dneert3iqopmm --providers $PROVIDERS
+      #     amplify publish --appId $AWS_AMPLIFY_APP_ID --providers $PROVIDERS
 
       # - name: Configure Amplify
       #   run: |
-      #     amplify configure --appId dneert3iqopmm --yes
+      #     amplify configure --appId $AWS_AMPLIFY_APP_ID --yes
       #   env:
       #     AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
       #     AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
 
       # - name: Deploy to Amplify
       #   run: |
-      #     amplify pull --appId dneert3iqopmm --envName backend
-      #     amplify publish --appId dneert3iqopmm --branch ivs --envName backend
+      #     amplify pull --appId $AWS_AMPLIFY_APP_ID --envName backend
+      #     amplify publish --appId $AWS_AMPLIFY_APP_ID --branch ivs --envName backend
       #   env:
       #     AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
       #     AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
