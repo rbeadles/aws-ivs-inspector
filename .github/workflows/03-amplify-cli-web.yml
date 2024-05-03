@@ -1,9 +1,9 @@
 name: 03:AWS IVS Inspector - Web Application
 
-on: workflow_dispatch
-  # push:
-  #   branches:
-  #     - main
+on: #workflow_dispatch
+  push:
+    branches:
+      - main
 
 jobs:
   web-app:
@@ -11,6 +11,7 @@ jobs:
     environment: terraform_admin
     env:
       TF_LOG: INFO
+      TF_VAR_token: ${{ secrets.ACCESS_TOKEN }}
       AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
       AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
       AWS_AMPLIFY_APP_ID: ${{vars.AMPLIFY_APP_ID}}
@@ -24,7 +25,9 @@ jobs:
           aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID 
           aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY 
           aws configure set region "ap-south-1"
-          aws amplify start-job --app-id $AWS_AMPLIFY_APP_ID --branch-name ivs --job-type RELEASE --commit-message "commit from GitHub"
+          gh auth login --with-token $TF_VAR_token
+          gh variable set test_key --body "test_value" --repos aws-ivs-inspector
+          # aws amplify start-job --app-id $AWS_AMPLIFY_APP_ID --branch-name ivs --job-type RELEASE --commit-message "commit from GitHub"
         # shell: bash
 
       # - name: Install Amplify CLI
