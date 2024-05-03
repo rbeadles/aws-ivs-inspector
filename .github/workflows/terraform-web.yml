@@ -21,9 +21,10 @@ jobs:
         run: |
           cd web-application
           npm install -g @aws-amplify/cli
+          ls -lh
 
       - name: Configure Amplify
-        run: amplify pull --appId d28alc08zegoll --envName backend -yes # This step might require some interactive setup
+        run: amplify configure --appId d28alc08zegoll --yes 
         env:
           AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
           AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
