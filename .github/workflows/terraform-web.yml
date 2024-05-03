@@ -52,7 +52,7 @@ jobs:
           --providers $PROVIDERS \
           --yes
 
-          amplify push 
+          amplify deploy 
 
       # - name: Configure Amplify
       #   run: |
