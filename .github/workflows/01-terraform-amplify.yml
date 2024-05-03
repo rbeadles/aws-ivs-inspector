@@ -56,9 +56,9 @@ jobs:
         run: |
           cd terraform-amplify
           terraform apply -auto-approve -input=false
-          echo "amplify_app_id: ${{ steps.apply.outputs.amplify_app_id }}"
-    outputs:
-      amplify_app_id: ${{ steps.apply.outputs.amplify_app_id }}
+          echo "amplify_app_id=$(terraform outputs -raw amplify_app_id)" >> $GITHUB_OUTPUT
+    # outputs:
+    #   amplify_app_id: ${{ steps.apply.outputs.amplify_app_id }}
 
   add_environment_variable:
     name: "Adding Env Var"
@@ -72,5 +72,5 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         run: |
-          echo terraform_for_amplify.outputs.amplify_app_id
-          "gh api --method POST -H 'Accept: application/vnd.github+json' -H 'X-GitHub-Api-Version: 2022-11-28' /repos/sathia-s/aws-ivs-inspector/environments/terraform_admin/variables -f 'name=USERNAME' -f 'value=octocat'"
+          echo needs.terraform_for_amplify.outputs.amplify_app_id
+          "gh api --method POST -H 'Accept: application/vnd.github+json' -H 'X-GitHub-Api-Version: 2022-11-28' /repos/sathia-s/aws-ivs-inspector/environments/terraform_admin/variables -f 'name=amplify_app_id' -f 'value=needs.terraform_for_amplify.outputs.amplify_app_id'"
