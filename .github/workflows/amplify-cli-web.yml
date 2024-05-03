@@ -29,7 +29,9 @@ jobs:
           cd web-application
           ls -lh
           aws --version
-          AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY aws ivs list-channels
+          aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID 
+          aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY 
+          aws ivs list-channels --region ap-south-1
           # aws amplify create-backend-environment --app-id d3r4d07bnze5jj --environment-name ivs-inspector-backend
         shell: bash
 
