@@ -23,15 +23,17 @@ jobs:
           npm install -g @aws-amplify/cli
           ls -lh
 
-      - name: Configure Amplify
-        run: |
-          amplify configure --appId d28alc08zegoll --yes
-        env:
-          AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
-          AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
+      # - name: Configure Amplify
+      #   run: |
+      #     amplify configure --appId d3omq9s4jfialo --yes
+      #   env:
+      #     AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
+      #     AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
 
       - name: Deploy to Amplify
-        run: amplify publish --appId d28alc08zegoll --branch ivs --envName backend
+        run: |
+          amplify pull --appId d3omq9s4jfialo --envName backend
+          amplify publish --appId d3omq9s4jfialo --branch ivs --envName backend
         env:
           AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
           AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
