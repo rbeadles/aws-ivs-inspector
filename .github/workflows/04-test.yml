@@ -1,4 +1,4 @@
-name: 03:AWS IVS Inspector - Web Application
+name: 04:test
 
 on: #workflow_dispatch
   push:
@@ -22,8 +22,9 @@ jobs:
       - name: test gh cli
 
         run: |
+          echo "REPO_NAME=${{ github.event.repository.name }}" >> $GITHUB_ENV
           # gh auth login --with-token $TF_VAR_token
-          gh variable set test_key --body "test_value" --repos aws-ivs-inspector
+          gh variable set test_key --body "test_value" --repos REPO_NAME
 
       # - name: test gh cli
       #   run: |
