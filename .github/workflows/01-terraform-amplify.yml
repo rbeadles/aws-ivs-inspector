@@ -11,7 +11,6 @@ jobs:
     environment: terraform_admin
     env: 
       TF_LOG: INFO
-      GH_TOKEN: ${{ secrets.ACCESS_TOKEN }}
       TF_VAR_token: ${{ secrets.ACCESS_TOKEN }}
       TF_VAR_account_id: ${{ secrets.ACCOUNT_ID }}
       TF_VAR_region: ap-south-1
@@ -76,8 +75,6 @@ jobs:
         shell: bash
         env:
           GH_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          OWNER: ${{ github.repository_owner }}
-          REPO: ${{ github.event.repository.name }}
         run: |
           echo "app_id:: ${{needs.terraform_for_amplify.outputs.amplify_app_id}}"
           gh variable set amplify_app_id --body "${{needs.terraform_for_amplify.outputs.amplify_app_id}}"
