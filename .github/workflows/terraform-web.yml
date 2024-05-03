@@ -52,7 +52,8 @@ jobs:
           --providers $PROVIDERS \
           --yes
 
-          amplify deploy 
+          echo "Push Amplify project for env: $ENV_NAME"
+          amplify push 
 
       # - name: Configure Amplify
       #   run: |
