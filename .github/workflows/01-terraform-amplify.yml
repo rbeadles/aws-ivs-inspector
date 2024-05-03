@@ -78,5 +78,6 @@ jobs:
           GH_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         run: |
           echo "app_id: ${{needs.terraform_for_amplify.outputs.amplify_app_id}}"
+          git init
           gh variable set amplify_app_id --body "${{needs.terraform_for_amplify.outputs.amplify_app_id}}" --repos aws-ivs-inspector
           # gh api --method POST -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" /repos/sathia-s/aws-ivs-inspector/environments/terraform_admin/variables -f "name=amplify_app_id" -f "value=${{needs.terraform_for_amplify.outputs.amplify_app_id}}"
