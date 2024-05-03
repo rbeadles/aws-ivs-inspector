@@ -69,4 +69,8 @@ jobs:
     steps:
       - name: "add to env"
         shell: bash
-        run: "gh api --method PUT -H 'Accept: application/vnd.github+json' -H 'X-GitHub-Api-Version: 2022-11-28' /repos/sathia-s/aws-ivs-inspector/environments/terraform_admin"
+        env:
+          GH_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        run: |
+          echo terraform_for_amplify.outputs.amplify_app_id
+          "gh api --method POST -H 'Accept: application/vnd.github+json' -H 'X-GitHub-Api-Version: 2022-11-28' /repos/sathia-s/aws-ivs-inspector/environments/terraform_admin/variables -f 'name=USERNAME' -f 'value=octocat'"
