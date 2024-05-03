@@ -57,6 +57,7 @@ jobs:
           cd terraform-amplify
           terraform apply -auto-approve -input=false
           echo "amplify_app_id=$(terraform output -raw amplify_app_id)" >> $GITHUB_OUTPUT
+          
       - name: Access App ID
         run: |
           echo "amplify_app_id: ${{ steps.apply.outputs.amplify_app_id }}"
