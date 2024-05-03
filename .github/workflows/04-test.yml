@@ -42,4 +42,4 @@ jobs:
           aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID 
           aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY 
           aws configure set region "ap-south-1"
-          aws amplify create-deployment --app-id $AWS_AMPLIFY_APP_ID --branch-name ivs
+          aws amplify start-deployment --app-id $AWS_AMPLIFY_APP_ID --branch-name ivs
