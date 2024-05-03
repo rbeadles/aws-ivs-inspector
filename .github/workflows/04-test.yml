@@ -24,7 +24,7 @@ jobs:
         run: |
           echo "REPO_NAME=${{ github.event.repository.name }}" >> $GITHUB_ENV
           # gh auth login --with-token $TF_VAR_token
-          gh variable set test_key --body "test_value" --repos ${REPO_NAME}
+          gh variable set test_key --body "test_value" --repos $REPO_NAME
 
       # - name: test gh cli
       #   run: |
