@@ -66,25 +66,25 @@ jobs:
           # --yes
 
           echo "Pull Amplify project for env: $ENV_NAME"
-          amplify pull --appId d3omq9s4jfialo --providers $PROVIDERS
+          amplify pull --appId d3r4d07bnze5jj --providers $PROVIDERS
 
           # echo "amplify hosting add for env: $ENV_NAME"
           # amplify add hosting
 
           echo "Publish Amplify project for env: $ENV_NAME"
-          amplify publish --appId d3omq9s4jfialo --providers $PROVIDERS
+          amplify publish --appId d3r4d07bnze5jj --providers $PROVIDERS
 
       # - name: Configure Amplify
       #   run: |
-      #     amplify configure --appId d3omq9s4jfialo --yes
+      #     amplify configure --appId d3r4d07bnze5jj --yes
       #   env:
       #     AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
       #     AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
 
       # - name: Deploy to Amplify
       #   run: |
-      #     amplify pull --appId d3omq9s4jfialo --envName backend
-      #     amplify publish --appId d3omq9s4jfialo --branch ivs --envName backend
+      #     amplify pull --appId d3r4d07bnze5jj --envName backend
+      #     amplify publish --appId d3r4d07bnze5jj --branch ivs --envName backend
       #   env:
       #     AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
       #     AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
