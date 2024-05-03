@@ -32,7 +32,7 @@ jobs:
           aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID 
           aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY 
           aws ivs list-channels --region ap-south-1
-          # aws amplify create-backend-environment --app-id d3r4d07bnze5jj --environment-name ivs-inspector-backend
+          aws amplify create-backend-environment --app-id d3r4d07bnze5jj --environment-name ivs-inspector-backend --region ap-south-1
         shell: bash
 
       - name: Install Amplify CLI
