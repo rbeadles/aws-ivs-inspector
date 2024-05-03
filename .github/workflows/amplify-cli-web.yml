@@ -59,17 +59,17 @@ jobs:
 
           # echo "Initializing Amplify project for env: $ENV_NAME"
 
-          amplify init \
-          --amplify $AMPLIFY \
-          --frontend $FRONTEND \
-          --providers $PROVIDERS \
-          --yes
+          # amplify init \
+          # --amplify $AMPLIFY \
+          # --frontend $FRONTEND \
+          # --providers $PROVIDERS \
+          # --yes
 
           echo "Pull Amplify project for env: $ENV_NAME"
-          amplify pull
+          amplify pull --appId d3omq9s4jfialo --providers $PROVIDERS
 
-          echo "amplify hosting add for env: $ENV_NAME"
-          amplify add hosting
+          # echo "amplify hosting add for env: $ENV_NAME"
+          # amplify add hosting
 
           echo "Publish Amplify project for env: $ENV_NAME"
           amplify publish 
