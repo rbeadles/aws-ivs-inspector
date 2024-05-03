@@ -52,8 +52,8 @@ jobs:
           --providers $PROVIDERS \
           --yes
 
-          echo "Push Amplify project for env: $ENV_NAME"
-          amplify push 
+          echo "Publish Amplify project for env: $ENV_NAME"
+          amplify publish 
 
       # - name: Configure Amplify
       #   run: |
