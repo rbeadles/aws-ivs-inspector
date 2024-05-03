@@ -16,7 +16,7 @@ jobs:
       AWS_AMPLIFY_APP_ID: ${{vars.AMPLIFY_APP_ID}}
     steps:
       - name: Checkout the repositoring to the runner
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Build Amplify App
         run: |
@@ -105,7 +105,7 @@ jobs:
     #     node-version: [10.x]
 
     # steps:
-    # - uses: actions/checkout@v1
+    # - uses: actions/checkout@v4
 
     # - name: use node.js ${{ matrix.node-version }}
     #   uses: actions/setup-node@v1

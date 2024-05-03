@@ -20,7 +20,7 @@ jobs:
 
     steps:
       - name: Checkout the repository to the runner
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Setup Terraform with specific version on the runner
         uses: hashicorp/setup-terraform@v3
@@ -72,7 +72,7 @@ jobs:
     environment: terraform_admin
     steps:
       - name: Checkout the repository to the runner
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: "add to env"
         shell: bash
