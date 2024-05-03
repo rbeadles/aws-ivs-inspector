@@ -23,6 +23,35 @@ jobs:
           npm install -g @aws-amplify/cli
           ls -lh
 
+          ENV_NAME="backend"
+
+          # note: session token cannot be passed in here
+          AWSCLOUDFORMATIONCONFIG="{\
+          \"configLevel\":\"project\",\
+          \"useProfile\":false,\
+          \"accessKeyId\":\"$AWS_ACCESS_KEY_ID\",\
+          \"secretAccessKey\":\"$AWS_SECRET_ACCESS_KEY\",\
+          \"region\":\"ap-south-1\"\
+          }"
+
+          AMPLIFY="{\
+          \"projectName\":\"headlessProjectName\",\
+          \"envName\":\"$ENV_NAME\",\
+          \"defaultEditor\":\"code\"\
+          }"
+
+          PROVIDERS="{\
+          \"awscloudformation\":$AWSCLOUDFORMATIONCONFIG\
+          }"
+
+          echo "Initializing Amplify project for env: $ENV_NAME"
+
+          amplify init \
+          --amplify $AMPLIFY \
+          --frontend $FRONTEND \
+          --providers $PROVIDERS \
+          --yes
+
       # - name: Configure Amplify
       #   run: |
       #     amplify configure --appId d3omq9s4jfialo --yes
@@ -30,13 +59,13 @@ jobs:
       #     AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
       #     AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
 
-      - name: Deploy to Amplify
-        run: |
-          amplify pull --appId d3omq9s4jfialo --envName backend
-          amplify publish --appId d3omq9s4jfialo --branch ivs --envName backend
-        env:
-          AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
-          AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
+      # - name: Deploy to Amplify
+      #   run: |
+      #     amplify pull --appId d3omq9s4jfialo --envName backend
+      #     amplify publish --appId d3omq9s4jfialo --branch ivs --envName backend
+      #   env:
+      #     AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
+      #     AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
 
 
     # strategy:
