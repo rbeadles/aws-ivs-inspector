@@ -25,6 +25,19 @@ jobs:
 
           ENV_NAME="backend"
 
+          VUECONFIG="{\
+          \"SourceDir\":\"src\",\
+          \"DistributionDir\":\"dist/spa\",\
+          \"BuildCommand\":\"npm run build\",\
+          \"StartCommand\":\"npm run start\"\
+          }"
+
+          FRONTEND="{\
+          \"frontend\":\"javascript\",\
+          \"framework\":\"vue\",\
+          \"config\":$VUECONFIG\
+          }"
+
           # note: session token cannot be passed in here
           AWSCLOUDFORMATIONCONFIG="{\
           \"configLevel\":\"project\",\
@@ -35,7 +48,7 @@ jobs:
           }"
 
           AMPLIFY="{\
-          \"projectName\":\"headlessProjectName\",\
+          \"projectName\":\"IVS Inspector\",\
           \"envName\":\"$ENV_NAME\",\
           \"defaultEditor\":\"code\"\
           }"
@@ -52,8 +65,8 @@ jobs:
           --providers $PROVIDERS \
           --yes
 
-          echo "Add Hosting Amplify project for env: $ENV_NAME"
-          amplify hosting add 
+          # echo "Add Hosting Amplify project for env: $ENV_NAME"
+          # amplify hosting add 
 
           echo "Publish Amplify project for env: $ENV_NAME"
           amplify publish 
