@@ -48,7 +48,7 @@ jobs:
           }"
 
           AMPLIFY="{\
-          \"projectName\":\"ivsInspector\",\
+          \"projectName\":\"Inspector\",\
           \"envName\":\"$ENV_NAME\",\
           \"defaultEditor\":\"code\"\
           }"
@@ -65,7 +65,7 @@ jobs:
           --providers $PROVIDERS \
           --yes
 
-          # echo "Add API Amplify project for env: $ENV_NAME"
+          # echo "Add Hosting Amplify project for env: $ENV_NAME"
           # amplify console
 
           echo "Publish Amplify project for env: $ENV_NAME"
