@@ -1,4 +1,4 @@
-name: AWS IVS Inspector - AWS Infra
+name: 02:AWS IVS Inspector - AWS Infra
 
 on: workflow_dispatch
   # push:
