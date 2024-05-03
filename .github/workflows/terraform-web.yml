@@ -48,7 +48,7 @@ jobs:
           }"
 
           AMPLIFY="{\
-          \"projectName\":\"IVS Inspector\",\
+          \"projectName\":\"ivsInspector\",\
           \"envName\":\"$ENV_NAME\",\
           \"defaultEditor\":\"code\"\
           }"
