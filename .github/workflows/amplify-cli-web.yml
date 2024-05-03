@@ -28,7 +28,7 @@ jobs:
           cd web-application
           ls -lh
           aws --version
-          aws amplify create-backend-environment --appId d3r4d07bnze5jj --envName ivs-inspector-backend
+          aws amplify create-backend-environment --app-id d3r4d07bnze5jj --environment-name ivs-inspector-backend
         shell: bash
 
       - name: Install Amplify CLI
