@@ -22,9 +22,9 @@ jobs:
 
       - name: Install Amplify CLI
         run: |
-          cd web-application
+          # cd web-application
           npm install -g @aws-amplify/cli
-          ls -lh
+          # ls -lh
 
           ENV_NAME="backend"
 
