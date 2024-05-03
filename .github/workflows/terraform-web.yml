@@ -65,8 +65,11 @@ jobs:
           --providers $PROVIDERS \
           --yes
 
-          # echo "Add Hosting Amplify project for env: $ENV_NAME"
-          # amplify console
+          echo "Check Status Amplify project for env: $ENV_NAME"
+          amplify status
+
+          echo "Console Amplify project for env: $ENV_NAME"
+          amplify console
 
           echo "Publish Amplify project for env: $ENV_NAME"
           amplify publish 
