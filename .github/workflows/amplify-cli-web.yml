@@ -72,7 +72,7 @@ jobs:
           # amplify add hosting
 
           echo "Publish Amplify project for env: $ENV_NAME"
-          amplify publish 
+          amplify publish --appId d3omq9s4jfialo --providers $PROVIDERS
 
       # - name: Configure Amplify
       #   run: |
