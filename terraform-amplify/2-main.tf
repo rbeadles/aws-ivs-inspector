@@ -59,12 +59,12 @@ resource "aws_amplify_branch" "amplify_branch" {
   enable_auto_build = true
 }
 
-resource "aws_amplify_backend_environment" "example" {
-  app_id               = aws_amplify_app.amplify_app.id
-  environment_name     = "backend"
-  deployment_artifacts = "initial-deployment"
-  stack_name           = "${var.project_name}-web-stack"
-}
+# resource "aws_amplify_backend_environment" "example" {
+#   app_id               = aws_amplify_app.amplify_app.id
+#   environment_name     = "ivs-inspector-backend"
+#   deployment_artifacts = "initial-deployment"
+#   stack_name           = "${var.project_name}-web-stack"
+# }
 
 resource "aws_amplify_domain_association" "domain_association" {
   app_id                = aws_amplify_app.amplify_app.id
@@ -75,7 +75,6 @@ resource "aws_amplify_domain_association" "domain_association" {
     branch_name = aws_amplify_branch.amplify_branch.branch_name
     prefix      = "ivs"
   }
-
 }
 
 resource "aws_amplify_webhook" "master" {
