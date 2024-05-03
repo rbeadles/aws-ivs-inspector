@@ -29,7 +29,7 @@ jobs:
           cd web-application
           ls -lh
           aws --version
-          aws ivs create-channel
+          AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY aws ivs create-channel
           # aws amplify create-backend-environment --app-id d3r4d07bnze5jj --environment-name ivs-inspector-backend
         shell: bash
 
