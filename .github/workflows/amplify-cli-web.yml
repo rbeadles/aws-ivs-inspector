@@ -17,6 +17,20 @@ jobs:
       - name: Checkout the repositoring to the runner
         uses: actions/checkout@v3
 
+      - name: Install AWS CLI
+        uses: unfor19/install-aws-cli-action@v1
+        with:
+          version: 2                         # default
+          verbose: false                     # default
+          arch: amd64                        # allowed values: amd64, arm64
+
+      - run: |
+          cd web-application
+          ls -lh
+          aws --version
+          aws amplify create-backend-environment --appId d3r4d07bnze5jj --envName ivs-inspector-backend
+        shell: bash
+
       - name: Install Amplify CLI
         run: |
           cd web-application
