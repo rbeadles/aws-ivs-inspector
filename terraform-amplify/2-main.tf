@@ -67,7 +67,7 @@ resource "aws_amplify_branch" "branch" {
 
 resource "aws_amplify_backend_environment" "backend_environment" {
   app_id               = aws_amplify_app.app.id
-  environment_name     = "ivsBackend"
+  environment_name     = "ivsbackend"
   deployment_artifacts = "${var.project_name}-tfstate"
   stack_name           = "${var.project_name}-web-stack"
 }
