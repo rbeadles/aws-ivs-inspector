@@ -19,6 +19,79 @@ jobs:
       - name: Checkout the repositoring to the runner
         uses: actions/checkout@v4
 
+
+      - name: Install Amplify CLI
+        run: |
+          cd web-application
+          npm install -g @aws-amplify/cli
+          ls -lh
+
+          ENV_NAME="backend"
+
+          VUECONFIG="{\
+          \"SourceDir\":\"src\",\
+          \"DistributionDir\":\"dist/spa\",\
+          \"BuildCommand\":\"npm run build\",\
+          \"StartCommand\":\"npm run start\"\
+          }"
+
+          FRONTEND="{\
+          \"frontend\":\"javascript\",\
+          \"framework\":\"vue\",\
+          \"config\":$VUECONFIG\
+          }"
+
+          # note: session token cannot be passed in here
+          AWSCLOUDFORMATIONCONFIG="{\
+          \"configLevel\":\"project\",\
+          \"useProfile\":false,\
+          \"accessKeyId\":\"$AWS_ACCESS_KEY_ID\",\
+          \"secretAccessKey\":\"$AWS_SECRET_ACCESS_KEY\",\
+          \"region\":\"ap-south-1\"\
+          }"
+
+          AMPLIFY="{\
+          \"projectName\":\"Inspector\",\
+          \"envName\":\"$ENV_NAME\",\
+          \"defaultEditor\":\"code\"\
+          }"
+
+          PROVIDERS="{\
+          \"awscloudformation\":$AWSCLOUDFORMATIONCONFIG\
+          }"
+
+          # echo "Initializing Amplify project for env: $ENV_NAME"
+
+          # amplify init \
+          # --amplify $AMPLIFY \
+          # --frontend $FRONTEND \
+          # --providers $PROVIDERS \
+          # --yes
+
+          echo "Pull Amplify project for env: $ENV_NAME"
+          amplify pull --appId $AWS_AMPLIFY_APP_ID --providers $PROVIDERS
+
+          # echo "amplify hosting add for env: $ENV_NAME"
+          # amplify add hosting
+
+          echo "Publish Amplify project for env: $ENV_NAME"
+          amplify publish --appId $AWS_AMPLIFY_APP_ID --providers $PROVIDERS
+
+      # - name: Configure Amplify
+      #   run: |
+      #     amplify configure --appId $AWS_AMPLIFY_APP_ID --yes
+      #   env:
+      #     AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
+      #     AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
+
+      # - name: Deploy to Amplify
+      #   run: |
+      #     amplify pull --appId $AWS_AMPLIFY_APP_ID --envName backend
+      #     amplify publish --appId $AWS_AMPLIFY_APP_ID --branch ivs --envName backend
+      #   env:
+      #     AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
+      #     AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
+
       # - name: test gh cli
 
       #   run: |
@@ -34,12 +107,12 @@ jobs:
       #     aws configure set region "ap-south-1"
       #     aws amplify update-app --app-id $AWS_AMPLIFY_APP_ID --enable-branch-auto-build --environment-variables '{"account_id": "123", "api": "456"}'
 
-      - name: test aws cli for amplify deployment
-        env:
-          test_json: "{account_id: 123, api: 456}"
-        run: |
-          cd web-application
-          aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID 
-          aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY 
-          aws configure set region "ap-south-1"
-          aws amplify start-deployment --app-id $AWS_AMPLIFY_APP_ID --branch-name ivs
+      # - name: test aws cli for amplify deployment
+      #   env:
+      #     test_json: "{account_id: 123, api: 456}"
+      #   run: |
+      #     cd web-application
+      #     aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID 
+      #     aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY 
+      #     aws configure set region "ap-south-1"
+      #     aws amplify start-job --app-id $AWS_AMPLIFY_APP_ID --branch-name ivs
