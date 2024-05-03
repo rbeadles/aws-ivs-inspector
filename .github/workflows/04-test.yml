@@ -22,9 +22,7 @@ jobs:
       - name: test gh cli
 
         run: |
-          echo "REPO_NAME=${{ github.event.repository.name }}" >> $GITHUB_ENV
-          # gh auth login --with-token $TF_VAR_token
-          gh variable set test_key --body "test_value" --env terraform_admin
+          gh variable set test_key --body "test_value1" --env terraform_admin
 
       # - name: test gh cli
       #   run: |
