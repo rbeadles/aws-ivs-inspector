@@ -61,7 +61,7 @@ resource "aws_amplify_branch" "amplify_branch" {
 
 resource "aws_amplify_backend_environment" "example" {
   app_id               = aws_amplify_app.amplify_app.id
-  environment_name     = "ivs-inspector-backend"
+  environment_name     = "backend"
   deployment_artifacts = "initial-deployment"
   stack_name           = "${var.project_name}-web-stack"
 }
