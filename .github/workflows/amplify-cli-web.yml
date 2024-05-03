@@ -59,14 +59,14 @@ jobs:
 
           # echo "Initializing Amplify project for env: $ENV_NAME"
 
-          # amplify init \
-          # --amplify $AMPLIFY \
-          # --frontend $FRONTEND \
-          # --providers $PROVIDERS \
-          # --yes
+          amplify init \
+          --amplify $AMPLIFY \
+          --frontend $FRONTEND \
+          --providers $PROVIDERS \
+          --yes
 
-          echo "Configure Amplify project for env: $ENV_NAME"
-          amplify pull --appId d3omq9s4jfialo --providers --providers $PROVIDERS
+          echo "Pull Amplify project for env: $ENV_NAME"
+          amplify pull
 
           echo "Console Amplify project for env: $ENV_NAME"
           amplify console
