@@ -68,8 +68,8 @@ jobs:
           echo "Pull Amplify project for env: $ENV_NAME"
           amplify pull
 
-          echo "Console Amplify project for env: $ENV_NAME"
-          amplify console
+          echo "amplify hosting add for env: $ENV_NAME"
+          amplify hosting add
 
           echo "Publish Amplify project for env: $ENV_NAME"
           amplify publish 
