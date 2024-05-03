@@ -32,4 +32,4 @@ jobs:
           aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID 
           aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY 
           aws configure set region "ap-south-1"
-          aws amplify update-app --app-id $AWS_AMPLIFY_APP_ID --enable-branch-auto-build --environment-variables '{"account_id": 123, "api": 456}'
+          aws amplify update-app --app-id $AWS_AMPLIFY_APP_ID --enable-branch-auto-build --environment-variables '{"account_id": "123", "api": "456"}'
