@@ -9,6 +9,12 @@ resource "aws_amplify_app" "amplify_app" {
   # The default build_spec added by the Amplify Console for React.
   build_spec = <<-EOT
     version: 0.1
+    backend:
+      phases:
+        build:
+          commands:
+            - '# Execute Amplify CLI with the helper script'
+            - amplifyPush --simple
     frontend:
       phases:
         preBuild:
