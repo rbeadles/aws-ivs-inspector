@@ -8,6 +8,6 @@
     }
   },
   "scripts": {
-    "test": "quasar tests"
+    "test": "quasar test"
   }
 }
