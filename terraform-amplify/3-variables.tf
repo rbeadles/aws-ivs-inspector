@@ -16,20 +16,21 @@ variable "environment" {
   default = "ivs"
 }
 
+variable "repository" {
+  type        = string
+  description = "Web Application Repo"
+  default     = "https://github.com/sathia-s/aws-ivs-inspector/web-application"
+}
+
 variable "token" {
   type        = string
   description = "github token to connect github repo"
   sensitive   = true
 }
 
-variable "repository" {
-  type        = string
-  description = "AWS IVS Inspector Web Application Repo"
-}
-
 variable "branch_name" {
   type        = string
-  description = "AWS IVS Inspector IVS Branch"
+  description = "IVS Branch"
   default     = "ivs"
 }
 
