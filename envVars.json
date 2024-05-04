@@ -4,5 +4,8 @@
     "rest-api": "5t4nrs7xgh",
     "wss-api-get-live-streams": "2chsf8r71h",
     "wss-api-get-session-events": "h00ryvk3gf"
+  },
+  "scripts": {
+    "test": "quasar test"
   }
 }
