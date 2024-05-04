@@ -19,7 +19,6 @@ jobs:
       - name: Checkout the repositoring to the runner
         uses: actions/checkout@v4
 
-
       # - name: Install Amplify CLI
       #   run: |
       #     # cd web-application
@@ -110,6 +109,7 @@ jobs:
         env:
           test_json: '{"VITE_ACCOUNT_ID": "740024244647", "VITE_AP_SOUTH_1_APIS": "{\"REST\":\"321321321\"}"}'
         run: |
+          echo ${{ github.repository }}
           aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID 
           aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY 
           aws configure set region "ap-south-1"
