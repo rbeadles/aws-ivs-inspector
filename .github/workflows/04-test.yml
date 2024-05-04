@@ -113,8 +113,8 @@ jobs:
           aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID 
           aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY 
           aws configure set region "ap-south-1"
-          get_app_response=$(aws amplify get-app --app-id $AWS_AMPLIFY_APP_ID)
-          existing_env_vars=$(jq '.app[] | .environmentVariables' "$get_app_response")
-          echo "$existing_env_vars"
+          get_app_response=$(aws amplify get-app --app-id $AWS_AMPLIFY_APP_ID | jq -r '.app[] | .environmentVariables')
+          # existing_env_vars=$(curl -s 'https://api.github.com/users/lambda'  "$get_app_response")
+          echo "$get_app_response"
           aws amplify update-app --app-id $AWS_AMPLIFY_APP_ID --environment-variables '{"VITE_ACCOUNT_ID": "740024244647", "VITE_APIS":"{\"ap-south-1\":{\"rest_api\":\"5t4nrs7xgh\"}"}'
           # aws amplify start-job --app-id $AWS_AMPLIFY_APP_ID --branch-name ivs --job-type RELEASE
