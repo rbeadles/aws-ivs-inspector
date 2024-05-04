@@ -23,10 +23,10 @@ jobs:
       - name: fields to add
         id: fields_to_add
         run: |
-          # fields=echo '{ "api.${region}.${rest}": "quasar test" }' | jq -r tostring
-          # cat $fields
-          value="value with spaces"
-          echo {} | jq ". +={"key":"'$value'"}"
+          fields=jq ".api.${region}.rest = ${region}"
+          cat $fields
+          # value="value with spaces"
+          # echo {} | jq ". +={"key":"'$value'"}"
 
       - name: Update envVars.json in repo
         uses: restackio/update-json-file-action@2.1
