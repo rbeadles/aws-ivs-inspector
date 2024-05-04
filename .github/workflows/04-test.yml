@@ -107,7 +107,7 @@ jobs:
 
       - name: test github Checkout
         run: |
-          repo=${github-server-url} && ${{ github.repository }}
+          repo=${{ github.server_url }}/${{ github.repository }}/web-application
           echo "${repo}"
 
         
