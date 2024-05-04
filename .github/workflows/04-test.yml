@@ -107,7 +107,8 @@ jobs:
 
       - name: test github Checkout
         run: |
-          echo ${{ github.repository }}
+          echo ${{github.github-server-url}} + ${{ github.repository }}
+
         
       # - name: test aws cli for amplify deployment
       #   env:
