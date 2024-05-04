@@ -22,8 +22,8 @@ jobs:
       - name: build data
         id: build_data
         run: |
-          echo pwd
-          echo cwd
+          echo $PWD
+          echo $CWD
           echo "fields=`echo {\".apis.${region}.rest\" : ${region}} | jq -R`" >> $GITHUB_OUTPUT
           # echo $fields
 
