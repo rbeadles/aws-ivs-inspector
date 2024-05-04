@@ -21,6 +21,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: fields to add
+        id: fields_to_add
         run: |
           fields=echo '{ "api.${region}.${rest}": "quasar test" }' | jq -r tostring
 
@@ -28,7 +29,7 @@ jobs:
         uses: restackio/update-json-file-action@2.1
         with:
           file: ./src/assets/envVars.json
-          fields: $fields
+          fields: ${{ steps.fields_to_add.outputs.fields }}
 
       - name: view the json
         run: |
