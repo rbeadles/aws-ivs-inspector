@@ -19,11 +19,13 @@ jobs:
       - name: Checkout the repositoring to the runner
         uses: actions/checkout@v4
 
-      - name: Update package.json version
+      - name: Update envVars.json in repo
         uses: restackio/update-json-file-action@2.1
         with:
           file: package.json
           fields:  "{\"scripts.test\": \"quasar test\"}"
+          run: |
+            cat package.json
 
       # - name: Install Amplify CLI
       #   run: |
