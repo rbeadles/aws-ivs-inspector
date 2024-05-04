@@ -19,7 +19,7 @@ variable "environment" {
 variable "repository" {
   type        = string
   description = "Web Application Repo"
-  default     = "https://github.com/sathia-s/aws-ivs-inspector/web-application"
+  default     = "https://github.com/sathia-s/aws-ivs-inspector"
 }
 
 variable "token" {
