@@ -105,15 +105,19 @@ jobs:
       #     aws configure set region "ap-south-1"
       #     aws amplify update-app --app-id $AWS_AMPLIFY_APP_ID --enable-branch-auto-build --environment-variables '{"account_id": "123", "api": "456"}'
 
-      - name: test aws cli for amplify deployment
-        env:
-          test_json: '{"VITE_ACCOUNT_ID": "740024244647", "VITE_AP_SOUTH_1_APIS": "{\"REST\":\"321321321\"}"}'
+      - name: test github Checkout
         run: |
           echo ${{ github.repository }}
-          aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID 
-          aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY 
-          aws configure set region "ap-south-1"
-          existing_env_vars=$(aws amplify get-app --app-id $AWS_AMPLIFY_APP_ID | jq '.app.environmentVariables')
-          echo "$existing_env_vars"
-          aws amplify update-app --app-id $AWS_AMPLIFY_APP_ID --environment-variables "${test_json}"
-          aws amplify start-job --app-id $AWS_AMPLIFY_APP_ID --branch-name ivs --job-type RELEASE
+        
+      # - name: test aws cli for amplify deployment
+      #   env:
+      #     test_json: '{"VITE_ACCOUNT_ID": "740024244647", "VITE_AP_SOUTH_1_APIS": "{\"REST\":\"321321321\"}"}'
+      #   run: |
+      #     echo ${{ github.repository }}
+      #     aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID 
+      #     aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY 
+      #     aws configure set region "ap-south-1"
+      #     existing_env_vars=$(aws amplify get-app --app-id $AWS_AMPLIFY_APP_ID | jq '.app.environmentVariables')
+      #     echo "$existing_env_vars"
+      #     aws amplify update-app --app-id $AWS_AMPLIFY_APP_ID --environment-variables "${test_json}"
+      #     aws amplify start-job --app-id $AWS_AMPLIFY_APP_ID --branch-name ivs --job-type RELEASE      
