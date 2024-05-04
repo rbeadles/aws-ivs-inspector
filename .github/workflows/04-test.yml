@@ -22,9 +22,8 @@ jobs:
       - name: build data
         id: build_data
         run: |
-          fields=`echo {\".apis.${region}.rest\" : ${region}} | jq -R`
-          echo $fields
-          echo "fields=$fields" >> $GITHUB_OUTPUT
+          echo "fields=`echo {\".apis.${region}.rest\" : ${region}} | jq -R`" >> $GITHUB_OUTPUT
+          # echo $fields
 
       - name: Update envVars.json in repo
         uses: restackio/update-json-file-action@2.1
