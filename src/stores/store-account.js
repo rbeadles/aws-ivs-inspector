@@ -2,6 +2,7 @@ import { defineStore } from "pinia";
 import { api } from "boot/axios";
 import { Notify } from "quasar";
 import { useCommonStore } from "./store-common";
+import envVars from "assets/envVars.json";
 
 const commonStore = useCommonStore();
 
@@ -13,10 +14,13 @@ export const useAccountStore = defineStore("AccountStore", {
 
   actions: {
     async getQuotaProvisioned(serviceCode, ivsRegion) {
+      console.log(envVars);
       try {
         console.log(serviceCode, ivsRegion);
         const response = await api.get(
-          `https://${commonStore.envVars.VITE_REST_API}.execute-api.${ivsRegion}.amazonaws.com/ivs/get-quotas`,
+          `https://${
+            envVars[`api-${ivsRegion}`].rest_api
+          }.execute-api.${ivsRegion}.amazonaws.com/ivs/get-quotas`,
           {
             params: {
               serviceCode: serviceCode,

@@ -96,10 +96,11 @@
 
 <script>
 import { computed, defineComponent, ref } from "vue";
-import Navigation from "src/components/HomeComponents/Navigation.vue";
 import { useRoute, useRouter } from "vue-router";
 import { useAccountStore } from "src/stores/store-account";
 import { useCommonStore } from "src/stores/store-common";
+import Navigation from "src/components/HomeComponents/Navigation.vue";
+import envVars from "assets/envVars.json";
 
 export default defineComponent({
   name: "MainLayout",
@@ -136,7 +137,7 @@ export default defineComponent({
     const $router = useRouter();
     const drawer = ref(false);
 
-    const accountId = computed(() => commonStore.envVars.VITE_ACCOUNT_ID);
+    const accountId = computed(() => envVars.account_id);
     const region = ref($route.params.region);
     const channelId = ref(null);
 

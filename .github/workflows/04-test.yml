@@ -22,8 +22,8 @@ jobs:
       - name: Update envVars.json in repo
         uses: restackio/update-json-file-action@2.1
         with:
-          file: envVars.json
-          fields:  "{\"scripts.test\": \"quasar test\"}"
+          file: ./src/assets/envVars.json
+          fields: '{"scripts.test": "quasar test"}'
 
       - name: view the json
         run: |
@@ -41,7 +41,6 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           force: true
-
 
       # - name: Install Amplify CLI
       #   run: |
@@ -133,7 +132,6 @@ jobs:
       #   run: |
       #     repo=${{ github.server_url }}/${{ github.repository }}/web-application
       #     echo "${repo}"
-
 
       # - name: test aws cli for amplify deployment
       #   env:

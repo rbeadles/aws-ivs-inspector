@@ -2,8 +2,6 @@ import { defineStore } from "pinia";
 
 export const useCommonStore = defineStore("CommonStore", {
   state: () => ({
-    envVars: import.meta.env,
-
     thumbStyle: {
       right: "0px",
       borderRadius: "7px",

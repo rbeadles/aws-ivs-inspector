@@ -3,15 +3,9 @@
 </template>
 
 <script>
-import { defineComponent, onMounted } from "vue";
+import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "App",
-
-  setup() {
-    onMounted(() => {
-      console.log("env var:", import.meta.env);
-    });
-  },
 });
 </script>
