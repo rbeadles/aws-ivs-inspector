@@ -5,6 +5,9 @@
       "rest": "5t4nrs7xgh",
       "get-live-streams": "2chsf8r71h",
       "get-session-events": "h00ryvk3gf"
+    },
+    "us-east-1": {
+      "rest": ""
     }
   }
 }
