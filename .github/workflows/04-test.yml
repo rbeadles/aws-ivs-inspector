@@ -127,4 +127,4 @@ jobs:
               }
             }\
           }'
-          aws amplify start-job --app-id $AWS_AMPLIFY_APP_ID --branch-name ivs --job-type RELEASE
+          # aws amplify start-job --app-id $AWS_AMPLIFY_APP_ID --branch-name ivs --job-type RELEASE
