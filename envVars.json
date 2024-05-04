@@ -6,6 +6,6 @@
     "wss-api-get-session-events": "h00ryvk3gf"
   },
   "scripts": {
-    "test": "quasar tests"
+    "test": "quasar test"
   }
 }
