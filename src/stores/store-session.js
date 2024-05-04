@@ -3,6 +3,8 @@ import { api } from "boot/axios";
 import { Notify } from "quasar";
 import { useChannelStore } from "stores/store-channel";
 import { useCommonStore } from "./store-common";
+import envVars from "assets/envVars.json";
+
 const channelStore = useChannelStore();
 const commonStore = useCommonStore();
 
@@ -22,7 +24,7 @@ export const useSessionStore = defineStore("SessionStore", {
       console.log("getting live streams", ivsRegion);
       try {
         const response = await api.get(
-          `https://${commonStore.envVars.VITE_REST_API}.execute-api.${ivsRegion}.amazonaws.com/ivs/list-streams`,
+          `https://${envVars.apis[ivsRegion].rest}.execute-api.${ivsRegion}.amazonaws.com/ivs/list-streams`,
           {
             params: {
               nextToken: this.streamsNextToken[ivsRegion] || "",
@@ -70,7 +72,7 @@ export const useSessionStore = defineStore("SessionStore", {
       try {
         console.log(streamId, channelArn);
         const response = await api.get(
-          `https://${commonStore.envVars.VITE_REST_API}.execute-api.${ivsRegion}.amazonaws.com/ivs/get-session`,
+          `https://${envVars.apis[ivsRegion].rest}.execute-api.${ivsRegion}.amazonaws.com/ivs/get-session`,
           {
             params: {
               stream_id: streamId,
@@ -105,7 +107,7 @@ export const useSessionStore = defineStore("SessionStore", {
       try {
         console.log(channelArn, streamId);
         const response = await api.get(
-          `https://${commonStore.envVars.VITE_REST_API}.execute-api.${ivsRegion}.amazonaws.com/ivs/get-stream`,
+          `https://${envVars.apis[ivsRegion].rest}.execute-api.${ivsRegion}.amazonaws.com/ivs/get-stream`,
           {
             params: {
               channelArn: channelArn,
@@ -141,7 +143,7 @@ export const useSessionStore = defineStore("SessionStore", {
       try {
         console.log(streamId, channelId);
         const response = await api.get(
-          `https://${commonStore.envVars.VITE_REST_API}.execute-api.${ivsRegion}.amazonaws.com/ivs/get-ingest-metrics`,
+          `https://${envVars.apis[ivsRegion].rest}.execute-api.${ivsRegion}.amazonaws.com/ivs/get-ingest-metrics`,
           {
             params: {
               stream_id: streamId,
@@ -288,7 +290,7 @@ export const useSessionStore = defineStore("SessionStore", {
         console.log(serviceCode);
         api
           .get(
-            `https://${commonStore.envVars.VITE_REST_API}.execute-api.${ivsRegion}.amazonaws.com/ivsQuotaProvisioned`,
+            `https://${envVars.apis[ivsRegion].rest}.execute-api.${ivsRegion}.amazonaws.com/ivsQuotaProvisioned`,
             {
               params: {
                 serviceCode: serviceCode,

@@ -37,8 +37,6 @@
               filled
               square
               :options="ivsRegions"
-              map-options
-              emit-value
               label="Region"
               @update:model-value="changeRegion"
             />
@@ -100,7 +98,7 @@ import { useRoute, useRouter } from "vue-router";
 import { useAccountStore } from "src/stores/store-account";
 import { useCommonStore } from "src/stores/store-common";
 import Navigation from "src/components/HomeComponents/Navigation.vue";
-import envVars from "assets/envVars.json";
+import envVars from "src/assets/envVars.json";
 
 export default defineComponent({
   name: "MainLayout",
@@ -140,16 +138,7 @@ export default defineComponent({
     const accountId = computed(() => envVars.account_id);
     const region = ref($route.params.region);
     const channelId = ref(null);
-
-    const ivsRegions = [
-      { label: "US West 2", value: "us-west-2" },
-      { label: "US East 1", value: "us-east-1" },
-      { label: "EU Central 1", value: "eu-central-1" },
-      { label: "EU West 1", value: "eu-west-1" },
-      { label: "AP South 1", value: "ap-south-1" },
-      { label: "AP NorthEast 1", value: "ap-northeast-1" },
-      { label: "AP NorthEast 2", value: "ap-northeast-2" },
-    ];
+    const ivsRegions = computed(() => Object.keys(envVars.apis));
 
     const goToChannel = () => {
       if (channelId.value.length) {

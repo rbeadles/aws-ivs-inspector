@@ -2,6 +2,7 @@ import { defineStore } from "pinia";
 import { api } from "boot/axios";
 import { Notify } from "quasar";
 import { useCommonStore } from "./store-common";
+import envVars from "assets/envVars.json";
 
 const commonStore = useCommonStore();
 
@@ -18,9 +19,8 @@ export const useChannelStore = defineStore("ChannelStore", {
     async getChannels(ivsRegion) {
       try {
         console.log("getting channel list", ivsRegion);
-        const apiId = JSON.parse(commonStore.envVars[`VITE_${ivsRegion}_APIS`])?.REST_API
         const response = await api.get(
-          `https://${apiId}.execute-api.${ivsRegion}.amazonaws.com/ivs/list-channels`,
+          `https://${envVars.apis[ivsRegion].rest}.execute-api.${ivsRegion}.amazonaws.com/ivs/list-channels`,
           {
             params: {
               nextToken: this.channelsNextToken[ivsRegion] || "",
@@ -57,7 +57,7 @@ export const useChannelStore = defineStore("ChannelStore", {
 
       try {
         const response = await api.get(
-          `https://${commonStore.envVars.VITE_REST_API}.execute-api.${ivsRegion}.amazonaws.com/ivs/get-channel`,
+          `https://${envVars.apis[ivsRegion].rest}.execute-api.${ivsRegion}.amazonaws.com/ivs/get-channel`,
           {
             params: {
               channelArn: channelArn,
@@ -104,7 +104,7 @@ export const useChannelStore = defineStore("ChannelStore", {
       console.log("getting stream sessions:", channelArn, channelId, ivsRegion);
       try {
         const response = await api.get(
-          `https://${commonStore.envVars.VITE_REST_API}.execute-api.${ivsRegion}.amazonaws.com/ivs/list-stream-sessions`,
+          `https://${envVars.apis[ivsRegion].rest}.execute-api.${ivsRegion}.amazonaws.com/ivs/list-stream-sessions`,
           {
             params: {
               channelArn: channelArn,
