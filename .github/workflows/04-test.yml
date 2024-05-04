@@ -15,24 +15,22 @@ jobs:
       AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
       AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
       AWS_AMPLIFY_APP_ID: ${{vars.AMPLIFY_APP_ID}}
-      region: us-west-2
     steps:
       - name: Checkout the repositoring to the runner
         uses: actions/checkout@v4
 
-      - name: fields to add
-        id: fields_to_add
+      - name: build data
+        id: build_data
         run: |
-          fields=jq ".api.${region}.rest = ${region}"
-          cat $fields
-          # value="value with spaces"
-          # echo {} | jq ". +={"key":"'$value'"}"
+          fields=`echo {\".apis.${region}.rest\" : ${region}} | jq -R`
+          echo fields
 
       - name: Update envVars.json in repo
         uses: restackio/update-json-file-action@2.1
         with:
           file: ./src/assets/envVars.json
-          fields: ${{ steps.fields_to_add.outputs.fields }}
+          fields: ${{ steps.build_data.outputs.fields }}
+          # fields: '{"scripts.test": "quasar test"}'
 
       - name: view the json
         run: |
