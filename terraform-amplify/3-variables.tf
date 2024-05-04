@@ -31,7 +31,7 @@ variable "token" {
 variable "branch_name" {
   type        = string
   description = "IVS Branch"
-  default     = "ivs"
+  default     = "main"
 }
 
 variable "domain_name" {
