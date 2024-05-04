@@ -1,9 +1,9 @@
 name: 04:test
 
-on: #workflow_dispatch
-  push:
-    branches:
-      - main
+on: workflow_dispatch
+  # push:
+  #   branches:
+  #     - main
 
 jobs:
   web-app:
@@ -116,4 +116,4 @@ jobs:
           existing_env_vars=$(aws amplify get-app --app-id $AWS_AMPLIFY_APP_ID | jq '.app.environmentVariables')
           echo "$existing_env_vars"
           aws amplify update-app --app-id $AWS_AMPLIFY_APP_ID --environment-variables "${test_json}"
-          # aws amplify start-job --app-id $AWS_AMPLIFY_APP_ID --branch-name ivs --job-type RELEASE
+          aws amplify start-job --app-id $AWS_AMPLIFY_APP_ID --branch-name ivs --job-type RELEASE
