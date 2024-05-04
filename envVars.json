@@ -3,6 +3,6 @@
   "api_ap-south-1": {
     "rest-api": "5t4nrs7xgh",
     "wss-api-get-live-streams": "2chsf8r71h",
-    "wss-api-get-session-events": "h00ryvk3gf",
+    "wss-api-get-session-events": "h00ryvk3gf"
   }
 }
