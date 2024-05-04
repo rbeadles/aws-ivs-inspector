@@ -19,6 +19,7 @@ resource "aws_amplify_app" "app" {
       phases:
         build:
           commands:
+            - cd web-application
             - npm i
             - npm run build
       artifacts:
