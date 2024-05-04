@@ -16,7 +16,9 @@ jobs:
       AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
       AWS_AMPLIFY_APP_ID: ${{vars.AMPLIFY_APP_ID}}
       region: "us-east-1"
-      rest_id: ""
+      api: "rest"
+      id: "123123"
+      path: ./src/assets/envVars.json
     steps:
       - name: Checkout the repositoring to the runner
         uses: actions/checkout@v4
@@ -26,14 +28,15 @@ jobs:
         run: |
           cat ./src/assets/envVars.json
           # echo "fields=`echo {\".apis.${region}.rest\" : ${region}} | jq -R`" >> $GITHUB_OUTPUT
-          jq '.apis.${region}.rest="${rest_id}"' ./src/assets/envVars.json | sponge ./src/assets/envVars.json
+          # jq '.apis[$region][$api] = $id' ./src/assets/envVars.json | sponge ./src/assets/envVars.json
+          jq --arg region "$region" --arg api "rest" --arg id "$api_id" '.apis[$region][$api] = $id' $path > "$tmp" && mv "$tmp" $path
 
-      - name: Update envVars.json in repo
-        uses: restackio/update-json-file-action@2.1
-        with:
-          file: ./src/assets/envVars.json
-          fields: ${{ steps.build_data.outputs.fields }}
-          # fields: '{"scripts.test": "quasar test"}'
+      # - name: Update envVars.json in repo
+      #   uses: restackio/update-json-file-action@2.1
+      #   with:
+      #     file: ./src/assets/envVars.json
+      #     fields: ${{ steps.build_data.outputs.fields }}
+      #     # fields: '{"scripts.test": "quasar test"}'
 
       - name: view the json
         run: |
