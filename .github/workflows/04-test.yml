@@ -113,7 +113,7 @@ jobs:
           aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID 
           aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY 
           aws configure set region "ap-south-1"
-          get_app_response=$(aws amplify get-app --app-id $AWS_AMPLIFY_APP_ID | jq '.app.environmentVariables')
-          # echo "$get_app_response"
-          aws amplify update-app --app-id $AWS_AMPLIFY_APP_ID --environment-variables "$get_app_response"
+          existing_env_vars=$(aws amplify get-app --app-id $AWS_AMPLIFY_APP_ID | jq '.app.environmentVariables')
+          echo "$existing_env_vars"
+          aws amplify update-app --app-id $AWS_AMPLIFY_APP_ID --environment-variables "$existing_env_vars"
           # aws amplify start-job --app-id $AWS_AMPLIFY_APP_ID --branch-name ivs --job-type RELEASE
