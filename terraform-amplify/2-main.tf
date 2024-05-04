@@ -9,19 +9,17 @@ resource "aws_amplify_app" "app" {
   # The default build_spec added by the Amplify Console for React.
   build_spec = <<-EOT
     version: 0.1
-    backend:
-      phases:
-        build:
-          commands:
-            - '# Execute Amplify CLI with the helper script'
-            - amplifyPush --simple
+    # backend:
+    #   phases:
+    #     build:
+    #       commands:
+    #         - '# Execute Amplify CLI with the helper script'
+    #         - amplifyPush --simple
     frontend:
       phases:
-        preBuild:
-          commands:
-            - npm i
         build:
           commands:
+            - npm i
             - npm run build
       artifacts:
         baseDirectory: dist/spa
@@ -43,7 +41,7 @@ resource "aws_amplify_app" "app" {
     VITE_ACCOUNT_ID : var.account_id,
   }
 
-  # enable_auto_branch_creation = true
+  enable_auto_branch_creation = true
 
   # The default patterns added by the Amplify Console.
   auto_branch_creation_patterns = [
