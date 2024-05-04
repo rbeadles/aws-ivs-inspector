@@ -63,12 +63,12 @@ resource "aws_amplify_branch" "branch" {
   enable_auto_build = true
 }
 
-# resource "aws_amplify_backend_environment" "backend_environment" {
-#   app_id               = aws_amplify_app.app.id
-#   environment_name     = "ivsbackend"
-#   deployment_artifacts = "${var.project_name}-tfstate"
-#   stack_name           = "${var.project_name}-web-stack"
-# }
+resource "aws_amplify_backend_environment" "backend_environment" {
+  app_id           = aws_amplify_app.app.id
+  environment_name = "ivsbackend"
+  # deployment_artifacts = "${var.project_name}-tfstate"
+  # stack_name = "${var.project_name}-web-stack"
+}
 
 resource "aws_amplify_domain_association" "domain_association" {
   app_id                = aws_amplify_app.app.id
