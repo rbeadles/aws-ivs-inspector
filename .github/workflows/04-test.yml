@@ -23,7 +23,7 @@ jobs:
         uses: restackio/update-json-file-action@2.1
         with:
           file: package.json
-          fields: "{\"scripts.build\": \"quasar builds\"}"
+          fields: "{'scripts.test': 'value_here'}"
 
       # - name: Install Amplify CLI
       #   run: |
