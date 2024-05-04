@@ -24,8 +24,10 @@ jobs:
         with:
           file: package.json
           fields:  "{\"scripts.test\": \"quasar test\"}"
-          run: |
-            cat package.json
+
+      - name: view the json
+        run: |
+          cat package.json
 
       # - name: Install Amplify CLI
       #   run: |
