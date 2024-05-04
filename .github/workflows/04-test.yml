@@ -113,8 +113,10 @@ jobs:
 
       - name: test aws cli for amplify deployment
         env:
-          test_json: '{"VITE_ACCOUNT_ID": "740024244647", "VITE_AP_SOUTH_1_APIS": "{\"REST\":\"321321\"}"}'
+          region: "ap-south-1"
+          test_json: '{"VITE_ACCOUNT_ID": "740024244647", "VITE_${region}_APIS": "{\"REST_API\":\"5t4nrs7xgh\"}"}'
         run: |
+          echo "${test_json}"
           aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
           aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
           aws configure set region "ap-south-1"

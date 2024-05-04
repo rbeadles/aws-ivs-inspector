@@ -18,8 +18,9 @@ export const useChannelStore = defineStore("ChannelStore", {
     async getChannels(ivsRegion) {
       try {
         console.log("getting channel list", ivsRegion);
+        const apiId = JSON.parse(commonStore.envVars[`VITE_${ivsRegion}_APIS`])?.REST_API
         const response = await api.get(
-          `https://${commonStore.envVars.VITE_REST_API}.execute-api.${ivsRegion}.amazonaws.com/ivs/list-channels`,
+          `https://${apiId}.execute-api.${ivsRegion}.amazonaws.com/ivs/list-channels`,
           {
             params: {
               nextToken: this.channelsNextToken[ivsRegion] || "",
