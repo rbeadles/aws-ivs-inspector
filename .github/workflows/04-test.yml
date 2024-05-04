@@ -15,28 +15,33 @@ jobs:
       AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
       AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
       AWS_AMPLIFY_APP_ID: ${{vars.AMPLIFY_APP_ID}}
+      region: us-west-2
     steps:
       - name: Checkout the repositoring to the runner
         uses: actions/checkout@v4
+
+      - name: fields to add
+        run: |
+          fields=echo '{ "api.${region}.${rest}": "quasar test" }' | jq -r tostring
 
       - name: Update envVars.json in repo
         uses: restackio/update-json-file-action@2.1
         with:
           file: ./src/assets/envVars.json
-          fields: '{"scripts.test": "quasar test"}'
+          fields: $fields
 
       - name: view the json
         run: |
           cat ./src/assets/envVars.json
 
-      - name: Commit files
+      - name: Git Commit
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add ./src/assets/envVars.json
           git commit -a -m "Add changes"
 
-      - name: GitHub Push
+      - name: Git Push
         uses: ad-m/github-push-action@v0.8.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
