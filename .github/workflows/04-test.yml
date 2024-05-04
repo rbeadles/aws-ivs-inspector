@@ -1,9 +1,9 @@
 name: 04:test
 
-on: workflow_dispatch
-  # push:
-  #   branches:
-  #     - main
+on: #workflow_dispatch
+  push:
+    branches:
+      - main
 
 jobs:
   web-app:
@@ -114,8 +114,10 @@ jobs:
       - name: test aws cli for amplify deployment
         env:
           region: "ap-south-1"
-          test_json: '{"VITE_ACCOUNT_ID": "740024244647", "VITE_${region}_APIS": "{\"REST_API\":\"5t4nrs7xgh\"}"}'
         run: |
+          region_key="VITE_${region}_APIS"
+          echo "${region_key}"
+          test_json="VITE_ACCOUNT_ID": "740024244647", "VITE_${region}_APIS": "{\"REST_API\":\"5t4nrs7xgh\"}"
           echo "$test_json"
           aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
           aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
