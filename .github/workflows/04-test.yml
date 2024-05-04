@@ -27,27 +27,14 @@ jobs:
       - name: build data
         id: build_data
         run: |
-          cat ./src/assets/envVars.json
-          # echo "fields=`echo {\".apis.${region}.rest\" : ${region}} | jq -R`" >> $GITHUB_OUTPUT
-          # jq '.apis[$region][$api] = $id' ./src/assets/envVars.json | sponge ./src/assets/envVars.json
           jq --arg region "$region" --arg api "rest" --arg id "$api_id" '.apis[$region][$api] = $id' "$path" > "$tmp" && mv "$tmp" $path
-
-      # - name: Update envVars.json in repo
-      #   uses: restackio/update-json-file-action@2.1
-      #   with:
-      #     file: ./src/assets/envVars.json
-      #     fields: ${{ steps.build_data.outputs.fields }}
-      #     # fields: '{"scripts.test": "quasar test"}'
-
-      - name: view the json
-        run: |
-          cat ./src/assets/envVars.json
 
       - name: Git Commit
         run: |
+          cat $path
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add ./src/assets/envVars.json
+          git add $path
           git commit -a -m "Add changes"
 
       - name: Git Push
