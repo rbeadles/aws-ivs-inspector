@@ -45,8 +45,8 @@ jobs:
 
       - name: Terraform Plan
         id: plan
-        env:
-          TF_VAR_repository: ${{ github.repository }}
+        # env:
+        #   TF_VAR_repository: ${{ github.repository }}
         run: |
           cd terraform-amplify
           terraform plan -no-color -input=false
@@ -54,8 +54,8 @@ jobs:
 
       - name: Terraform Apply
         id: apply
-        env:
-          TF_VAR_repository: ${{ github.repository }}
+        # env:
+        #   TF_VAR_repository: ${{ github.repository }}
         if: github.ref == 'refs/heads/main'
         run: |
           cd terraform-amplify
