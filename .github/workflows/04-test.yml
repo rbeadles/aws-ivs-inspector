@@ -19,6 +19,12 @@ jobs:
       - name: Checkout the repositoring to the runner
         uses: actions/checkout@v4
 
+      - name: Update package.json version
+        uses: restackio/update-json-file-action@v2.1
+        with:
+          file: package.json
+          fields: "{\"input.test.type\": \"new value\"}"
+
       # - name: Install Amplify CLI
       #   run: |
       #     # cd web-application
@@ -105,32 +111,32 @@ jobs:
       #     aws configure set region "ap-south-1"
       #     aws amplify update-app --app-id $AWS_AMPLIFY_APP_ID --enable-branch-auto-build --environment-variables '{"account_id": "123", "api": "456"}'
 
-      - name: test github Checkout
-        run: |
-          repo=${{ github.server_url }}/${{ github.repository }}/web-application
-          echo "${repo}"
+      # - name: test github Checkout
+      #   run: |
+      #     repo=${{ github.server_url }}/${{ github.repository }}/web-application
+      #     echo "${repo}"
 
 
-      - name: test aws cli for amplify deployment
-        env:
-          region: "ap-south-1"
-        run: |
-          region_key="VITE_${region}_APIS"
-          echo "$region_key"
+      # - name: test aws cli for amplify deployment
+      #   env:
+      #     region: "ap-south-1"
+      #   run: |
+      #     region_key="VITE_${region}_APIS"
+      #     echo "$region_key"
 
-          set $(iostat)
-          myvar=6
-          eval "echo \${$myvar}"
+      #     set $(iostat)
+      #     myvar=6
+      #     eval "echo \${$myvar}"
 
-          eval "myVar=\$${i}"
-          echo "myVar: [${myVar}]"
+      #     eval "myVar=\$${i}"
+      #     echo "myVar: [${myVar}]"
 
-          test_json='{"VITE_ACCOUNT_ID": "740024244647", "[${region_key}]": "{\"REST_API\":\"5t4nrs7xgh\"}"}'
-          echo "$test_json"
-          aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
-          aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
-          aws configure set region "ap-south-1"
-          existing_env_vars=$(aws amplify get-app --app-id $AWS_AMPLIFY_APP_ID | jq '.app.environmentVariables')
-          echo "$existing_env_vars"
-          aws amplify update-app --app-id $AWS_AMPLIFY_APP_ID --environment-variables "${test_json}"
-          # aws amplify start-job --app-id $AWS_AMPLIFY_APP_ID --branch-name main --job-type RELEASE
+      #     test_json='{"VITE_ACCOUNT_ID": "740024244647", "[${region_key}]": "{\"REST_API\":\"5t4nrs7xgh\"}"}'
+      #     echo "$test_json"
+      #     aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
+      #     aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
+      #     aws configure set region "ap-south-1"
+      #     existing_env_vars=$(aws amplify get-app --app-id $AWS_AMPLIFY_APP_ID | jq '.app.environmentVariables')
+      #     echo "$existing_env_vars"
+      #     aws amplify update-app --app-id $AWS_AMPLIFY_APP_ID --environment-variables "${test_json}"
+      #     # aws amplify start-job --app-id $AWS_AMPLIFY_APP_ID --branch-name main --job-type RELEASE
