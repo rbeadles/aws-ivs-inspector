@@ -22,9 +22,7 @@ jobs:
       - name: build data
         id: build_data
         run: |
-          echo $PWD
-          pwd
-          ls -l
+          cat ./src/assets/envVars.json
           echo "fields=`echo {\".apis.${region}.rest\" : ${region}} | jq -R`" >> $GITHUB_OUTPUT
           # echo $fields
 
