@@ -1,9 +1,9 @@
 name: 04:test
 
-on: #workflow_dispatch
-  push:
-    branches:
-      - main
+on: workflow_dispatch
+  # push:
+  #   branches:
+  #     - main
 
 jobs:
   web-app:
@@ -108,12 +108,12 @@ jobs:
 
       - name: test aws cli for amplify deployment
         env:
-          test_json: "{account_id: 123, api: 456}"
+          test_json: '{"VITE_account_id_1": "123", "VITE_api": "456"}'
         run: |
           cd web-application
           aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID 
           aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY 
           aws configure set region "ap-south-1"
           aws amplify get-app --app-id $AWS_AMPLIFY_APP_ID
-          aws amplify update-app --app-id $AWS_AMPLIFY_APP_ID --environment-variables '{"VITE_account_id_1": "123", "VITE_api": "456"}'
-          aws amplify start-job --app-id $AWS_AMPLIFY_APP_ID --branch-name ivs
+          aws amplify update-app --app-id $AWS_AMPLIFY_APP_ID --environment-variables $test_json
+          aws amplify start-job --app-id $AWS_AMPLIFY_APP_ID --branch-name ivs --job-type RELEASE
