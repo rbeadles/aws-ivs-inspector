@@ -15,6 +15,7 @@ jobs:
       AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
       AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
       AWS_AMPLIFY_APP_ID: ${{vars.AMPLIFY_APP_ID}}
+      tmp: $(mktemp)
       region: "us-east-1"
       api: "rest"
       id: "123123"
@@ -29,7 +30,7 @@ jobs:
           cat ./src/assets/envVars.json
           # echo "fields=`echo {\".apis.${region}.rest\" : ${region}} | jq -R`" >> $GITHUB_OUTPUT
           # jq '.apis[$region][$api] = $id' ./src/assets/envVars.json | sponge ./src/assets/envVars.json
-          jq --arg region "$region" --arg api "rest" --arg id "$api_id" '.apis[$region][$api] = $id' $path > "$tmp" && mv "$tmp" $path
+          jq --arg region "$region" --arg api "rest" --arg id "$api_id" '.apis[$region][$api] = $id' "$path" > "$tmp" && mv "$tmp" $path
 
       # - name: Update envVars.json in repo
       #   uses: restackio/update-json-file-action@2.1
