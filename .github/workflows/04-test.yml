@@ -1,9 +1,9 @@
 name: 04:test
 
-on: #workflow_dispatch
-  push:
-    branches:
-      - main
+on: workflow_dispatch
+  # push:
+  #   branches:
+  #     - main
 
 jobs:
   web-app:
@@ -100,8 +100,8 @@ jobs:
       #     test_json: "{account_id: 123, api: 456}"
       #   run: |
       #     cd web-application
-      #     aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID 
-      #     aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY 
+      #     aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
+      #     aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
       #     aws configure set region "ap-south-1"
       #     aws amplify update-app --app-id $AWS_AMPLIFY_APP_ID --enable-branch-auto-build --environment-variables '{"account_id": "123", "api": "456"}'
 
@@ -110,15 +110,15 @@ jobs:
           repo=${{ github.server_url }}/${{ github.repository }}/web-application
           echo "${repo}"
 
-        
+
       - name: test aws cli for amplify deployment
         env:
           test_json: '{"VITE_ACCOUNT_ID": "740024244647", "VITE_AP_SOUTH_1_APIS": "{\"REST\":\"321321\"}"}'
         run: |
-          aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID 
-          aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY 
+          aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
+          aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
           aws configure set region "ap-south-1"
           existing_env_vars=$(aws amplify get-app --app-id $AWS_AMPLIFY_APP_ID | jq '.app.environmentVariables')
           echo "$existing_env_vars"
           aws amplify update-app --app-id $AWS_AMPLIFY_APP_ID --environment-variables "${test_json}"
-          aws amplify start-job --app-id $AWS_AMPLIFY_APP_ID --branch-name main --job-type RELEASE      
+          aws amplify start-job --app-id $AWS_AMPLIFY_APP_ID --branch-name main --job-type RELEASE
