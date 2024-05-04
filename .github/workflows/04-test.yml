@@ -22,17 +22,18 @@ jobs:
       - name: Update envVars.json in repo
         uses: restackio/update-json-file-action@2.1
         with:
-          file: package.json
+          file: envVars.json
           fields:  "{\"scripts.test\": \"quasar test\"}"
 
       - name: view the json
         run: |
-          cat package.json
+          cat envVars.json
 
       - name: Commit files
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
+          git add ./envVars.json
           git commit -a -m "Add changes"
 
       - name: GitHub Push
