@@ -115,5 +115,5 @@ jobs:
           aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY 
           aws configure set region "ap-south-1"
           aws amplify get-app --app-id $AWS_AMPLIFY_APP_ID
-          aws amplify update-app --app-id $AWS_AMPLIFY_APP_ID --environment-variables $test_json
+          aws amplify update-app --app-id $AWS_AMPLIFY_APP_ID --environment-variables '{"VITE_account_id_1": "123", "VITE_api": "456"}'
           aws amplify start-job --app-id $AWS_AMPLIFY_APP_ID --branch-name ivs --job-type RELEASE
