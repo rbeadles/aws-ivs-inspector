@@ -105,9 +105,9 @@ jobs:
         id: build_data
         run: |
 
-          echo $TF_VAR_region
+          # echo $TF_VAR_region
           jq --arg region "$TF_VAR_region" '.[$region]' <<< "${{needs.terraform_for_infra.outputs.api_ids}}" > "$tmpValue"
-          cat $tmpValue
+          # cat $tmpValue
           jq --arg region "$TF_VAR_region" '.apis[$region] = "$tmpValue"' "$envVarsPath" > "$tmpJson" && mv "$tmpJson" "$envVarsPath"
 
           # api_values=$(jq --arg region "$TF_VAR_region" '.[$region]' <<< "${{needs.terraform_for_infra.outputs.api_ids}}")
