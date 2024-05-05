@@ -87,9 +87,9 @@ jobs:
           # jq -rc .$TF_VAR_region < ./api_ids
           # jq -rc .[${TF_VAR_region}] < ./api_ids
           # jq -rc .${TF_VAR_region} < ./api_ids
-          jq --arg region "$TF_VAR_region" --arg v  '.[$region][$v]' ./api_ids
+          # jq --arg region "$TF_VAR_region" --arg v  '.[$region][$v]' ./api_ids
 
-          jq --arg region --argjson a $api_ids  "$TF_VAR_region" .[$region]
+          # jq --arg region --argjson a $api_ids  "$TF_VAR_region" .[$region]
 
     outputs:
       api_ids: ${{ steps.output.outputs.api_ids }}
