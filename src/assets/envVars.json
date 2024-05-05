@@ -1,3 +1,9 @@
 {
-  "null": "{\n  \"get_live_streams\": \"2chsf8r71h\",\n  \"get_session_events\": \"h00ryvk3gf\",\n  \"rest\": \"5t4nrs7xgh\"\n}"
+  "apis": {
+    "ap-south-1": {
+      "get_live_streams": "2chsf8r71h",
+      "get_session_events": "h00ryvk3gf",
+      "rest": "5t4nrs7xgh"
+    }
+  }
 }
