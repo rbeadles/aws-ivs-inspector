@@ -15,7 +15,8 @@ env:
   BUCKET_TF_STATE: ${{ secrets.BUCKET_TF_STATE }}
   AWS_AMPLIFY_APP_ID: ${{vars.AMPLIFY_APP_ID}}
   TF_VAR_region: "ap-south-1"
-  tmp: $(mktemp)
+  tmpValue: $(mktemp)
+  tmpJson: $(mktemp)
   api: "rest"
   id: "123123"
   envVarsPath: ./src/assets/envVars.json
@@ -110,12 +111,14 @@ jobs:
           # printf ${{needs.terraform_for_infra.outputs.api_ids}}
           # echo ${{needs.terraform_for_infra.outputs.api_ids}} > ./api_ids
           echo $TF_VAR_region
-          jq --arg region "$TF_VAR_region" '.[$region]' <<< "${{needs.terraform_for_infra.outputs.api_ids}}" > "$tmp"
+          jq --arg region "$TF_VAR_region" '.[$region]' <<< "${{needs.terraform_for_infra.outputs.api_ids}}" > "$tmpValue"
           # jq `.${TF_VAR_region} | .` <<< "${{needs.terraform_for_infra.outputs.api_ids}}"
-          # jq --arg infraApi "$needs.terraform_for_infra.outputs.api_ids" --arg region "$TF_VAR_region" '.apis = $infraApi[$region]' "$envVarsPath" > "$tmp"
-          cat "$tmp"
-          # mv "$tmp" $envVarsPath
-          # cat $envVarsPath
+          jq '.api[$TF_VAR_region] = "$tmpValue"' "$envVarsPath" > "$tmpJson" && mv "$tmpJson" "$envVarsPath"
+
+          # jq --arg infraApi "$needs.terraform_for_infra.outputs.api_ids" --arg region "$TF_VAR_region" '.apis = $infraApi[$region]' "$envVarsPath" > "$tmpJson"
+          # cat "$tmpJson"
+          mv "$tmpJson" $envVarsPath
+          cat $envVarsPath
 
       # - name: Git Commit
       #   run: |
