@@ -89,9 +89,6 @@ jobs:
     env:
       path: ./src/assets/envVars.json
 
-    # outputs:
-    #   api_values: ${{ steps.build_data.outputs.api_values }}
-
     steps:
       - name: Checkout the repositoring to the runner
         uses: actions/checkout@v4
@@ -99,8 +96,8 @@ jobs:
       - name: build data
         id: build_data
         run: |
-          echo "api_values=$(jq --arg region "$TF_VAR_region" '.[$region]' <<< "${{needs.terraform_for_infra.outputs.api_ids}}")"
-          # echo "${{ steps.build_data.outputs.api_values}}"
+          echo "api_values=$(jq --arg region "$TF_VAR_region" '.[$region]' <<< "${{needs.terraform_for_infra.outputs.api_ids}}")" >> $GITHUB_OUTPUT
+          echo "${{ steps.build_data.outputs.api_values }}"
           # jq --arg region "$TF_VAR_region" --arg value "${{ steps.build_data.outputs.api_values}}" '.apis[$region] = [$value]' "$envVarsPath" > "$envVarsPath"
           # cat $envVarsPath
 
@@ -117,3 +114,6 @@ jobs:
       #   with:
       #     github_token: ${{ secrets.GITHUB_TOKEN }}
       #     force: true
+
+    outputs:
+      api_values: ${{ steps.build_data.outputs.api_values }}
