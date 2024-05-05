@@ -39,67 +39,67 @@ jobs:
            -backend-config="region=us-west-2" \
            -reconfigure
 
-      - name: Terraform Destroy
-        id: destroy
+      # - name: Terraform Destroy
+      #   id: destroy
+      #   if: github.ref == 'refs/heads/main'
+      #   run: |
+      #     cd terraform-infra
+      #     terraform destroy -auto-approve -input=false
+
+      - name: Terraform Validate
+        id: validate
+        run: |
+          cd terraform-infra
+          terraform validate
+
+      - name: Terraform Plan
+        id: plan
+        run: |
+          cd terraform-infra
+          terraform plan -no-color -input=false
+        continue-on-error: true
+
+      - name: Terraform Apply
+        id: apply
         if: github.ref == 'refs/heads/main'
         run: |
           cd terraform-infra
-          terraform destroy -auto-approve -input=false
+          terraform apply -auto-approve -input=false
 
-  #     - name: Terraform Validate
-  #       id: validate
-  #       run: |
-  #         cd terraform-infra
-  #         terraform validate
+      - name: Terraform Output
+        id: output
+        if: github.ref == 'refs/heads/main'
+        run: |
+          cd terraform-infra
+          echo "api_ids=$(terraform output -json api_ids)" >> $GITHUB_OUTPUT
 
-  #     - name: Terraform Plan
-  #       id: plan
-  #       run: |
-  #         cd terraform-infra
-  #         terraform plan -no-color -input=false
-  #       continue-on-error: true
+    outputs:
+      api_ids: ${{ steps.output.outputs.api_ids }}
 
-  #     - name: Terraform Apply
-  #       id: apply
-  #       if: github.ref == 'refs/heads/main'
-  #       run: |
-  #         cd terraform-infra
-  #         terraform apply -auto-approve -input=false
+  update_environment_variables:
+    runs-on: ubuntu-latest
+    environment: terraform_admin
+    needs: terraform_for_infra
+    steps:
+      - name: Checkout the repositoring to the runner
+        uses: actions/checkout@v4
 
-  #     - name: Terraform Output
-  #       id: output
-  #       if: github.ref == 'refs/heads/main'
-  #       run: |
-  #         cd terraform-infra
-  #         echo "api_ids=$(terraform output -json api_ids)" >> $GITHUB_OUTPUT
+      - name: build data
+        id: build_data
+        run: |
+          api_values=$(jq --arg region "$TF_VAR_region" '.[$region]' <<< "${{needs.terraform_for_infra.outputs.api_ids}}")
+          jq --arg region "$TF_VAR_region" --argjson values "$api_values" '.apis[$region] = $values' "$envVarsPath" > "$tmpJson" && mv "$tmpJson" "$envVarsPath"
+          cat $envVarsPath
 
-  #   outputs:
-  #     api_ids: ${{ steps.output.outputs.api_ids }}
+      - name: Git Commit
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add $envVarsPath
+          git commit --allow-empty -m "update environment variables"
 
-  # update_environment_variables:
-  #   runs-on: ubuntu-latest
-  #   environment: terraform_admin
-  #   needs: terraform_for_infra
-  #   steps:
-  #     - name: Checkout the repositoring to the runner
-  #       uses: actions/checkout@v4
-
-  #     - name: build data
-  #       id: build_data
-  #       run: |
-  #         api_values=$(jq --arg region "$TF_VAR_region" '.[$region]' <<< "${{needs.terraform_for_infra.outputs.api_ids}}")
-  #         jq --arg region "$TF_VAR_region" --argjson values "$api_values" '.apis[$region] = $values' "$envVarsPath" > "$tmpJson" && mv "$tmpJson" "$envVarsPath"
-  #         cat $envVarsPath
-
-  #     - name: Git Commit
-  #       run: |
-  #         git config --local user.email "github-actions[bot]@users.noreply.github.com"
-  #         git config --local user.name "github-actions[bot]"
-  #         git add $envVarsPath
-  #         git commit --allow-empty -m "update environment variables"
-
-  #     - name: Git Push
-  #       uses: ad-m/github-push-action@v0.8.0
-  #       with:
-  #         github_token: ${{ secrets.GITHUB_TOKEN }}
-  #         force: true
+      - name: Git Push
+        uses: ad-m/github-push-action@v0.8.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          force: true
