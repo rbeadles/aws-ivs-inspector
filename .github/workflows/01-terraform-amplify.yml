@@ -1,6 +1,7 @@
 name: 01:AWS IVS Inspector - AWS Amplify App
 
-on: workflow_dispatch
+on:
+  workflow_dispatch
   # push:
   #   branches:
   #     - main
@@ -9,7 +10,7 @@ jobs:
   terraform_for_amplify:
     runs-on: ubuntu-latest
     environment: terraform_admin
-    env: 
+    env:
       TF_LOG: INFO
       TF_VAR_token: ${{ secrets.ACCESS_TOKEN }}
       TF_VAR_account_id: ${{ secrets.ACCOUNT_ID }}
@@ -26,7 +27,7 @@ jobs:
         uses: hashicorp/setup-terraform@v3
         with:
           terraform_version: 1.8.2
-        
+
       - name: Terraform Init
         id: init
         run: |
@@ -61,11 +62,11 @@ jobs:
           cd terraform-amplify
           terraform apply -auto-approve -input=false
           echo "amplify_app_id=$(terraform output -raw amplify_app_id)" >> $GITHUB_OUTPUT
-          
+
       - name: Access App ID
         run: |
           echo "amplify_app_id: ${{ steps.apply.outputs.amplify_app_id }}"
-    
+
     outputs:
       amplify_app_id: ${{ steps.apply.outputs.amplify_app_id }}
 
