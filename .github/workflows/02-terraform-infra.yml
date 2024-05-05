@@ -114,7 +114,7 @@ jobs:
           # jq --arg region "$TF_VAR_region" --arg value "$api_values" '.apis' "$envVarsPath"
           # echo "$api_values"
           # envVars=$(jq --arg region "$TF_VAR_region" --arg value "$api_values" '.apis[$region] = $value' "$envVarsPath")
-          cat $tmpJson
+          cat $envVarsPath
 
       # - name: Git Commit
       #   run: |
