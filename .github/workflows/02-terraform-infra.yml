@@ -101,6 +101,7 @@ jobs:
       - name: build data
         id: build_data
         run: |
+          cd terraform-infra
           cat ./api_ids
           # echo "${{needs.terraform_for_infra.outputs.api_ids}}"
           # jq . <<< "${{needs.terraform_for_infra.outputs.api_ids}}"
