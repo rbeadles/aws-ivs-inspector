@@ -15,6 +15,11 @@
       "get_live_streams": "z26s15suu2",
       "get_session_events": "mg8200o18i",
       "rest": "raj5zttb3i"
+    },
+    "us-west-2": {
+      "get_live_streams": "lixojq5sx9",
+      "get_session_events": "hh50z875n0",
+      "rest": "1bfeolhd4g"
     }
   }
 }
