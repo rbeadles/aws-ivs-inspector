@@ -2,8 +2,8 @@ output "api_ids" {
   value = {
     "${var.region}" : jsonencode({
       rest : module.aws-infra.rest_api_id,
-      # get_session_events : module.aws-infra.get_session_events_api_id,
-      # get_live_streams : module.aws-infra.get_live_streams_api_id
+      get_session_events : module.aws-infra.get_session_events_api_id,
+      get_live_streams : module.aws-infra.get_live_streams_api_id
     })
   }
 }
