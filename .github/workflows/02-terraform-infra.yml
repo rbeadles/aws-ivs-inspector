@@ -1,10 +1,10 @@
 name: 02:AWS IVS Inspector - AWS Infra
 
 on:
-  workflow_dispatch
-  # push:
-  #   branches:
-  #     - main
+  #workflow_dispatch
+  push:
+    branches:
+      - main
 
 env:
   TF_LOG: INFO
@@ -79,7 +79,7 @@ jobs:
         run: |
           cd terraform-infra
           # terraform output -json
-          echo "api_ids=$(terraform output -json api_ids)" >> $GITHUB_OUTPUT
+          echo "api_ids=$(terraform output -raw api_ids)" >> $GITHUB_OUTPUT
 
     outputs:
       api_ids: ${{ steps.output.outputs.api_ids }}
