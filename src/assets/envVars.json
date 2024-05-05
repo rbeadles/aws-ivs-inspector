@@ -1,0 +1,10 @@
+{
+  "account_id": "740024244647",
+  "apis": {
+    "ap-south-1": {
+      "rest": "5t4nrs7xgh",
+      "wss_get_live_streams": "2chsf8r71h",
+      "wss_get_session_events": "h00ryvk3gf"
+    }
+  }
+}
