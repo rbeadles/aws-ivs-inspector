@@ -109,10 +109,10 @@ jobs:
         run: |
           # printf ${{needs.terraform_for_infra.outputs.api_ids}}
           # echo ${{needs.terraform_for_infra.outputs.api_ids}} > ./api_ids
-          echo $TF_VAR_region
-          jq --arg region "$TF_VAR_region" '.[$region]' <<< "${{needs.terraform_for_infra.outputs.api_ids}}" > "$tmp"
+          # echo $TF_VAR_region
+          # jq --arg region "$TF_VAR_region" '.[$region]' <<< "${{needs.terraform_for_infra.outputs.api_ids}}" > "$tmp"
           # jq -n --arg KEY 'no leading zero' --arg VAL '.13452' '{"\($KEY)":$VAL}'
-          jq -n --arg region "$TF_VAR_region" --arg infraApi "${{needs.terraform_for_infra.outputs.api_ids}}" '{"\(.apis[$region]) : $infraApi}' "$envVarsPath" > "$tmp"
+          jq -n --arg region "$TF_VAR_region" --arg infraApi "${{needs.terraform_for_infra.outputs.api_ids}}" --arg KEY 'no leading zero' --arg VAL '.13452' '{"\($KEY)":$VAL}' "$envVarsPath" > "$tmp"
           cat "$tmp"
           # mv "$tmp" $envVarsPath
           # cat $envVarsPath
