@@ -116,7 +116,7 @@ jobs:
           # jq . <<< "${{needs.terraform_for_infra.outputs.api_ids}}"
           # jq -rc . <<< "${{needs.terraform_for_infra.outputs.api_ids}}"
           # cat "$envVarsPath"
-          jq --arg region "$TF_VAR_region" --argjson infraApi "${{needs.terraform_for_infra.outputs.api_ids}}" '.apis[$region] = $infraApi' "$envVarsPath" > "$tmp"
+          jq --arg region "$TF_VAR_region" --arg infraApi "${{needs.terraform_for_infra.outputs.api_ids}}" '.apis[$region] = $infraApi' "$envVarsPath" > "$tmp"
           cat "$tmp"
           mv "$tmp" $envVarsPath
           cat $envVarsPath
