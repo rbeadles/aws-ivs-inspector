@@ -50,7 +50,7 @@ jobs:
           terraform init \
            -backend-config="bucket=${{ secrets.BUCKET_TF_STATE }}" \
            -backend-config="key=infra/$TF_VAR_region/terraform.tfstate" \
-           -backend-config="region=$TF_VAR_region"
+           -backend-config="region=us-west-2"
 
       - name: Terraform Validate
         id: validate
@@ -76,7 +76,7 @@ jobs:
     outputs:
       api_ids: ${{ steps.apply.outputs.api_ids }}
 
-  web-app:
+  update_environment_variables:
     runs-on: ubuntu-latest
     environment: terraform_admin
     needs: terraform_for_infra
