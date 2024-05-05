@@ -2,9 +2,9 @@
   "account_id": "740024244647",
   "apis": {
     "ap-south-1": {
-      "get_live_streams": "2chsf8r71h",
-      "get_session_events": "h00ryvk3gf",
-      "rest": "5t4nrs7xgh"
+      "get_live_streams": "63t8p47ef8",
+      "get_session_events": "t21dvk1e0a",
+      "rest": "0mwp708pmb"
     },
     "us-east-1": {
       "get_live_streams": "dcu7kfosq4",
