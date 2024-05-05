@@ -106,13 +106,14 @@ jobs:
       - name: build data
         id: build_data
         run: |
-          jq --arg region "$TF_VAR_region" '.[$region]' <<< "${{needs.terraform_for_infra.outputs.api_ids}}" > ".tmpValue"
-          jq --arg region "$TF_VAR_region" --arg value ".tmpValue" '.apis[$region] = $value' "$envVarsPath" > ".tmpJson" && mv ".tmpJson" "$envVarsPath"
+          jq --arg region "$TF_VAR_region" '.[$region]' <<< "${{needs.terraform_for_infra.outputs.api_ids}}" > "$tmpValue"
+          cat "$tmpValue"
+          jq --arg region "$TF_VAR_region" --arg value "$tmpValue" '.apis[$region] = $value' "$envVarsPath" > ".tmpJson" && mv ".tmpJson" "$envVarsPath"
           cat $envVarsPath
 
           # jq --arg infraApi "$needs.terraform_for_infra.outputs.api_ids" --arg region "$TF_VAR_region" '.apis = $infraApi[$region]' "$envVarsPath" > "$tmpJson"
-          # cat ".tmpJson"
-          # mv ".tmpJson" $envVarsPath
+          # cat "$tmpJson"
+          # mv "$tmpJson" $envVarsPath
 
       - name: Git Commit
         run: |
