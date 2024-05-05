@@ -99,8 +99,6 @@ jobs:
     environment: terraform_admin
     needs: terraform_for_infra
     env:
-      api: "rest"
-      id: "123123"
       path: ./src/assets/envVars.json
     steps:
       - name: Checkout the repositoring to the runner
@@ -110,12 +108,12 @@ jobs:
         id: build_data
         run: |
           printf ${{needs.terraform_for_infra.outputs.api_ids}}
-          echo ${{needs.terraform_for_infra.outputs.api_ids}} > ./api_ids
-          jq '."ap-south-1" | .' <<< "${{needs.terraform_for_infra.outputs.api_ids}}"
-          # jq --arg infraApi ${{needs.terraform_for_infra.outputs.api_ids}} '.apis = $infraApi' "$envVarsPath" > "$tmp"
-          # cat "$tmp"
-          # mv "$tmp" $envVarsPath
-          # cat $envVarsPath
+          # echo ${{needs.terraform_for_infra.outputs.api_ids}} > ./api_ids
+          jq '."$TF_VAR_region" | .' <<< "${{needs.terraform_for_infra.outputs.api_ids}}"
+          jq --arg infraApi "${{needs.terraform_for_infra.outputs.api_ids}}" '.apis."$TF_VAR_region" = $infraApi[$TF_VAR_region]' "$envVarsPath" > "$tmp"
+          cat "$tmp"
+          mv "$tmp" $envVarsPath
+          cat $envVarsPath
 
       # - name: Git Commit
       #   run: |
