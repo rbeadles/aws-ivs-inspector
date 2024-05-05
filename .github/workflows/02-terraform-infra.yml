@@ -102,6 +102,7 @@ jobs:
         id: build_data
         run: |
           cd terraform-infra
+          ls -lh
           cat ./api_ids
           # echo "${{needs.terraform_for_infra.outputs.api_ids}}"
           # jq . <<< "${{needs.terraform_for_infra.outputs.api_ids}}"
@@ -110,16 +111,16 @@ jobs:
           jq --arg region "$TF_VAR_region" --arg apis "${{needs.terraform_for_infra.outputs.api_ids}}" '.apis = $apis' "$envVarsPath" > "$tmp"
           cat "$tmp"
           mv "$tmp" $envVarsPath
-      - name: Git Commit
-        run: |
-          cat $envVarsPath
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          git add $envVarsPath
-          git commit --allow-empty -m "update environment variables"
+      # - name: Git Commit
+      #   run: |
+      #     cat $envVarsPath
+      #     git config --local user.email "github-actions[bot]@users.noreply.github.com"
+      #     git config --local user.name "github-actions[bot]"
+      #     git add $envVarsPath
+      #     git commit --allow-empty -m "update environment variables"
 
-      - name: Git Push
-        uses: ad-m/github-push-action@v0.8.0
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          force: true
+      # - name: Git Push
+      #   uses: ad-m/github-push-action@v0.8.0
+      #   with:
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      #     force: true
