@@ -112,16 +112,16 @@ jobs:
           jq --arg region "$TF_VAR_region" --arg value "$api_values" '.apis[$region] = $value' "$envVarsPath" > "$envVarsPath"
           cat $envVarsPath
 
-      # - name: Git Commit
-      #   run: |
-      #     cat $envVarsPath
-      #     git config --local user.email "github-actions[bot]@users.noreply.github.com"
-      #     git config --local user.name "github-actions[bot]"
-      #     git add $envVarsPath
-      #     git commit --allow-empty -m "update environment variables"
+      - name: Git Commit
+        run: |
+          cat $envVarsPath
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add $envVarsPath
+          git commit --allow-empty -m "update environment variables"
 
-      # - name: Git Push
-      #   uses: ad-m/github-push-action@v0.8.0
-      #   with:
-      #     github_token: ${{ secrets.GITHUB_TOKEN }}
-      #     force: true
+      - name: Git Push
+        uses: ad-m/github-push-action@v0.8.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          force: true
