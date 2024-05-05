@@ -100,8 +100,8 @@ jobs:
         id: build_data
         run: |
           echo "api_values=$(jq --arg region "$TF_VAR_region" '.[$region]' <<< "${{needs.terraform_for_infra.outputs.api_ids}}")" >> $GITHUB_OUTPUT
-          echo "${{ steps.build_data.outputs.api_values }}"
-          jq --arg region "$TF_VAR_region" --arg value "${{ steps.build_data.outputs.api_values }}" '.apis[$region] = [$value]' "$envVarsPath" > "$envVarsPath"
+          echo "$api_values"
+          jq --arg region "$TF_VAR_region" --arg value "$api_values" '.apis[$region] = [$value]' "$envVarsPath" > "$envVarsPath"
           cat $envVarsPath
 
       # - name: Git Commit
