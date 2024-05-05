@@ -108,23 +108,23 @@ jobs:
         run: |
           jq --arg region "$TF_VAR_region" '.[$region]' <<< "${{needs.terraform_for_infra.outputs.api_ids}}" > "$tmpValue"
           cat "$tmpValue"
-          jq --arg region "$TF_VAR_region" --arg value "$tmpValue" '.apis[$region] = $value' "$envVarsPath" > ".tmpJson" && mv ".tmpJson" "$envVarsPath"
+          jq --arg region "$TF_VAR_region" --arg value "$tmpValue" '.apis[$region] = [$value]' "$envVarsPath" > ".tmpJson" && mv ".tmpJson" "$envVarsPath"
           cat $envVarsPath
 
           # jq --arg infraApi "$needs.terraform_for_infra.outputs.api_ids" --arg region "$TF_VAR_region" '.apis = $infraApi[$region]' "$envVarsPath" > "$tmpJson"
           # cat "$tmpJson"
           # mv "$tmpJson" $envVarsPath
 
-      - name: Git Commit
-        run: |
-          cat $envVarsPath
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          git add $envVarsPath
-          git commit --allow-empty -m "update environment variables"
+      # - name: Git Commit
+      #   run: |
+      #     cat $envVarsPath
+      #     git config --local user.email "github-actions[bot]@users.noreply.github.com"
+      #     git config --local user.name "github-actions[bot]"
+      #     git add $envVarsPath
+      #     git commit --allow-empty -m "update environment variables"
 
-      - name: Git Push
-        uses: ad-m/github-push-action@v0.8.0
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          force: true
+      # - name: Git Push
+      #   uses: ad-m/github-push-action@v0.8.0
+      #   with:
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      #     force: true
