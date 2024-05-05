@@ -1,6 +1,3 @@
 {
-  "account_id": "740024244647",
-  "apis": {
-    "ap-south-1": "{\n  \"get_live_streams\": \"2chsf8r71h\",\n  \"get_session_events\": \"h00ryvk3gf\",\n  \"rest\": \"5t4nrs7xgh\"\n}"
-  }
+  "null": "{\n  \"get_live_streams\": \"2chsf8r71h\",\n  \"get_session_events\": \"h00ryvk3gf\",\n  \"rest\": \"5t4nrs7xgh\"\n}"
 }
