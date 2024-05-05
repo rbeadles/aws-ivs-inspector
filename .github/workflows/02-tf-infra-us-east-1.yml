@@ -1,10 +1,10 @@
-name: 02:AWS IVS Inspector - AWS Infra
+name: 02:Infra-us-east-1
 
 on:
-  # workflow_dispatch
-  push:
-    branches:
-      - main
+  workflow_dispatch
+  # push:
+  #   branches:
+  #     - main
 
 env:
   TF_LOG: INFO
@@ -14,7 +14,7 @@ env:
   TF_VAR_account_id: ${{ secrets.ACCOUNT_ID }}
   BUCKET_TF_STATE: ${{ secrets.BUCKET_TF_STATE }}
   AWS_AMPLIFY_APP_ID: ${{vars.AMPLIFY_APP_ID}}
-  TF_VAR_region: "ap-south-1"
+  TF_VAR_region: "us-east-1"
   tmpJson: $(mktemp)
   envVarsPath: ./src/assets/envVars.json
 
