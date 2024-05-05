@@ -83,7 +83,10 @@ jobs:
           terraform output -json api_ids > ./api_ids
           ls -lh
           # cat ./api_ids
-          jq -rc . < ./api_ids
+          jq -rc .[$TF_VAR_region] < ./api_ids
+          jq -rc .$TF_VAR_region < ./api_ids
+          jq -rc .[${TF_VAR_region}] < ./api_ids
+          jq -rc .${TF_VAR_region} < ./api_ids
 
     outputs:
       api_ids: ${{ steps.output.outputs.api_ids }}
