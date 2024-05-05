@@ -5,6 +5,11 @@
       "get_live_streams": "2chsf8r71h",
       "get_session_events": "h00ryvk3gf",
       "rest": "5t4nrs7xgh"
+    },
+    "us-east-1": {
+      "get_live_streams": "dcu7kfosq4",
+      "get_session_events": "9h636cth83",
+      "rest": "5rvng00khk"
     }
   }
 }
