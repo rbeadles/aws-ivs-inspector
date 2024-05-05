@@ -109,7 +109,7 @@ jobs:
       - name: build data
         id: build_data
         run: |
-          echo ${{needs.terraform_for_infra.outputs.api_ids}}
+          printf ${{needs.terraform_for_infra.outputs.api_ids}}
           jq '."ap-south-1" | fromjson | .' <<< "${{needs.terraform_for_infra.outputs.api_ids}}"
           jq --arg infraApi "${{needs.terraform_for_infra.outputs.api_ids}}" '.apis = $infraApi' "$envVarsPath" > "$tmp"
           cat "$tmp"
