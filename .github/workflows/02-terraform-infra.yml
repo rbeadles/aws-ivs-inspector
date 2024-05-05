@@ -71,7 +71,7 @@ jobs:
         run: |
           cd terraform-infra
           terraform apply -auto-approve -input=false
-          echo "api_ids=$(terraform output -raw api_ids)" >> $GITHUB_OUTPUT
+          echo "api_ids=$(terraform output -json api_ids)" >> $GITHUB_OUTPUT
 
     outputs:
       api_ids: ${{ steps.apply.outputs.api_ids }}
@@ -92,7 +92,7 @@ jobs:
         id: build_data
         run: |
           echo "${{needs.terraform_for_infra.outputs.api_ids}}"
-          # echo "${{needs.terraform_for_infra.outputs.api_ids}}" | jq '.'
+          jq -c '. | fromjson' "${{needs.terraform_for_infra.outputs.api_ids}}"
           cat "$envVarsPath"
           jq --arg region "$TF_VAR_region" --arg apis "${{needs.terraform_for_infra.outputs.api_ids}}" '.apis[$region] = $apis' "$envVarsPath" > "$tmp" && mv "$tmp" $envVarsPath
 
