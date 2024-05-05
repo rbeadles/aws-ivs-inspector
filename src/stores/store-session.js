@@ -176,7 +176,7 @@ export const useSessionStore = defineStore("SessionStore", {
     async getSessionEvents(streamId, channelArn, ivsRegion) {
       try {
         const ws = new WebSocket(
-          `wss://${commonStore.envVars.VITE_WSS_GET_SESSION_EVENTS}.execute-api.${ivsRegion}.amazonaws.com/ivs`
+          `wss://${envVars.apis[ivsRegion].get_session_events}.execute-api.${ivsRegion}.amazonaws.com/ivs`
         );
         ws.onopen = () => {
           console.log("open response:", ws);
@@ -220,7 +220,7 @@ export const useSessionStore = defineStore("SessionStore", {
     async getLiveStreams(ivsRegion) {
       try {
         const ws = new WebSocket(
-          `wss://${commonStore.envVars.VITE_WSS_GET_LIVE_STREAMS}.execute-api.${ivsRegion}.amazonaws.com/ivs`
+          `wss://${envVars.apis[ivsRegion].get_live_streams}.execute-api.${ivsRegion}.amazonaws.com/ivs`
         );
         ws.onopen = () => {
           console.log("open response:", ws);

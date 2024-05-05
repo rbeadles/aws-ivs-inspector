@@ -110,7 +110,7 @@
 
       <q-separator />
 
-      <div class="col">
+      <div class="col" v-if="channelDetails?.streamSessions?.length">
         <q-table
           class="session-list-table"
           square
