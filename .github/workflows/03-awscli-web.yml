@@ -1,4 +1,4 @@
-name: 03:AWS IVS Inspector - Web Application
+name: 03:AWS IVS Inspector
 
 on:
   workflow_dispatch

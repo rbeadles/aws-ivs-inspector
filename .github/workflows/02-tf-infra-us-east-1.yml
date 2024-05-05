@@ -1,4 +1,4 @@
-name: 02:Infra-us-east-1
+name: 02:AWS Infra us-east-1
 
 on:
   workflow_dispatch
@@ -66,6 +66,7 @@ jobs:
         id: output
         if: github.ref == 'refs/heads/main'
         run: |
+          cd terraform-infra
           echo "api_ids=$(terraform output -json api_ids)" >> $GITHUB_OUTPUT
 
     outputs:

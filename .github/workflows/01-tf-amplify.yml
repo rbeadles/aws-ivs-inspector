@@ -1,4 +1,4 @@
-name: 01:AWS IVS Inspector - AWS Amplify App
+name: 01:AWS Amplify App
 
 on:
   workflow_dispatch
