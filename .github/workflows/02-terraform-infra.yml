@@ -109,7 +109,8 @@ jobs:
           # jq --arg region "$TF_VAR_region" '.[$region]' <<< "${{needs.terraform_for_infra.outputs.api_ids}}" > "$tmpValue"
           api_values=$(jq --arg region "$TF_VAR_region" '.[$region]' <<< "${{needs.terraform_for_infra.outputs.api_ids}}")
           # api_values=$(jq 'fromjson | .' <<< $api_values)
-          jq --arg region "$TF_VAR_region" --arg values "$api_values" '.apis[$region] = $($values)' "$envVarsPath" > "$tmpJson" && mv "$tmpJson" "$envVarsPath"
+          jq -n --arg region "$TF_VAR_region" --arg values "$api_values" '{"\(.apis[$region])":$values}' "$envVarsPath" > "$tmpJson" && mv "$tmpJson" "$envVarsPath"
+          # jq -n --arg KEY 'no leading zero' --arg VAL '.13452' '{"\($KEY)":$VAL}'
           # jq --arg region "$TF_VAR_region" --arg value "$api_values" '.apis' "$envVarsPath"
           # echo "$api_values"
           # envVars=$(jq --arg region "$TF_VAR_region" --arg value "$api_values" '.apis[$region] = $value' "$envVarsPath")
