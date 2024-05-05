@@ -21,8 +21,7 @@ jobs:
 
       - name: Build Amplify App
         run: |
-          cd web-application
           aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
           aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
           aws configure set region "ap-south-1"
-          aws amplify start-job --app-id $AWS_AMPLIFY_APP_ID --branch-name ivs --job-type RELEASE --commit-message "commit from GitHub"
+          aws amplify start-job --app-id $AWS_AMPLIFY_APP_ID --branch-name main --job-type RELEASE --commit-message "commit from GitHub"
