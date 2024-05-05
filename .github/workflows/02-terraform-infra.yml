@@ -82,7 +82,8 @@ jobs:
           echo "api_ids=$(terraform output -json api_ids)" >> $GITHUB_OUTPUT
           terraform output -json api_ids > ./api_ids
           ls -lh
-          cat ./api_ids
+          # cat ./api_ids
+          jq -rc . < ./api_ids
 
     outputs:
       api_ids: ${{ steps.output.outputs.api_ids }}
