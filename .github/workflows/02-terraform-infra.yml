@@ -80,6 +80,8 @@ jobs:
           cd terraform-infra
           # terraform output -json
           echo "api_ids=$(terraform output -json api_ids)" >> $GITHUB_OUTPUT
+          terraform output -json api_ids > ./api_ids
+          cat ./api_ids
 
     outputs:
       api_ids: ${{ steps.output.outputs.api_ids }}
@@ -99,6 +101,7 @@ jobs:
       - name: build data
         id: build_data
         run: |
+          cat ./api_ids
           # echo "${{needs.terraform_for_infra.outputs.api_ids}}"
           # jq . <<< "${{needs.terraform_for_infra.outputs.api_ids}}"
           jq -rc . <<< "${{needs.terraform_for_infra.outputs.api_ids}}"
