@@ -3,7 +3,6 @@ resource "aws_amplify_app" "app" {
   name                     = "aws-${var.project_name}"
   repository               = var.repository
   access_token             = var.token
-  # enable_branch_auto_build = true
 
   # The default build_spec added by the Amplify Console for React.
   build_spec = <<-EOT
@@ -30,19 +29,6 @@ resource "aws_amplify_app" "app" {
     status = "404"
     target = "/index.html"
   }
-
-  # enable_auto_branch_creation = true
-
-  # # The default patterns added by the Amplify Console.
-  # auto_branch_creation_patterns = [
-  #   "*",
-  #   "*/**",
-  # ]
-
-  # auto_branch_creation_config {
-  #   enable_auto_build       = true
-  #   enable_performance_mode = true
-  # }
 }
 
 resource "aws_amplify_branch" "branch" {
@@ -50,22 +36,5 @@ resource "aws_amplify_branch" "branch" {
   branch_name       = var.branch_name
   framework         = "Vue"
   stage             = "PRODUCTION"
-  # enable_auto_build = true
 }
 
-# resource "aws_amplify_domain_association" "domain_association" {
-#   app_id                = aws_amplify_app.app.id
-#   domain_name           = var.domain_name
-#   wait_for_verification = false
-
-#   sub_domain {
-#     branch_name = aws_amplify_branch.branch.branch_name
-#     prefix      = "ivs"
-#   }
-# }
-
-# resource "aws_amplify_webhook" "master" {
-#   app_id      = aws_amplify_app.app.id
-#   branch_name = aws_amplify_branch.branch.branch_name
-#   description = "triggerivs"
-# }

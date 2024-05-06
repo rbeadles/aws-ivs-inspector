@@ -1,9 +1,9 @@
-name: 02:AWS Infra ap-south-1
+name: 02:AWS Infra us-east-1
 
 on: workflow_dispatch
 
 env:
-  TF_VAR_region: "ap-south-1"
+  TF_VAR_region: "us-east-1"
   TF_VAR_project_name: ${{ secrets.IVS_PROJECT_NAME }}
   TF_VAR_account_id: ${{ secrets.AWS_ACCOUNT_ID }}
   TF_LOG: INFO
