@@ -14,36 +14,36 @@ env:
   # AWS_AMPLIFY_APP_ID: ${{vars.AMPLIFY_APP_ID}}
 
 jobs:
-  # terraform_for_infra:
-  #   runs-on: ubuntu-latest
-  #   environment: terraform_admin
+  terraform_for_infra:
+    runs-on: ubuntu-latest
+    environment: terraform_admin
 
-  #   steps:
-  #     - name: Checkout the repository to the runner
-  #       uses: actions/checkout@v4
+    steps:
+      - name: Checkout the repository to the runner
+        uses: actions/checkout@v4
 
-  #     - name: Setup Terraform with specific version on the runner
-  #       uses: hashicorp/setup-terraform@v3
-  #       with:
-  #         terraform_version: 1.8.2
+      - name: Setup Terraform with specific version on the runner
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.8.2
 
-  #     - name: Terraform Init
-  #       id: init
-  #       run: |
-  #         cd terraform-infra
-  #         terraform fmt
-  #         terraform init \
-  #          -backend-config="bucket=$AWS_S3_BUCKET_FOR_TF_STATE" \
-  #          -backend-config="key=infra/$TF_VAR_region/terraform.tfstate" \
-  #          -backend-config="region=us-west-2" \
-  #          -reconfigure
+      - name: Terraform Init
+        id: init
+        run: |
+          cd terraform-infra
+          terraform fmt
+          terraform init \
+           -backend-config="bucket=$AWS_S3_BUCKET_FOR_TF_STATE" \
+           -backend-config="key=infra/$TF_VAR_region/terraform.tfstate" \
+           -backend-config="region=us-west-2" \
+           -reconfigure
 
-  #     - name: Terraform Destroy
-  #       id: destroy
-  #       if: github.ref == 'refs/heads/main'
-  #       run: |
-  #         cd terraform-infra
-  #         terraform destroy -auto-approve -input=false
+      - name: Terraform Destroy
+        id: destroy
+        if: github.ref == 'refs/heads/main'
+        run: |
+          cd terraform-infra
+          terraform destroy -auto-approve -input=false
 
   terraform_for_amplify:
     runs-on: ubuntu-latest
@@ -61,7 +61,7 @@ jobs:
       - name: Terraform Init
         id: init
         run: |
-          cd terraform-infra
+          cd terraform-amplify
           terraform fmt
           terraform init \
            -backend-config="bucket=$AWS_S3_BUCKET_FOR_TF_STATE" \
