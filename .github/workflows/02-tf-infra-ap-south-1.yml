@@ -7,11 +7,10 @@ env:
   TF_VAR_project_name: ${{ secrets.IVS_PROJECT_NAME }}
   TF_VAR_account_id: ${{ secrets.AWS_ACCOUNT_ID }}
   TF_LOG: INFO
-  # GH_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+  GH_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
   AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
   AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
   AWS_S3_BUCKET_FOR_TF_STATE: ${{ secrets.AWS_S3_BUCKET_FOR_TF_STATE }}
-  # AWS_AMPLIFY_APP_ID: ${{vars.AMPLIFY_APP_ID}}
   tmpJson: $(mktemp)
   envVarsPath: ./src/assets/envVars.json
 
@@ -96,5 +95,5 @@ jobs:
       - name: Git Push
         uses: ad-m/github-push-action@v0.8.0
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: $GH_TOKEN
           force: true
