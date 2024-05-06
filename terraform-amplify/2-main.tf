@@ -9,12 +9,6 @@ resource "aws_amplify_app" "app" {
   # The default build_spec added by the Amplify Console for React.
   build_spec = <<-EOT
     version: 0.1
-    # backend:
-    #   phases:
-    #     build:
-    #       commands:
-    #         - '# Execute Amplify CLI with the helper script'
-    #         - amplifyPush --simple
     frontend:
       phases:
         build:
@@ -38,9 +32,9 @@ resource "aws_amplify_app" "app" {
     target = "/index.html"
   }
 
-  environment_variables = {
-    VITE_ACCOUNT_ID : var.account_id,
-  }
+  # environment_variables = {
+  #   VITE_ACCOUNT_ID : var.account_id,
+  # }
 
   enable_auto_branch_creation = true
 
@@ -64,12 +58,12 @@ resource "aws_amplify_branch" "branch" {
   enable_auto_build = true
 }
 
-resource "aws_amplify_backend_environment" "backend_environment" {
-  app_id           = aws_amplify_app.app.id
-  environment_name = "ivsbackend"
-  # deployment_artifacts = "${var.project_name}-tfstate"
-  # stack_name = "${var.project_name}-web-stack"
-}
+# resource "aws_amplify_backend_environment" "backend_environment" {
+#   app_id           = aws_amplify_app.app.id
+#   environment_name = "ivsbackend"
+#   # deployment_artifacts = "${var.project_name}-tfstate"
+#   # stack_name = "${var.project_name}-web-stack"
+# }
 
 resource "aws_amplify_domain_association" "domain_association" {
   app_id                = aws_amplify_app.app.id

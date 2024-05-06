@@ -1,6 +1,6 @@
-variable "account_id" {
-  type = string
-}
+# variable "account_id" {
+#   type = string
+# }
 
 variable "region" {
   type = string
@@ -19,7 +19,6 @@ variable "environment" {
 variable "repository" {
   type        = string
   description = "Web Application Repo"
-  # default     = "https://github.com/sathia-s/aws-ivs-inspector"
 }
 
 variable "token" {
