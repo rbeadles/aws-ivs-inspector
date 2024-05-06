@@ -5,7 +5,6 @@ resource "aws_amplify_app" "app" {
   access_token             = var.token
   # enable_branch_auto_build = true
 
-
   # The default build_spec added by the Amplify Console for React.
   build_spec = <<-EOT
     version: 0.1
