@@ -4,7 +4,7 @@
 
 ## Installation
 
-1.) You'll need an AWS account and the IAM user permissions with `AdministratorAccess` policy required
+1.) AWS Account & Permissions: You'll need an AWS account and the IAM user permissions with `AdministratorAccess` policy required
 
 #### Please note, since various service getting deployed, the AdministratorAccess would make it easy, however, we recommend to delete or disable the user or remove the policy from the user upon deployment complete. You would only require access for deployment.
 
@@ -12,7 +12,16 @@
 
 2.) Create an S3 bucket in your AWS account to store the Terraform generated tfstate file and the bucket name in GitHub secrets.
 
-3.) Manually set the GitHub Actions Secrets:
+3.) GitHub Permissions: Generate the GitHub personal token under user profile https://github.com/settings/tokens
+![alt text](https://github.com/sathia-s/aws-ivs-inspector/blob/main/prequisites/01-PersonalAccessToken-using-Classic.png?raw=true)
+
+Assign the following permission and save.
+![alt text](https://github.com/sathia-s/aws-ivs-inspector/blob/main/prequisites/02-AddFollowingPermissions.png?raw=true)
+
+4.) Repository Workflow Permission:
+![alt text](https://github.com/sathia-s/aws-ivs-inspector/blob/main/prequisites/05-ProvideWorkflowPermissions.png?raw=true)
+
+5.) Manually set the GitHub Actions Secrets:
 `AWS_ACCESS_KEY_ID`
 `AWS_ACCOUNT_ID`
 `AWS_S3_BUCKET_FOR_TF_STATE`
@@ -20,11 +29,14 @@
 `GH_PERSONAL_ACCESS_TOKEN`
 `IVS_PROJECT_NAME`
 
-4.) If you're hosting the Web Application using Amplify to a desire region, you may update the value of `TF_VAR_region` in the workflow file `01-tf-amplify.yml` at the `line #6`.
+![alt text](https://github.com/sathia-s/aws-ivs-inspector/blob/main/prequisites/03-AddNewEnvironment.png?raw=true)
+![alt text](https://github.com/sathia-s/aws-ivs-inspector/blob/main/prequisites/04-AddSecerts.png?raw=true)
 
-5.) If you're deploying infrastructure to another or additional region to inspect the IVS Channel resources, you may update the value of `TF_VAR_region` in the workflow file `02-tf-infra.yml` at the `line #6` for each run/region.
+6.) If you're hosting the Web Application using Amplify to a desire region, you may update the value of `TF_VAR_region` in the workflow file `01-tf-amplify.yml` at the `line #6`.
 
-6.) Workflow `01-tf-amplify.yml` will automatically save the GitHub Actions Variable `AMPLIFY_APP_ID` which reused by another workflow `03-awscli-web.yml` for application deployment from GitHub using GitHub's `Personal Access Token`.
+7.) If you're deploying infrastructure to another or additional region to inspect the IVS Channel resources, you may update the value of `TF_VAR_region` in the workflow file `02-tf-infra.yml` at the `line #6` for each run/region.
+
+8.) Workflow `01-tf-amplify.yml` will automatically save the GitHub Actions Variable `AMPLIFY_APP_ID` which reused by another workflow `03-awscli-web.yml` for application deployment from GitHub using GitHub's `Personal Access Token`.
 
 ## Renaming Project Name
 
