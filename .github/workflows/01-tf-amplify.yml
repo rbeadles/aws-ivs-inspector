@@ -48,8 +48,8 @@ jobs:
 
       - name: Terraform Plan
         id: plan
-        env:
-          TF_VAR_repository: ${{ github.server_url }}/${{ github.repository }}
+        # env:
+        #   TF_VAR_repository: ${{ github.server_url }}/${{ github.repository }}
         run: |
           cd terraform-amplify
           terraform plan -no-color -input=false
