@@ -76,8 +76,7 @@ jobs:
       - name: Checkout the repository to the runner
         uses: actions/checkout@v4
 
-      - name: "add to env"
-        shell: bash
+      - name: "add to github env variable"
         run: |
           echo "app_id:: ${{needs.terraform_for_amplify.outputs.amplify_app_id}}"
           gh variable set amplify_app_id --body "${{needs.terraform_for_amplify.outputs.amplify_app_id}}" --env terraform_admin
