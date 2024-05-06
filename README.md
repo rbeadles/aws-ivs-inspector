@@ -38,11 +38,14 @@ Assign the following permission and save.
 
 ![alt text](https://github.com/sathia-s/aws-ivs-inspector/blob/main/prequisites/04-AddSecerts.png?raw=true)
 
-7.) If you're hosting the Web Application using Amplify to a desired region, you may update the value of `TF_VAR_region` in the workflow file `01-tf-amplify.yml` at `line #6`.
+7.) Click the RunWorkflow for each, that is #01, #02, #03
+![alt text](https://github.com/sathia-s/aws-ivs-inspector/blob/main/prequisites/06-ClickTheRunWorkflowForEach.png?raw=true)
 
-8.) If you're deploying infrastructure to another or additional region to inspect the IVS Channel resources, you may update the value of `TF_VAR_region` in the workflow file `02-tf-infra.yml` at the `line #6` for each run/region.
+8.) If you're hosting the Web Application using Amplify to a desired region, you may update the value of `TF_VAR_region` in the workflow file `01-tf-amplify.yml` at `line #6`.
 
-9.) Workflow `01-tf-amplify.yml` will automatically save the GitHub Actions Variable `AMPLIFY_APP_ID`, which is reused by another workflow `03-awscli-web.yml` for application deployment from GitHub using GitHub's `Personal Access Token`.
+9.) If you're deploying infrastructure to another or additional region to inspect the IVS Channel resources, you may update the value of `TF_VAR_region` in the workflow file `02-tf-infra.yml` at the `line #6` for each run/region.
+
+10.) Workflow `01-tf-amplify.yml` will automatically save the GitHub Actions Variable `AMPLIFY_APP_ID`, which is reused by another workflow `03-awscli-web.yml` for application deployment from GitHub using GitHub's `Personal Access Token`.
 
 ## Renaming Project Name
 
