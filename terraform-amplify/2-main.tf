@@ -46,13 +46,13 @@ resource "aws_amplify_app" "app" {
   # }
 }
 
-# resource "aws_amplify_branch" "branch" {
-#   app_id            = aws_amplify_app.app.id
-#   branch_name       = var.branch_name
-#   framework         = "Vue"
-#   stage             = "PRODUCTION"
-#   enable_auto_build = true
-# }
+resource "aws_amplify_branch" "branch" {
+  app_id            = aws_amplify_app.app.id
+  branch_name       = var.branch_name
+  framework         = "Vue"
+  stage             = "PRODUCTION"
+  # enable_auto_build = true
+}
 
 # resource "aws_amplify_domain_association" "domain_association" {
 #   app_id                = aws_amplify_app.app.id
