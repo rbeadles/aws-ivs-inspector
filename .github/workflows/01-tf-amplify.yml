@@ -8,12 +8,10 @@ env:
   TF_VAR_repository: ${{ github.server_url }}/${{ github.repository }}
   TF_VAR_token: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
   TF_LOG: INFO
-  # TF_VAR_account_id: ${{ secrets.AWS_ACCOUNT_ID }}
   AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
   AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
   AWS_S3_BUCKET_FOR_TF_STATE: ${{ secrets.AWS_S3_BUCKET_FOR_TF_STATE }}
-  GH_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
-  # AWS_AMPLIFY_APP_ID: ${{vars.AMPLIFY_APP_ID}}
+  # GH_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
   tmpJson: $(mktemp)
   envVarsPath: ./src/assets/envVars.json
 jobs:
@@ -48,8 +46,6 @@ jobs:
 
       - name: Terraform Plan
         id: plan
-        # env:
-        #   TF_VAR_repository: ${{ github.server_url }}/${{ github.repository }}
         run: |
           cd terraform-amplify
           terraform plan -no-color -input=false
@@ -57,8 +53,6 @@ jobs:
 
       - name: Terraform Apply
         id: apply
-        # env:
-        #   TF_VAR_repository: ${{ github.server_url }}/${{ github.repository }}
         if: github.ref == 'refs/heads/main'
         run: |
           cd terraform-amplify
@@ -85,8 +79,6 @@ jobs:
 
       - name: "add to env"
         shell: bash
-        # env:
-        #   GH_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         run: |
           echo "app_id:: ${{needs.terraform_for_amplify.outputs.amplify_app_id}}"
           gh variable set amplify_app_id --body "${{needs.terraform_for_amplify.outputs.amplify_app_id}}" --env terraform_admin
