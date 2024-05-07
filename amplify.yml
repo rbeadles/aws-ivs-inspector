@@ -3,14 +3,16 @@ frontend:
   phases:
     preBuild:
       commands:
+        - cd web-application
+        - pwd
         - npm i
     build:
       commands:
         - npm run build
   artifacts:
-    baseDirectory: dist/spa
+    baseDirectory: ./web-application/dist/spa
     files:
-      - '**/*'
+      - "**/*"
   cache:
     paths:
       - node_modules/**/*

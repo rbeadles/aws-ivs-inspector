@@ -1,9 +1,11 @@
 variable "account_id" {
-  type = string
+  type    = string
+  default = null
 }
 
 variable "region" {
-  type = string
+  type    = string
+  default = null
 }
 
 variable "project_name" {
