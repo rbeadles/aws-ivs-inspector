@@ -25,6 +25,10 @@ module.exports = configure(function (/* ctx */) {
         node: "node20",
       },
 
+      rollupOptions: {
+        plugins: [dynamicImportVars()],
+      },
+
       vueRouterMode: "hash", // available values: 'hash', 'history'
     },
 
