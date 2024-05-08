@@ -98,7 +98,7 @@ import { useRoute, useRouter } from "vue-router";
 import { useAccountStore } from "src/stores/store-account";
 import { useCommonStore } from "src/stores/store-common";
 import Navigation from "src/components/HomeComponents/Navigation.vue";
-import envVars from "src/assets/envVars.json";
+import envVars from "src/config/env.json";
 
 export default defineComponent({
   name: "MainLayout",
