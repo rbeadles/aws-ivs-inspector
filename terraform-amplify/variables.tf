@@ -1,6 +1,10 @@
 variable "region" {
+<<<<<<< HEAD
   type    = string
   default = null
+=======
+  type = string
+>>>>>>> refs/remotes/origin/dev
 }
 
 variable "project_name" {
@@ -16,13 +20,19 @@ variable "environment" {
 variable "repository" {
   type        = string
   description = "Web Application Repo"
+<<<<<<< HEAD
   default     = "https://github.com/sathia-s/aws-ivs-inspector-web-public"
+=======
+>>>>>>> refs/remotes/origin/dev
 }
 
 variable "token" {
   type        = string
   description = "github token to connect github repo"
+<<<<<<< HEAD
   default     = null
+=======
+>>>>>>> refs/remotes/origin/dev
   sensitive   = true
 }
 

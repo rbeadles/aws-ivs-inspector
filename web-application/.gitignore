@@ -1,4 +1,5 @@
 **/.DS_Store
+<<<<<<<< HEAD:web-application/.gitignore
 .thumbs.db
 node_modules
 terraform-amplify
@@ -33,3 +34,6 @@ yarn-error.log*
 
 # local .env files
 .env.local*
+========
+.thumbs.db
+>>>>>>>> refs/remotes/origin/dev:.gitignore
