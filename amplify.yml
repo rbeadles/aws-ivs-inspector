@@ -1,16 +1,28 @@
-version: 0.1
+version: 1
 frontend:
   phases:
     preBuild:
       commands:
-        - npm i
+        - echo Entered the pre-build phase...
+        - pwd
+        - cd web-application
+        - pwd
+        - npm install
+
     build:
       commands:
+        - echo "🛠️ Setting up your environmental variables..."
+        - echo "VITE_REGION=$REGION" >> .env
+        - echo "VITE_IDENTITY_POOL_ID=$IDENTITY_POOL_ID" >> .env
+        - echo "VITE_USER_POOL_ID=$USER_POOL_ID" >> .env
+        - echo "VITE_APP_CLIENT_ID=$APP_CLIENT_ID" >> .env
+        - echo "Printing environmental variables to the console to ensure they are correct"
+        - cat .env
         - npm run build
+        - echo "✅ Success!"
   artifacts:
-    baseDirectory: dist/spa
+    baseDirectory: ./web-application/dist/spa
     files:
-      - '**/*'
+      - "**/*"
   cache:
     paths:
-      - node_modules/**/*
