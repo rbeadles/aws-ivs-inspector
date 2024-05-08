@@ -11,7 +11,7 @@ env:
   AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
   AWS_S3_BUCKET_FOR_TF_STATE: ${{ secrets.AWS_S3_BUCKET_FOR_TF_STATE }}
   tmpJson: $(mktemp)
-  envPath: .web-application/.env
+  envPath: ./web-application/.env
 
 jobs:
   terraform_for_infra:
