@@ -42,7 +42,6 @@ Assign the following permission and save.
 
 ![alt text](https://github.com/sathia-s/aws-ivs-inspector/blob/main/prequisites/06-ClickTheRunWorkflowForEach.png?raw=true)
 
-<<<<<<< HEAD:web-application/README.md
 01:AWS Amplify App (source: 01-tf-amplify.yml)
 
 > #### Note: If you're hosting the Web Application using Amplify to a desired region, you may update the value of `TF_VAR_region` in the workflow file `01-tf-amplify.yml` at `line #6`.
@@ -51,28 +50,9 @@ Assign the following permission and save.
 
 > #### Note: If you're deploying infrastructure to another or additional region to inspect the IVS Channel resources, you may update the value of `TF_VAR_region` in the workflow file `02-tf-infra.yml` at the `line #6` for each run/region.
 
-> 03:AWS IVS Inspector web-app (source: 03-awscli-web.yml)
+03:AWS IVS Inspector web-app (source: 03-awscli-web.yml)
 
 > #### Note: Workflow `01-tf-amplify.yml` will automatically save the GitHub Actions Variable `AMPLIFY_APP_ID`, which is reused by another workflow `03-awscli-web.yml` for application deployment from GitHub using GitHub's `Personal Access Token`. Hence no action required adding the `AMPLIFY_APP_ID` in the environment variables.
-=======
-> 01:AWS Amplify App (source: 01-tf-amplify.yml)
-
-#### Note: If you're hosting the Web Application using Amplify to a desired region, you may update the value of `TF_VAR_region` in the workflow file `01-tf-amplify.yml` at `line #6`.
-
-> 02:AWS Infra ap-south-1 (source: 02-tf-infra.yml)
-
-#### Note: If you're deploying infrastructure to another or additional region to inspect the IVS Channel resources, you may update the value of `TF_VAR_region` in the workflow file `02-tf-infra.yml` at the `line #6` for each run/region.
-
-> 03:AWS IVS Inspector web-app (source: 03-awscli-web.yml)
-
-#### Note: Workflow `01-tf-amplify.yml` will automatically save the GitHub Actions Variable `AMPLIFY_APP_ID`, which is reused by another workflow `03-awscli-web.yml` for application deployment from GitHub using GitHub's `Personal Access Token`. Hence no action required adding the `AMPLIFY_APP_ID` in the environment variables.
->>>>>>> refs/remotes/origin/dev:README.md
-
-<!-- 8.) If you're hosting the Web Application using Amplify to a desired region, you may update the value of `TF_VAR_region` in the workflow file `01-tf-amplify.yml` at `line #6`. -->
-
-<!-- 9.) If you're deploying infrastructure to another or additional region to inspect the IVS Channel resources, you may update the value of `TF_VAR_region` in the workflow file `02-tf-infra.yml` at the `line #6` for each run/region. -->
-
-<!-- 10.) Workflow `01-tf-amplify.yml` will automatically save the GitHub Actions Variable `AMPLIFY_APP_ID`, which is reused by another workflow `03-awscli-web.yml` for application deployment from GitHub using GitHub's `Personal Access Token`. -->
 
 ## Renaming Project Name
 
@@ -80,7 +60,7 @@ The default project name, `ivs-inspector,` inherits from the repository/project.
 
 ### Web Application Access
 
-Upon successful run of all three workflows 01, 02, 03,
+Upon successful run of all three workflows
 
 1. navigate to AWS Console,
 2. switch to the region where the web application deployed,
@@ -92,6 +72,4 @@ Upon successful run of all three workflows 01, 02, 03,
 
 :TODO: Question to the IVS team,
 
-1. should we consider duplicating the #02 workflow for multiple region deployment or advise the customers to rename the region from the existing file. Please refer to #5 in the installation.
-
-2. Should I decouple by moving the web application to a separate branch (say ivs) and keeping the Terraform folders and GitHub workflows in the main branch to avoid clutter and the branches specific to the behaviour?
+1. should we consider duplicating the #02 workflow for multiple region deployment or advise the customers to rename the region from the existing file (02-tf-infra.yml). Please refer to `#7 > #02 > Note` in the installation.

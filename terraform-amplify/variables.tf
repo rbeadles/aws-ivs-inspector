@@ -134,7 +134,7 @@ variable "string_schemas" {
     }
     },
     {
-      name                     = "given_name"
+      name                     = "first_name"
       attribute_data_type      = "String"
       required                 = true
       mutable                  = true
@@ -146,7 +146,7 @@ variable "string_schemas" {
       }
     },
     {
-      name                     = "family_name"
+      name                     = "last_name"
       attribute_data_type      = "String"
       required                 = true
       mutable                  = true
@@ -184,23 +184,51 @@ variable "cognito_groups" {
     name        = string,
     description = optional(string, ""),
   }))
-  description = "Collection of Amazon Cognito User Pool Groups you wish to create."
-  default     = {}
+  description = "Collection of AWS IVS User Pool Groups you wish to create."
+  default = {
+    Admin : {
+      name        = "Admin"
+      description = "Admin users"
+    },
+    Streamers : {
+      name        = "Streamers"
+      description = "IVS Streamers"
+    },
+  }
 
 }
 # Users
 variable "cognito_users" {
   type = map(object({
     username         = string,
-    given_name       = string,
-    family_name      = string,
+    first_name       = string,
+    last_name        = string,
     email            = string,
     email_verified   = optional(bool, true),
     group_membership = optional(list(string), ["admin"])
 
   }))
-  description = "Collection of Amazon Cognito Users you wish to creat."
-  default     = {}
+  description = "Collection of Amazon Cognito Users you wish to create"
+  default = {
+    Keira : {
+      username         = "keira"
+      first_name       = "Keira"
+      last_name        = "Sathia"
+      email            = "keira@gmail.com"
+      email_verified   = true
+      group_membership = ["Admin", "Streamers"]
+    },
+
+    # Streamers to create
+    Aurora : {
+      username         = "aurora"
+      first_name       = "Aurora"
+      last_name        = "Sathia"
+      email            = "aurora@gmail.com"
+      email_verified   = true
+      group_membership = ["Streamers"]
+    }
+  }
 }
 
 # IAM

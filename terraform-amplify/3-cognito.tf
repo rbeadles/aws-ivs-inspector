@@ -12,7 +12,7 @@ resource "aws_cognito_user_pool" "user_pool" {
   auto_verified_attributes = ["email"] // disable this if you set email_verification_message and subject
 
   admin_create_user_config {
-    allow_admin_create_user_only = true
+    allow_admin_create_user_only = false
     invite_message_template {
       email_message = var.invite_email_message
       email_subject = var.invite_email_subject
@@ -144,26 +144,18 @@ resource "aws_cognito_identity_pool_roles_attachment" "identity_pool_auth_roles_
   }
 }
 
-resource "aws_cognito_user" "name" {
-  username     = "test"
-  user_pool_id = aws_cognito_user_pool.user_pool.id
-
-}
-
-
 # - COGNITO USERS -
 # Users
 resource "aws_cognito_user" "cognito_users" {
-  for_each = var.cognito_users != null ? var.cognito_users : {}
-  # for_each     = var.cognito_users == null ? {} : var.cognito_users
+  for_each     = var.cognito_users != null ? var.cognito_users : {}
   user_pool_id = aws_cognito_user_pool.user_pool.id
 
   # username = each.value.email
   username = each.value.username
   attributes = {
     email          = each.value.email
-    given_name     = each.value.given_name
-    family_name    = each.value.family_name
+    first_name     = each.value.first_name
+    last_name      = each.value.last_name
     IAC_PROVIDER   = "Terraform"
     email_verified = true
   }
