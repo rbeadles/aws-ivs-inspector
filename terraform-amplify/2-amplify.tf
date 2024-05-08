@@ -17,20 +17,10 @@ resource "aws_amplify_app" "app" {
   # }
 
   environment_variables = {
-<<<<<<< HEAD
     REGION           = var.region
     USER_POOL_ID     = "${aws_cognito_user_pool.user_pool.id}"
     IDENTITY_POOL_ID = "${aws_cognito_identity_pool.identity_pool.id}"
     APP_CLIENT_ID    = "${aws_cognito_user_pool_client.user_pool_client.id}"
-=======
-    REGION           = "${data.aws_region.current.id}"
-    USER_POOL_ID     = "${aws_cognito_user_pool.user_pool.id}"
-    IDENTITY_POOL_ID = "${aws_cognito_identity_pool.identity_pool.id}"
-    APP_CLIENT_ID    = "${aws_cognito_user_pool_client.user_pool_client.id}"
-    # GRAPHQL_ENDPOINT    = "${aws_appsync_graphql_api.appsync_graphql_api.uris.GRAPHQL}"
-    # GRAPHQL_API_ID      = "${aws_appsync_graphql_api.appsync_graphql_api.id}"
-    LANDING_BUCKET_NAME = "${aws_s3_bucket.landing_bucket.id}"
->>>>>>> refs/remotes/origin/dev
   }
 
   # The default rewrites and redirects added by the Amplify Console.
@@ -39,15 +29,12 @@ resource "aws_amplify_app" "app" {
     status = "404"
     target = "/index.html"
   }
-<<<<<<< HEAD
 
   depends_on = [
     aws_cognito_user_pool.user_pool,
     aws_cognito_identity_pool.identity_pool,
     aws_cognito_user_pool_client.user_pool_client
   ]
-=======
->>>>>>> refs/remotes/origin/dev
 }
 
 resource "aws_amplify_branch" "branch" {

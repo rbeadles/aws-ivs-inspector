@@ -105,21 +105,6 @@ data "aws_iam_policy_document" "cognito_standard_group_trust_relationship" {
   }
 }
 
-<<<<<<< HEAD
-=======
-
-# Eventbridge Trust Relationship
-data "aws_iam_policy_document" "eventbridge_trust_relationship" {
-  statement {
-    actions = ["sts:AssumeRole"]
-    principals {
-      type        = "Service"
-      identifiers = ["events.amazonaws.com"]
-    }
-  }
-}
-
->>>>>>> refs/remotes/origin/dev
 # Amplify Trust Relationship
 data "aws_iam_policy_document" "amplify_trust_relationship" {
   statement {
@@ -144,13 +129,6 @@ resource "aws_iam_role" "cognito_authrole_restricted_access" {
   assume_role_policy = data.aws_iam_policy_document.cognito_authrole_trust_relationship.json
   managed_policy_arns = [
     "arn:aws:iam::aws:policy/CloudWatchLogsFullAccess",
-<<<<<<< HEAD
-    # aws_iam_policy.s3_restricted_access_policy[0].arn,
-    # aws_iam_policy.ssm_restricted_access_policy[0].arn
-=======
-    aws_iam_policy.s3_restricted_access_policy[0].arn,
-    aws_iam_policy.ssm_restricted_access_policy[0].arn
->>>>>>> refs/remotes/origin/dev
   ]
 
   force_detach_policies = true
@@ -195,13 +173,6 @@ resource "aws_iam_role" "cognito_admin_group_restricted_access" {
   description        = "Role granting full DynamoDB permissions for the outputs DynamoDB table."
   managed_policy_arns = [
     "arn:aws:iam::aws:policy/CloudWatchLogsFullAccess",
-<<<<<<< HEAD
-    # aws_iam_policy.s3_restricted_access_policy[0].arn,
-    # aws_iam_policy.dynamodb_restricted_access_policy[0].arn
-=======
-    aws_iam_policy.s3_restricted_access_policy[0].arn,
-    aws_iam_policy.dynamodb_restricted_access_policy[0].arn
->>>>>>> refs/remotes/origin/dev
   ]
 
   force_detach_policies = true
@@ -224,13 +195,6 @@ resource "aws_iam_role" "cognito_standard_group_restricted_access" {
   description        = "Role granting restricted (read-only) DynamoDB permissions for the outputs DynamoDB table."
   managed_policy_arns = [
     "arn:aws:iam::aws:policy/CloudWatchLogsFullAccess",
-<<<<<<< HEAD
-    # "arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess",
-    # aws_iam_policy.dynamodb_restricted_access_read_only_policy[0].arn
-=======
-    "arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess",
-    aws_iam_policy.dynamodb_restricted_access_read_only_policy[0].arn
->>>>>>> refs/remotes/origin/dev
   ]
 
   force_detach_policies = true

@@ -11,13 +11,6 @@ resource "aws_cognito_user_pool" "user_pool" {
   alias_attributes         = ["email"] // alows users to sign-in with either username or email address
   auto_verified_attributes = ["email"] // disable this if you set email_verification_message and subject
 
-<<<<<<< HEAD
-=======
-  // enable these if auto_verified_attributes is not present
-  # email_verification_message = var.email_verification_message
-  # email_verification_subject = var.email_verification_subject
-
->>>>>>> refs/remotes/origin/dev
   admin_create_user_config {
     allow_admin_create_user_only = true
     invite_message_template {
@@ -89,27 +82,18 @@ resource "aws_cognito_user_pool" "user_pool" {
     }
   }
 
-
-<<<<<<< HEAD
-  tags = merge({ "AppName" = var.project_name }, var.tags)
-=======
   tags = merge(
     {
       "AppName" = var.project_name
     },
     var.tags,
   )
->>>>>>> refs/remotes/origin/dev
 }
 
 # Cognito User Pool Client
 resource "aws_cognito_user_pool_client" "user_pool_client" {
-  name         = var.user_pool_client_name
-  user_pool_id = aws_cognito_user_pool.user_pool.id
-  # callback_urls                        = ["https://example.com"]
-  # allowed_oauth_flows_user_pool_client = true
-  # allowed_oauth_flows                  = ["code", "implicit"]
-  # allowed_oauth_scopes         = ["email", "openid"]
+  name                         = var.user_pool_client_name
+  user_pool_id                 = aws_cognito_user_pool.user_pool.id
   supported_identity_providers = ["COGNITO"]
 }
 
@@ -121,12 +105,7 @@ resource "aws_cognito_identity_pool" "identity_pool" {
   allow_classic_flow               = var.identity_pool_allow_classic_flow
 
   cognito_identity_providers {
-<<<<<<< HEAD
     client_id               = aws_cognito_user_pool_client.user_pool_client.id
-=======
-    client_id = aws_cognito_user_pool_client.user_pool_client.id
-    # provider_name           = "cognito-idp.${var.aws_region}.amazonaws.com/${aws_cognito_user_pool.user_pool.id}"
->>>>>>> refs/remotes/origin/dev
     provider_name           = "cognito-idp.${data.aws_region.current.name}.amazonaws.com/${aws_cognito_user_pool.user_pool.id}"
     server_side_token_check = false
   }
@@ -137,22 +116,10 @@ resource "aws_cognito_identity_pool_roles_attachment" "identity_pool_auth_roles_
   identity_pool_id = aws_cognito_identity_pool.identity_pool.id
 
   role_mapping {
-<<<<<<< HEAD
     identity_provider         = "cognito-idp.${data.aws_region.current.id}.amazonaws.com/${aws_cognito_user_pool.user_pool.id}:${aws_cognito_user_pool_client.user_pool_client.id}"
     ambiguous_role_resolution = "Deny"
     type                      = "Rules"
 
-=======
-    identity_provider = "cognito-idp.${data.aws_region.current.id}.amazonaws.com/${aws_cognito_user_pool.user_pool.id}:${aws_cognito_user_pool_client.user_pool_client.id}"
-    # ambiguous_role_resolution = "AuthenticatedRole"
-    ambiguous_role_resolution = "Deny" // must be either "AuthenticatedRole" or "Deny" (case-sensitive)
-    # type                      = "Token"
-    type = "Rules" // either "Token" or "Rules" (case-sensitive)
-
-    # More info on Fine-Grained access Control with Cognito Identity Pools:
-    # https://www.youtube.com/watch?v=tAUmz94O2Qo
-    # https://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_MappingRule.html
->>>>>>> refs/remotes/origin/dev
     mapping_rule {
       claim = "cognito:groups" // claim that is in token for cognito users in groups
       # Set this to "Contains" if users will potentially be in more than one group
@@ -177,19 +144,11 @@ resource "aws_cognito_identity_pool_roles_attachment" "identity_pool_auth_roles_
   }
 }
 
-<<<<<<< HEAD
 resource "aws_cognito_user" "name" {
   username     = "test"
   user_pool_id = aws_cognito_user_pool.user_pool.id
 
 }
-=======
-# resource "aws_cognito_user" "name" {
-#   username     = "test"
-#   user_pool_id = aws_cognito_user_pool.user_pool.id
-
-# }
->>>>>>> refs/remotes/origin/dev
 
 
 # - COGNITO USERS -
