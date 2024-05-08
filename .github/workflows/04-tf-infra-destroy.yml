@@ -1,4 +1,4 @@
-name: 04:AWS Infra and Amplify Destroy
+name: 04:AWS Infra & Amplify destroy
 
 on: workflow_dispatch
 

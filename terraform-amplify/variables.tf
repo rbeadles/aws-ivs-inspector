@@ -134,7 +134,7 @@ variable "string_schemas" {
     }
     },
     {
-      name                     = "first_name"
+      name                     = "given_name"
       attribute_data_type      = "String"
       required                 = true
       mutable                  = true
@@ -146,7 +146,7 @@ variable "string_schemas" {
       }
     },
     {
-      name                     = "last_name"
+      name                     = "family_name"
       attribute_data_type      = "String"
       required                 = true
       mutable                  = true
@@ -201,8 +201,8 @@ variable "cognito_groups" {
 variable "cognito_users" {
   type = map(object({
     username         = string,
-    first_name       = string,
-    last_name        = string,
+    given_name       = string,
+    family_name      = string,
     email            = string,
     email_verified   = optional(bool, true),
     group_membership = optional(list(string), ["admin"])
@@ -212,8 +212,8 @@ variable "cognito_users" {
   default = {
     Keira : {
       username         = "keira"
-      first_name       = "Keira"
-      last_name        = "Sathia"
+      given_name       = "Keira"
+      family_name      = "Sathia"
       email            = "keira@gmail.com"
       email_verified   = true
       group_membership = ["Admin", "Streamers"]
@@ -222,8 +222,8 @@ variable "cognito_users" {
     # Streamers to create
     Aurora : {
       username         = "aurora"
-      first_name       = "Aurora"
-      last_name        = "Sathia"
+      given_name       = "Aurora"
+      family_name      = "Sathia"
       email            = "aurora@gmail.com"
       email_verified   = true
       group_membership = ["Streamers"]

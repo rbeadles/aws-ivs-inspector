@@ -27,10 +27,10 @@ export default defineComponent({
   setup() {
     const formFields = {
       signUp: {
-        first_name: {
+        given_name: {
           order: 1,
         },
-        last_name: {
+        family_name: {
           order: 2,
         },
         email: {
