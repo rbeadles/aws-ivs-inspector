@@ -30,11 +30,11 @@ resource "aws_amplify_app" "app" {
     target = "/index.html"
   }
 
-  depends_on = [
-    aws_cognito_user_pool.user_pool,
-    aws_cognito_identity_pool.identity_pool,
-    aws_cognito_user_pool_client.user_pool_client
-  ]
+  # depends_on = [
+  #   aws_cognito_user_pool.user_pool,
+  #   aws_cognito_identity_pool.identity_pool,
+  #   aws_cognito_user_pool_client.user_pool_client
+  # ]
 }
 
 resource "aws_amplify_branch" "branch" {
