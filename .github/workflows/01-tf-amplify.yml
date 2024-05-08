@@ -52,14 +52,12 @@ jobs:
 
       - name: Terraform Apply
         id: apply
-        if: github.ref == 'refs/heads/dev'
         run: |
           cd terraform-amplify
           terraform apply -auto-approve -input=false
 
       - name: Terraform Output
         id: output
-        if: github.ref == 'refs/heads/dev'
         run: |
           cd terraform-amplify
           echo "amplify_app_id=$(terraform output -raw amplify_app_id)" >> $GITHUB_OUTPUT
