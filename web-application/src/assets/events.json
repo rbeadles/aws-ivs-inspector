@@ -1,0 +1,2702 @@
+[
+  {
+    "id": 1706325326,
+    "eventTime": "2024-01-27 03:15:26+00:00",
+    "avgBitrate": 2708673.5568849784,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2708673.5568849784,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2708673.5568849784
+  },
+  {
+    "id": 1706325327,
+    "eventTime": "2024-01-27 03:15:27+00:00",
+    "avgBitrate": 2528240.399402894,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2528240.399402894,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2528240.399402894
+  },
+  {
+    "id": 1706325331,
+    "eventTime": "2024-01-27 03:15:31+00:00",
+    "avgBitrate": 2054224.884401895,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2054224.884401895,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2054224.884401895
+  },
+  {
+    "id": 1706325333,
+    "eventTime": "2024-01-27 03:15:33+00:00",
+    "avgBitrate": 2664562.0556188454,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2664562.0556188454,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2664562.0556188454
+  },
+  {
+    "id": 1706325334,
+    "eventTime": "2024-01-27 03:15:34+00:00",
+    "avgBitrate": 2079948.279960181,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2079948.279960181,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2079948.279960181
+  },
+  {
+    "id": 1706325342,
+    "eventTime": "2024-01-27 03:15:42+00:00",
+    "avgBitrate": 2603336.9511183854,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2603336.9511183854,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2603336.9511183854
+  },
+  {
+    "id": 1706325345,
+    "eventTime": "2024-01-27 03:15:45+00:00",
+    "avgBitrate": 2311990.914,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2311990.914,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2311990.914
+  },
+  {
+    "id": 1706325352,
+    "eventTime": "2024-01-27 03:15:52+00:00",
+    "avgBitrate": 2510730.213017775,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2510730.213017775,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2510730.213017775
+  },
+  {
+    "id": 1706325359,
+    "eventTime": "2024-01-27 03:15:59+00:00",
+    "avgBitrate": 2390576.174581059,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2390576.174581059,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2390576.174581059
+  },
+  {
+    "id": 1706325366,
+    "eventTime": "2024-01-27 03:16:06+00:00",
+    "avgBitrate": 2458013.8054086706,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2458013.8054086706,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2458013.8054086706
+  },
+  {
+    "id": 1706325368,
+    "eventTime": "2024-01-27 03:16:08+00:00",
+    "avgBitrate": 2557387.8095676224,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2557387.8095676224,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2557387.8095676224
+  },
+  {
+    "id": 1706325371,
+    "eventTime": "2024-01-27 03:16:11+00:00",
+    "avgBitrate": 2755386.3171983557,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2755386.3171983557,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2755386.3171983557
+  },
+  {
+    "id": 1706325374,
+    "eventTime": "2024-01-27 03:16:14+00:00",
+    "avgBitrate": 2352407.0952728973,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2352407.0952728973,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2352407.0952728973
+  },
+  {
+    "id": 1706325378,
+    "eventTime": "2024-01-27 03:16:18+00:00",
+    "avgBitrate": 2659207.1549095563,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2659207.1549095563,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2659207.1549095563
+  },
+  {
+    "id": 1706325381,
+    "eventTime": "2024-01-27 03:16:21+00:00",
+    "avgBitrate": 2485071.5878718575,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2485071.5878718575,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2485071.5878718575
+  },
+  {
+    "id": 1706325383,
+    "eventTime": "2024-01-27 03:16:23+00:00",
+    "avgBitrate": 2072325.5787171742,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2072325.5787171742,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2072325.5787171742
+  },
+  {
+    "id": 1706325386,
+    "eventTime": "2024-01-27 03:16:26+00:00",
+    "avgBitrate": 2675812.5336617245,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2675812.5336617245,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2675812.5336617245
+  },
+  {
+    "id": 1706325391,
+    "eventTime": "2024-01-27 03:16:31+00:00",
+    "avgBitrate": 2059260.0492296892,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2059260.0492296892,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2059260.0492296892
+  },
+  {
+    "id": 1706325393,
+    "eventTime": "2024-01-27 03:16:33+00:00",
+    "avgBitrate": 2691253.954190724,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2691253.954190724,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2691253.954190724
+  },
+  {
+    "id": 1706325396,
+    "eventTime": "2024-01-27 03:16:36+00:00",
+    "avgBitrate": 2489049.2454762985,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2489049.2454762985,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2489049.2454762985
+  },
+  {
+    "id": 1706325399,
+    "eventTime": "2024-01-27 03:16:39+00:00",
+    "avgBitrate": 2575431.4425070304,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2575431.4425070304,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2575431.4425070304
+  },
+  {
+    "id": 1706325402,
+    "eventTime": "2024-01-27 03:16:42+00:00",
+    "avgBitrate": 2613401.5909744566,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2613401.5909744566,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2613401.5909744566
+  },
+  {
+    "id": 1706325405,
+    "eventTime": "2024-01-27 03:16:45+00:00",
+    "avgBitrate": 2283720.596,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2283720.596,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2283720.596
+  },
+  {
+    "id": 1706325408,
+    "eventTime": "2024-01-27 03:16:48+00:00",
+    "avgBitrate": 2457790.500615829,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2457790.500615829,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2457790.500615829
+  },
+  {
+    "id": 1706325412,
+    "eventTime": "2024-01-27 03:16:52+00:00",
+    "avgBitrate": 2527584.9983405457,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2527584.9983405457,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2527584.9983405457
+  },
+  {
+    "id": 1706325414,
+    "eventTime": "2024-01-27 03:16:54+00:00",
+    "avgBitrate": 2536867.5115385405,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2536867.5115385405,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2536867.5115385405
+  },
+  {
+    "id": 1706325422,
+    "eventTime": "2024-01-27 03:17:02+00:00",
+    "avgBitrate": 2629364.316566366,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2629364.316566366,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2629364.316566366
+  },
+  {
+    "id": 1706325431,
+    "eventTime": "2024-01-27 03:17:11+00:00",
+    "avgBitrate": 2647651.5009530657,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2647651.5009530657,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2647651.5009530657
+  },
+  {
+    "id": 1706325434,
+    "eventTime": "2024-01-27 03:17:14+00:00",
+    "avgBitrate": 2355752.355055314,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2355752.355055314,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2355752.355055314
+  },
+  {
+    "id": 1706325438,
+    "eventTime": "2024-01-27 03:17:18+00:00",
+    "avgBitrate": 2652011.461518605,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2652011.461518605,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2652011.461518605
+  },
+  {
+    "id": 1706325440,
+    "eventTime": "2024-01-27 03:17:20+00:00",
+    "avgBitrate": 2536422.8345078765,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2536422.8345078765,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2536422.8345078765
+  },
+  {
+    "id": 1706325441,
+    "eventTime": "2024-01-27 03:17:21+00:00",
+    "avgBitrate": 2506179.214833541,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2506179.214833541,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2506179.214833541
+  },
+  {
+    "id": 1706325443,
+    "eventTime": "2024-01-27 03:17:23+00:00",
+    "avgBitrate": 2071579.6083313192,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2071579.6083313192,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2071579.6083313192
+  },
+  {
+    "id": 1706325446,
+    "eventTime": "2024-01-27 03:17:26+00:00",
+    "avgBitrate": 2683064.2005007695,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2683064.2005007695,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2683064.2005007695
+  },
+  {
+    "id": 1706325447,
+    "eventTime": "2024-01-27 03:17:27+00:00",
+    "avgBitrate": 2544681.4121001214,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2544681.4121001214,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2544681.4121001214
+  },
+  {
+    "id": 1706325454,
+    "eventTime": "2024-01-27 03:17:34+00:00",
+    "avgBitrate": 2268804.927638154,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2268804.927638154,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2268804.927638154
+  },
+  {
+    "id": 1706325462,
+    "eventTime": "2024-01-27 03:17:42+00:00",
+    "avgBitrate": 2624993.168722008,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2624993.168722008,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2624993.168722008
+  },
+  {
+    "id": 1706325475,
+    "eventTime": "2024-01-27 03:17:55+00:00",
+    "avgBitrate": 2510213.775232911,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2510213.775232911,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2510213.775232911
+  },
+  {
+    "id": 1706325479,
+    "eventTime": "2024-01-27 03:17:59+00:00",
+    "avgBitrate": 2372132.954130649,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2372132.954130649,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2372132.954130649
+  },
+  {
+    "id": 1706325486,
+    "eventTime": "2024-01-27 03:18:06+00:00",
+    "avgBitrate": 2464649.3236889904,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2464649.3236889904,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2464649.3236889904
+  },
+  {
+    "id": 1706325488,
+    "eventTime": "2024-01-27 03:18:08+00:00",
+    "avgBitrate": 2540145.8036671733,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2540145.8036671733,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2540145.8036671733
+  },
+  {
+    "id": 1706325491,
+    "eventTime": "2024-01-27 03:18:11+00:00",
+    "avgBitrate": 2827723.3433610755,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2827723.3433610755,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2827723.3433610755
+  },
+  {
+    "id": 1706325498,
+    "eventTime": "2024-01-27 03:18:18+00:00",
+    "avgBitrate": 2681186.8164325682,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2681186.8164325682,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2681186.8164325682
+  },
+  {
+    "id": 1706325500,
+    "eventTime": "2024-01-27 03:18:20+00:00",
+    "avgBitrate": 2534044.6227835855,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2534044.6227835855,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2534044.6227835855
+  },
+  {
+    "id": 1706325503,
+    "eventTime": "2024-01-27 03:18:23+00:00",
+    "avgBitrate": 2022904.0443226614,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2022904.0443226614,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2022904.0443226614
+  },
+  {
+    "id": 1706325511,
+    "eventTime": "2024-01-27 03:18:31+00:00",
+    "avgBitrate": 2077630.0808421106,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2077630.0808421106,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2077630.0808421106
+  },
+  {
+    "id": 1706325513,
+    "eventTime": "2024-01-27 03:18:33+00:00",
+    "avgBitrate": 2655543.4708789713,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2655543.4708789713,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2655543.4708789713
+  },
+  {
+    "id": 1706325515,
+    "eventTime": "2024-01-27 03:18:35+00:00",
+    "avgBitrate": 2502172.7362352675,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2502172.7362352675,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2502172.7362352675
+  },
+  {
+    "id": 1706325522,
+    "eventTime": "2024-01-27 03:18:42+00:00",
+    "avgBitrate": 2615321.6637159293,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2615321.6637159293,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2615321.6637159293
+  },
+  {
+    "id": 1706325539,
+    "eventTime": "2024-01-27 03:18:59+00:00",
+    "avgBitrate": 2388894.0451516565,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2388894.0451516565,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2388894.0451516565
+  },
+  {
+    "id": 1706325548,
+    "eventTime": "2024-01-27 03:19:08+00:00",
+    "avgBitrate": 2544759.3948114556,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2544759.3948114556,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2544759.3948114556
+  },
+  {
+    "id": 1706325554,
+    "eventTime": "2024-01-27 03:19:14+00:00",
+    "avgBitrate": 2300776.143234216,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2300776.143234216,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2300776.143234216
+  },
+  {
+    "id": 1706325558,
+    "eventTime": "2024-01-27 03:19:18+00:00",
+    "avgBitrate": 2673078.339,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2673078.339,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2673078.339
+  },
+  {
+    "id": 1706325560,
+    "eventTime": "2024-01-27 03:19:20+00:00",
+    "avgBitrate": 2516552.221191702,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2516552.221191702,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2516552.221191702
+  },
+  {
+    "id": 1706325561,
+    "eventTime": "2024-01-27 03:19:21+00:00",
+    "avgBitrate": 2509052.7531342716,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2509052.7531342716,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2509052.7531342716
+  },
+  {
+    "id": 1706325566,
+    "eventTime": "2024-01-27 03:19:26+00:00",
+    "avgBitrate": 2736933.633695262,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2736933.633695262,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2736933.633695262
+  },
+  {
+    "id": 1706325567,
+    "eventTime": "2024-01-27 03:19:27+00:00",
+    "avgBitrate": 2539873.818103277,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2539873.818103277,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2539873.818103277
+  },
+  {
+    "id": 1706325571,
+    "eventTime": "2024-01-27 03:19:31+00:00",
+    "avgBitrate": 2031947.6045863242,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2031947.6045863242,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2031947.6045863242
+  },
+  {
+    "id": 1706325573,
+    "eventTime": "2024-01-27 03:19:33+00:00",
+    "avgBitrate": 2682747.412148498,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2682747.412148498,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2682747.412148498
+  },
+  {
+    "id": 1706325575,
+    "eventTime": "2024-01-27 03:19:35+00:00",
+    "avgBitrate": 2691864.6547444197,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2691864.6547444197,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2691864.6547444197
+  },
+  {
+    "id": 1706325582,
+    "eventTime": "2024-01-27 03:19:42+00:00",
+    "avgBitrate": 2606396.8813774455,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2606396.8813774455,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2606396.8813774455
+  },
+  {
+    "id": 1706325594,
+    "eventTime": "2024-01-27 03:19:54+00:00",
+    "avgBitrate": 2486336.780799982,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2486336.780799982,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2486336.780799982
+  },
+  {
+    "id": 1706325595,
+    "eventTime": "2024-01-27 03:19:55+00:00",
+    "avgBitrate": 2506674.6836539214,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2506674.6836539214,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2506674.6836539214
+  },
+  {
+    "id": 1706325599,
+    "eventTime": "2024-01-27 03:19:59+00:00",
+    "avgBitrate": 2391382.251975452,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2391382.251975452,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2391382.251975452
+  },
+  {
+    "id": 1706325602,
+    "eventTime": "2024-01-27 03:20:02+00:00",
+    "avgBitrate": 2643197.0252336585,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2643197.0252336585,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2643197.0252336585
+  },
+  {
+    "id": 1706325606,
+    "eventTime": "2024-01-27 03:20:06+00:00",
+    "avgBitrate": 2460287.217695949,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2460287.217695949,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2460287.217695949
+  },
+  {
+    "id": 1706325608,
+    "eventTime": "2024-01-27 03:20:08+00:00",
+    "avgBitrate": 2384612.704627427,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2384612.704627427,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2384612.704627427
+  },
+  {
+    "id": 1706325610,
+    "eventTime": "2024-01-27 03:20:10+00:00",
+    "avgBitrate": 2652448.492121421,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2652448.492121421,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2652448.492121421
+  },
+  {
+    "id": 1706325621,
+    "eventTime": "2024-01-27 03:20:21+00:00",
+    "avgBitrate": 2477365.9719383535,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2477365.9719383535,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2477365.9719383535
+  },
+  {
+    "id": 1706325633,
+    "eventTime": "2024-01-27 03:20:33+00:00",
+    "avgBitrate": 2686316.936796848,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2686316.936796848,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2686316.936796848
+  },
+  {
+    "id": 1706325652,
+    "eventTime": "2024-01-27 03:20:52+00:00",
+    "avgBitrate": 2535050.027181725,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2535050.027181725,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2535050.027181725
+  },
+  {
+    "id": 1706325654,
+    "eventTime": "2024-01-27 03:20:54+00:00",
+    "avgBitrate": 2517802.7732829684,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2517802.7732829684,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2517802.7732829684
+  },
+  {
+    "id": 1706325655,
+    "eventTime": "2024-01-27 03:20:55+00:00",
+    "avgBitrate": 2473433.1130917943,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2473433.1130917943,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2473433.1130917943
+  },
+  {
+    "id": 1706325666,
+    "eventTime": "2024-01-27 03:21:06+00:00",
+    "avgBitrate": 2470534.954131501,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2470534.954131501,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2470534.954131501
+  },
+  {
+    "id": 1706325669,
+    "eventTime": "2024-01-27 03:21:09+00:00",
+    "avgBitrate": 2437521.437506403,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2437521.437506403,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2437521.437506403
+  },
+  {
+    "id": 1706325671,
+    "eventTime": "2024-01-27 03:21:11+00:00",
+    "avgBitrate": 2652243.122220786,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2652243.122220786,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2652243.122220786
+  },
+  {
+    "id": 1706325674,
+    "eventTime": "2024-01-27 03:21:14+00:00",
+    "avgBitrate": 2349438.386,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2349438.386,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2349438.386
+  },
+  {
+    "id": 1706325678,
+    "eventTime": "2024-01-27 03:21:18+00:00",
+    "avgBitrate": 2649585.752750016,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2649585.752750016,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2649585.752750016
+  },
+  {
+    "id": 1706325679,
+    "eventTime": "2024-01-27 03:21:19+00:00",
+    "avgBitrate": 2540192.2772199605,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2540192.2772199605,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2540192.2772199605
+  },
+  {
+    "id": 1706325685,
+    "eventTime": "2024-01-27 03:21:25+00:00",
+    "avgBitrate": 2684077.933367435,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2684077.933367435,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2684077.933367435
+  },
+  {
+    "id": 1706325687,
+    "eventTime": "2024-01-27 03:21:27+00:00",
+    "avgBitrate": 2540725.4994802633,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2540725.4994802633,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2540725.4994802633
+  },
+  {
+    "id": 1706325689,
+    "eventTime": "2024-01-27 03:21:29+00:00",
+    "avgBitrate": 2664818.5463513834,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2664818.5463513834,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2664818.5463513834
+  },
+  {
+    "id": 1706325694,
+    "eventTime": "2024-01-27 03:21:34+00:00",
+    "avgBitrate": 2272816.6378843756,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2272816.6378843756,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2272816.6378843756
+  },
+  {
+    "id": 1706325699,
+    "eventTime": "2024-01-27 03:21:39+00:00",
+    "avgBitrate": 2608699.033593794,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2608699.033593794,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2608699.033593794
+  },
+  {
+    "id": 1706325702,
+    "eventTime": "2024-01-27 03:21:42+00:00",
+    "avgBitrate": 2620885.277710057,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2620885.277710057,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2620885.277710057
+  },
+  {
+    "id": 1706325705,
+    "eventTime": "2024-01-27 03:21:45+00:00",
+    "avgBitrate": 2250212.6534676366,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2250212.6534676366,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2250212.6534676366
+  },
+  {
+    "id": 1706325712,
+    "eventTime": "2024-01-27 03:21:52+00:00",
+    "avgBitrate": 2482910.7048917967,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2482910.7048917967,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2482910.7048917967
+  },
+  {
+    "id": 1706325713,
+    "eventTime": "2024-01-27 03:21:53+00:00",
+    "avgBitrate": 2521055.048233991,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2521055.048233991,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2521055.048233991
+  },
+  {
+    "id": 1706325722,
+    "eventTime": "2024-01-27 03:22:02+00:00",
+    "avgBitrate": 2651191.603,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2651191.603,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2651191.603
+  },
+  {
+    "id": 1706325728,
+    "eventTime": "2024-01-27 03:22:08+00:00",
+    "avgBitrate": 2541902.118041014,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2541902.118041014,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2541902.118041014
+  },
+  {
+    "id": 1706325731,
+    "eventTime": "2024-01-27 03:22:11+00:00",
+    "avgBitrate": 2862546.2644243473,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2862546.2644243473,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2862546.2644243473
+  },
+  {
+    "id": 1706325734,
+    "eventTime": "2024-01-27 03:22:14+00:00",
+    "avgBitrate": 2332254.6036146674,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2332254.6036146674,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2332254.6036146674
+  },
+  {
+    "id": 1706325738,
+    "eventTime": "2024-01-27 03:22:18+00:00",
+    "avgBitrate": 2661890.5114787132,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2661890.5114787132,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2661890.5114787132
+  },
+  {
+    "id": 1706325739,
+    "eventTime": "2024-01-27 03:22:19+00:00",
+    "avgBitrate": 2532795.8954485385,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2532795.8954485385,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2532795.8954485385
+  },
+  {
+    "id": 1706325741,
+    "eventTime": "2024-01-27 03:22:21+00:00",
+    "avgBitrate": 2520529.7548308386,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2520529.7548308386,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2520529.7548308386
+  },
+  {
+    "id": 1706325743,
+    "eventTime": "2024-01-27 03:22:23+00:00",
+    "avgBitrate": 2051673.3349648851,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2051673.3349648851,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2051673.3349648851
+  },
+  {
+    "id": 1706325745,
+    "eventTime": "2024-01-27 03:22:25+00:00",
+    "avgBitrate": 2697264.3821247555,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2697264.3821247555,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2697264.3821247555
+  },
+  {
+    "id": 1706325751,
+    "eventTime": "2024-01-27 03:22:31+00:00",
+    "avgBitrate": 2100086.1035016123,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2100086.1035016123,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2100086.1035016123
+  },
+  {
+    "id": 1706325752,
+    "eventTime": "2024-01-27 03:22:32+00:00",
+    "avgBitrate": 2633010.1588686304,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2633010.1588686304,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2633010.1588686304
+  },
+  {
+    "id": 1706325754,
+    "eventTime": "2024-01-27 03:22:34+00:00",
+    "avgBitrate": 2302446.669166773,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2302446.669166773,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2302446.669166773
+  },
+  {
+    "id": 1706325765,
+    "eventTime": "2024-01-27 03:22:45+00:00",
+    "avgBitrate": 2125948.4114341526,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2125948.4114341526,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2125948.4114341526
+  },
+  {
+    "id": 1706325768,
+    "eventTime": "2024-01-27 03:22:48+00:00",
+    "avgBitrate": 2602625.981792645,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2602625.981792645,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2602625.981792645
+  },
+  {
+    "id": 1706325773,
+    "eventTime": "2024-01-27 03:22:53+00:00",
+    "avgBitrate": 2484400.2638750365,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2484400.2638750365,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2484400.2638750365
+  },
+  {
+    "id": 1706325775,
+    "eventTime": "2024-01-27 03:22:55+00:00",
+    "avgBitrate": 2492447.1925176536,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2492447.1925176536,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2492447.1925176536
+  },
+  {
+    "id": 1706325779,
+    "eventTime": "2024-01-27 03:22:59+00:00",
+    "avgBitrate": 2386094.501837718,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2386094.501837718,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2386094.501837718
+  },
+  {
+    "id": 1706325786,
+    "eventTime": "2024-01-27 03:23:06+00:00",
+    "avgBitrate": 2462459.6698505664,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2462459.6698505664,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2462459.6698505664
+  },
+  {
+    "id": 1706325788,
+    "eventTime": "2024-01-27 03:23:08+00:00",
+    "avgBitrate": 2537403.632999263,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2537403.632999263,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2537403.632999263
+  },
+  {
+    "id": 1706325794,
+    "eventTime": "2024-01-27 03:23:14+00:00",
+    "avgBitrate": 2315036.961521359,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2315036.961521359,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2315036.961521359
+  },
+  {
+    "id": 1706325798,
+    "eventTime": "2024-01-27 03:23:18+00:00",
+    "avgBitrate": 2655763.132699092,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2655763.132699092,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2655763.132699092
+  },
+  {
+    "id": 1706325799,
+    "eventTime": "2024-01-27 03:23:19+00:00",
+    "avgBitrate": 2531273.487918236,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2531273.487918236,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2531273.487918236
+  },
+  {
+    "id": 1706325801,
+    "eventTime": "2024-01-27 03:23:21+00:00",
+    "avgBitrate": 2504038.3503860543,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2504038.3503860543,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2504038.3503860543
+  },
+  {
+    "id": 1706325803,
+    "eventTime": "2024-01-27 03:23:23+00:00",
+    "avgBitrate": 2073111.3876314918,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2073111.3876314918,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2073111.3876314918
+  },
+  {
+    "id": 1706325807,
+    "eventTime": "2024-01-27 03:23:27+00:00",
+    "avgBitrate": 2515232.706170623,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2515232.706170623,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2515232.706170623
+  },
+  {
+    "id": 1706325811,
+    "eventTime": "2024-01-27 03:23:31+00:00",
+    "avgBitrate": 2646704.2432257845,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2646704.2432257845,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2646704.2432257845
+  },
+  {
+    "id": 1706325814,
+    "eventTime": "2024-01-27 03:23:34+00:00",
+    "avgBitrate": 2333063.396090475,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2333063.396090475,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2333063.396090475
+  },
+  {
+    "id": 1706325815,
+    "eventTime": "2024-01-27 03:23:35+00:00",
+    "avgBitrate": 2680928.279354274,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2680928.279354274,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2680928.279354274
+  },
+  {
+    "id": 1706325819,
+    "eventTime": "2024-01-27 03:23:39+00:00",
+    "avgBitrate": 2510987.760535597,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2510987.760535597,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2510987.760535597
+  },
+  {
+    "id": 1706325822,
+    "eventTime": "2024-01-27 03:23:42+00:00",
+    "avgBitrate": 2591896.732552878,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2591896.732552878,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2591896.732552878
+  },
+  {
+    "id": 1706325825,
+    "eventTime": "2024-01-27 03:23:45+00:00",
+    "avgBitrate": 2325768.8190159593,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2325768.8190159593,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2325768.8190159593
+  },
+  {
+    "id": 1706325833,
+    "eventTime": "2024-01-27 03:23:53+00:00",
+    "avgBitrate": 2469870.8087233086,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2469870.8087233086,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2469870.8087233086
+  },
+  {
+    "id": 1706325839,
+    "eventTime": "2024-01-27 03:23:59+00:00",
+    "avgBitrate": 2376318.792171305,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2376318.792171305,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2376318.792171305
+  },
+  {
+    "id": 1706325842,
+    "eventTime": "2024-01-27 03:24:02+00:00",
+    "avgBitrate": 2669800.5117386696,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2669800.5117386696,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2669800.5117386696
+  },
+  {
+    "id": 1706325850,
+    "eventTime": "2024-01-27 03:24:10+00:00",
+    "avgBitrate": 2373787.4613953237,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2373787.4613953237,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2373787.4613953237
+  },
+  {
+    "id": 1706325851,
+    "eventTime": "2024-01-27 03:24:11+00:00",
+    "avgBitrate": 2800551.706997164,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2800551.706997164,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2800551.706997164
+  },
+  {
+    "id": 1706325858,
+    "eventTime": "2024-01-27 03:24:18+00:00",
+    "avgBitrate": 2650059.591373975,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2650059.591373975,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2650059.591373975
+  },
+  {
+    "id": 1706325861,
+    "eventTime": "2024-01-27 03:24:21+00:00",
+    "avgBitrate": 2472371.607337096,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2472371.607337096,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2472371.607337096
+  },
+  {
+    "id": 1706325865,
+    "eventTime": "2024-01-27 03:24:25+00:00",
+    "avgBitrate": 3094225.666,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 3094225.666,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 3094225.666
+  },
+  {
+    "id": 1706325867,
+    "eventTime": "2024-01-27 03:24:27+00:00",
+    "avgBitrate": 2515020.943253178,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2515020.943253178,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2515020.943253178
+  },
+  {
+    "id": 1706325869,
+    "eventTime": "2024-01-27 03:24:29+00:00",
+    "avgBitrate": 2692087.273394011,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2692087.273394011,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2692087.273394011
+  },
+  {
+    "id": 1706325871,
+    "eventTime": "2024-01-27 03:24:31+00:00",
+    "avgBitrate": 2072491.0570798812,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2072491.0570798812,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2072491.0570798812
+  },
+  {
+    "id": 1706325873,
+    "eventTime": "2024-01-27 03:24:33+00:00",
+    "avgBitrate": 2398297.033714571,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2398297.033714571,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2398297.033714571
+  },
+  {
+    "id": 1706325875,
+    "eventTime": "2024-01-27 03:24:35+00:00",
+    "avgBitrate": 2482985.8991560517,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2482985.8991560517,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2482985.8991560517
+  },
+  {
+    "id": 1706325879,
+    "eventTime": "2024-01-27 03:24:39+00:00",
+    "avgBitrate": 2575810.298476081,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2575810.298476081,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2575810.298476081
+  },
+  {
+    "id": 1706325882,
+    "eventTime": "2024-01-27 03:24:42+00:00",
+    "avgBitrate": 2616443.8343838565,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2616443.8343838565,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2616443.8343838565
+  },
+  {
+    "id": 1706325885,
+    "eventTime": "2024-01-27 03:24:45+00:00",
+    "avgBitrate": 2269900.266882596,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2269900.266882596,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2269900.266882596
+  },
+  {
+    "id": 1706325888,
+    "eventTime": "2024-01-27 03:24:48+00:00",
+    "avgBitrate": 2471997.6957408492,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2471997.6957408492,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2471997.6957408492
+  },
+  {
+    "id": 1706325895,
+    "eventTime": "2024-01-27 03:24:55+00:00",
+    "avgBitrate": 2475578.2295150626,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2475578.2295150626,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2475578.2295150626
+  },
+  {
+    "id": 1706325899,
+    "eventTime": "2024-01-27 03:24:59+00:00",
+    "avgBitrate": 2393771.1948868292,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2393771.1948868292,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2393771.1948868292
+  },
+  {
+    "id": 1706325902,
+    "eventTime": "2024-01-27 03:25:02+00:00",
+    "avgBitrate": 2633741.756014616,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2633741.756014616,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2633741.756014616
+  },
+  {
+    "id": 1706325906,
+    "eventTime": "2024-01-27 03:25:06+00:00",
+    "avgBitrate": 2470186.9664413347,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2470186.9664413347,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2470186.9664413347
+  },
+  {
+    "id": 1706325908,
+    "eventTime": "2024-01-27 03:25:08+00:00",
+    "avgBitrate": 2535806.054,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2535806.054,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2535806.054
+  },
+  {
+    "id": 1706325909,
+    "eventTime": "2024-01-27 03:25:09+00:00",
+    "avgBitrate": 2436588.398399289,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2436588.398399289,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2436588.398399289
+  },
+  {
+    "id": 1706325911,
+    "eventTime": "2024-01-27 03:25:11+00:00",
+    "avgBitrate": 2626482.8019407527,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2626482.8019407527,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2626482.8019407527
+  },
+  {
+    "id": 1706325914,
+    "eventTime": "2024-01-27 03:25:14+00:00",
+    "avgBitrate": 2377625.999085542,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2377625.999085542,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2377625.999085542
+  },
+  {
+    "id": 1706325918,
+    "eventTime": "2024-01-27 03:25:18+00:00",
+    "avgBitrate": 2651637.4553849595,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2651637.4553849595,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2651637.4553849595
+  },
+  {
+    "id": 1706325919,
+    "eventTime": "2024-01-27 03:25:19+00:00",
+    "avgBitrate": 2533472.8563962574,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2533472.8563962574,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2533472.8563962574
+  },
+  {
+    "id": 1706325921,
+    "eventTime": "2024-01-27 03:25:21+00:00",
+    "avgBitrate": 2517925.9712179946,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2517925.9712179946,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2517925.9712179946
+  },
+  {
+    "id": 1706325923,
+    "eventTime": "2024-01-27 03:25:23+00:00",
+    "avgBitrate": 2051636.4542262584,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2051636.4542262584,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2051636.4542262584
+  },
+  {
+    "id": 1706325931,
+    "eventTime": "2024-01-27 03:25:31+00:00",
+    "avgBitrate": 2063555.0051752368,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2063555.0051752368,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2063555.0051752368
+  },
+  {
+    "id": 1706325933,
+    "eventTime": "2024-01-27 03:25:33+00:00",
+    "avgBitrate": 2228011.874191725,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2228011.874191725,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2228011.874191725
+  },
+  {
+    "id": 1706325939,
+    "eventTime": "2024-01-27 03:25:39+00:00",
+    "avgBitrate": 2620329.6692423327,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2620329.6692423327,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2620329.6692423327
+  },
+  {
+    "id": 1706325942,
+    "eventTime": "2024-01-27 03:25:42+00:00",
+    "avgBitrate": 2618208.180819265,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2618208.180819265,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2618208.180819265
+  },
+  {
+    "id": 1706325945,
+    "eventTime": "2024-01-27 03:25:45+00:00",
+    "avgBitrate": 2254373.3022540817,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2254373.3022540817,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2254373.3022540817
+  },
+  {
+    "id": 1706325948,
+    "eventTime": "2024-01-27 03:25:48+00:00",
+    "avgBitrate": 2563862.995477724,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2563862.995477724,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2563862.995477724
+  },
+  {
+    "id": 1706325959,
+    "eventTime": "2024-01-27 03:25:59+00:00",
+    "avgBitrate": 2380522.210552381,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2380522.210552381,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2380522.210552381
+  },
+  {
+    "id": 1706325966,
+    "eventTime": "2024-01-27 03:26:06+00:00",
+    "avgBitrate": 2458541.8343142276,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2458541.8343142276,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2458541.8343142276
+  },
+  {
+    "id": 1706325969,
+    "eventTime": "2024-01-27 03:26:09+00:00",
+    "avgBitrate": 2109996.2855267366,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2109996.2855267366,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2109996.2855267366
+  },
+  {
+    "id": 1706325978,
+    "eventTime": "2024-01-27 03:26:18+00:00",
+    "avgBitrate": 2667947.1215172997,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2667947.1215172997,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2667947.1215172997
+  },
+  {
+    "id": 1706325979,
+    "eventTime": "2024-01-27 03:26:19+00:00",
+    "avgBitrate": 2523272.6342047565,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2523272.6342047565,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2523272.6342047565
+  },
+  {
+    "id": 1706325981,
+    "eventTime": "2024-01-27 03:26:21+00:00",
+    "avgBitrate": 2541773.8012918476,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2541773.8012918476,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2541773.8012918476
+  },
+  {
+    "id": 1706325985,
+    "eventTime": "2024-01-27 03:26:25+00:00",
+    "avgBitrate": 2698848.1869719303,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2698848.1869719303,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2698848.1869719303
+  },
+  {
+    "id": 1706325987,
+    "eventTime": "2024-01-27 03:26:27+00:00",
+    "avgBitrate": 2457640.5518706124,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2457640.5518706124,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2457640.5518706124
+  },
+  {
+    "id": 1706325991,
+    "eventTime": "2024-01-27 03:26:31+00:00",
+    "avgBitrate": 2091052.8378312641,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2091052.8378312641,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2091052.8378312641
+  },
+  {
+    "id": 1706325992,
+    "eventTime": "2024-01-27 03:26:32+00:00",
+    "avgBitrate": 2628485.599297669,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2628485.599297669,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2628485.599297669
+  },
+  {
+    "id": 1706325995,
+    "eventTime": "2024-01-27 03:26:35+00:00",
+    "avgBitrate": 2124252.9476227853,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2124252.9476227853,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2124252.9476227853
+  },
+  {
+    "id": 1706325998,
+    "eventTime": "2024-01-27 03:26:38+00:00",
+    "avgBitrate": 2863865.1856954806,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2863865.1856954806,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2863865.1856954806
+  },
+  {
+    "id": 1706326002,
+    "eventTime": "2024-01-27 03:26:42+00:00",
+    "avgBitrate": 2625668.156216173,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2625668.156216173,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2625668.156216173
+  },
+  {
+    "id": 1706326005,
+    "eventTime": "2024-01-27 03:26:45+00:00",
+    "avgBitrate": 2112333.2967696595,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2112333.2967696595,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2112333.2967696595
+  },
+  {
+    "id": 1706326012,
+    "eventTime": "2024-01-27 03:26:52+00:00",
+    "avgBitrate": 2519815.8379486157,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2519815.8379486157,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2519815.8379486157
+  },
+  {
+    "id": 1706326014,
+    "eventTime": "2024-01-27 03:26:54+00:00",
+    "avgBitrate": 2481729.656351516,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2481729.656351516,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2481729.656351516
+  },
+  {
+    "id": 1706326019,
+    "eventTime": "2024-01-27 03:26:59+00:00",
+    "avgBitrate": 2388490.692364934,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2388490.692364934,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2388490.692364934
+  },
+  {
+    "id": 1706326021,
+    "eventTime": "2024-01-27 03:27:01+00:00",
+    "avgBitrate": 2659746.5618177294,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2659746.5618177294,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2659746.5618177294
+  },
+  {
+    "id": 1706326029,
+    "eventTime": "2024-01-27 03:27:09+00:00",
+    "avgBitrate": 2399689.476492722,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2399689.476492722,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2399689.476492722
+  },
+  {
+    "id": 1706326034,
+    "eventTime": "2024-01-27 03:27:14+00:00",
+    "avgBitrate": 2323216.3061192804,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2323216.3061192804,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2323216.3061192804
+  },
+  {
+    "id": 1706326039,
+    "eventTime": "2024-01-27 03:27:19+00:00",
+    "avgBitrate": 2518663.6182608157,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2518663.6182608157,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2518663.6182608157
+  },
+  {
+    "id": 1706326041,
+    "eventTime": "2024-01-27 03:27:21+00:00",
+    "avgBitrate": 2503886.010055411,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2503886.010055411,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2503886.010055411
+  },
+  {
+    "id": 1706326043,
+    "eventTime": "2024-01-27 03:27:23+00:00",
+    "avgBitrate": 2067751.7417488531,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2067751.7417488531,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2067751.7417488531
+  },
+  {
+    "id": 1706326045,
+    "eventTime": "2024-01-27 03:27:25+00:00",
+    "avgBitrate": 2694870.536770184,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2694870.536770184,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2694870.536770184
+  },
+  {
+    "id": 1706326047,
+    "eventTime": "2024-01-27 03:27:27+00:00",
+    "avgBitrate": 2557932.4009695253,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2557932.4009695253,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2557932.4009695253
+  },
+  {
+    "id": 1706326049,
+    "eventTime": "2024-01-27 03:27:29+00:00",
+    "avgBitrate": 2651988.7286010445,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2651988.7286010445,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2651988.7286010445
+  },
+  {
+    "id": 1706326051,
+    "eventTime": "2024-01-27 03:27:31+00:00",
+    "avgBitrate": 2044988.4022530373,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2044988.4022530373,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2044988.4022530373
+  },
+  {
+    "id": 1706326055,
+    "eventTime": "2024-01-27 03:27:35+00:00",
+    "avgBitrate": 2643373.389024301,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2643373.389024301,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2643373.389024301
+  },
+  {
+    "id": 1706326065,
+    "eventTime": "2024-01-27 03:27:45+00:00",
+    "avgBitrate": 2296443.616834588,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2296443.616834588,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2296443.616834588
+  },
+  {
+    "id": 1706326073,
+    "eventTime": "2024-01-27 03:27:53+00:00",
+    "avgBitrate": 2469483.445333244,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2469483.445333244,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2469483.445333244
+  },
+  {
+    "id": 1706326074,
+    "eventTime": "2024-01-27 03:27:54+00:00",
+    "avgBitrate": 2512333.1547822887,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2512333.1547822887,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2512333.1547822887
+  },
+  {
+    "id": 1706326079,
+    "eventTime": "2024-01-27 03:27:59+00:00",
+    "avgBitrate": 2389798.906714093,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2389798.906714093,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2389798.906714093
+  },
+  {
+    "id": 1706326089,
+    "eventTime": "2024-01-27 03:28:09+00:00",
+    "avgBitrate": 2372272.8204273987,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2372272.8204273987,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2372272.8204273987
+  },
+  {
+    "id": 1706326091,
+    "eventTime": "2024-01-27 03:28:11+00:00",
+    "avgBitrate": 2762773.0966539294,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2762773.0966539294,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2762773.0966539294
+  },
+  {
+    "id": 1706326094,
+    "eventTime": "2024-01-27 03:28:14+00:00",
+    "avgBitrate": 2340661.893234332,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2340661.893234332,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2340661.893234332
+  },
+  {
+    "id": 1706326098,
+    "eventTime": "2024-01-27 03:28:18+00:00",
+    "avgBitrate": 2657004.007426695,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2657004.007426695,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2657004.007426695
+  },
+  {
+    "id": 1706326099,
+    "eventTime": "2024-01-27 03:28:19+00:00",
+    "avgBitrate": 2546454.972460641,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2546454.972460641,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2546454.972460641
+  },
+  {
+    "id": 1706326112,
+    "eventTime": "2024-01-27 03:28:32+00:00",
+    "avgBitrate": 2687636.4091324033,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2687636.4091324033,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2687636.4091324033
+  },
+  {
+    "id": 1706326113,
+    "eventTime": "2024-01-27 03:28:33+00:00",
+    "avgBitrate": 2384415.390501054,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2384415.390501054,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2384415.390501054
+  },
+  {
+    "id": 1706326115,
+    "eventTime": "2024-01-27 03:28:35+00:00",
+    "avgBitrate": 2482028.450498321,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2482028.450498321,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2482028.450498321
+  },
+  {
+    "id": 1706326127,
+    "eventTime": "2024-01-27 03:28:47+00:00",
+    "avgBitrate": 2446104.4206599374,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2446104.4206599374,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2446104.4206599374
+  },
+  {
+    "id": 1706326133,
+    "eventTime": "2024-01-27 03:28:53+00:00",
+    "avgBitrate": 2511995.458154196,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2511995.458154196,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2511995.458154196
+  },
+  {
+    "id": 1706326141,
+    "eventTime": "2024-01-27 03:29:01+00:00",
+    "avgBitrate": 2636429.558934259,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2636429.558934259,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2636429.558934259
+  },
+  {
+    "id": 1706326146,
+    "eventTime": "2024-01-27 03:29:06+00:00",
+    "avgBitrate": 2469562.9225983354,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2469562.9225983354,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2469562.9225983354
+  },
+  {
+    "id": 1706326148,
+    "eventTime": "2024-01-27 03:29:08+00:00",
+    "avgBitrate": 2534490.679328116,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2534490.679328116,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2534490.679328116
+  },
+  {
+    "id": 1706326149,
+    "eventTime": "2024-01-27 03:29:09+00:00",
+    "avgBitrate": 2448743.319882692,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2448743.319882692,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2448743.319882692
+  },
+  {
+    "id": 1706326154,
+    "eventTime": "2024-01-27 03:29:14+00:00",
+    "avgBitrate": 2373752.310159553,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2373752.310159553,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2373752.310159553
+  },
+  {
+    "id": 1706326158,
+    "eventTime": "2024-01-27 03:29:18+00:00",
+    "avgBitrate": 2655639.1677586287,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2655639.1677586287,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2655639.1677586287
+  },
+  {
+    "id": 1706326165,
+    "eventTime": "2024-01-27 03:29:25+00:00",
+    "avgBitrate": 2684978.184,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2684978.184,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2684978.184
+  },
+  {
+    "id": 1706326166,
+    "eventTime": "2024-01-27 03:29:26+00:00",
+    "avgBitrate": 2528868.300465974,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2528868.300465974,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2528868.300465974
+  },
+  {
+    "id": 1706326169,
+    "eventTime": "2024-01-27 03:29:29+00:00",
+    "avgBitrate": 2672062.6286391555,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2672062.6286391555,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2672062.6286391555
+  },
+  {
+    "id": 1706326171,
+    "eventTime": "2024-01-27 03:29:31+00:00",
+    "avgBitrate": 2039796.2561491895,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2039796.2561491895,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2039796.2561491895
+  },
+  {
+    "id": 1706326173,
+    "eventTime": "2024-01-27 03:29:33+00:00",
+    "avgBitrate": 2239513.541831734,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2239513.541831734,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2239513.541831734
+  },
+  {
+    "id": 1706326178,
+    "eventTime": "2024-01-27 03:29:38+00:00",
+    "avgBitrate": 2560185.149584002,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2560185.149584002,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2560185.149584002
+  },
+  {
+    "id": 1706326182,
+    "eventTime": "2024-01-27 03:29:42+00:00",
+    "avgBitrate": 2624547.786945429,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2624547.786945429,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2624547.786945429
+  },
+  {
+    "id": 1706326185,
+    "eventTime": "2024-01-27 03:29:45+00:00",
+    "avgBitrate": 2239214.459372492,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2239214.459372492,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2239214.459372492
+  },
+  {
+    "id": 1706326187,
+    "eventTime": "2024-01-27 03:29:47+00:00",
+    "avgBitrate": 2529823.9092342244,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2529823.9092342244,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2529823.9092342244
+  },
+  {
+    "id": 1706326193,
+    "eventTime": "2024-01-27 03:29:53+00:00",
+    "avgBitrate": 2510506.2995131426,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2510506.2995131426,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2510506.2995131426
+  },
+  {
+    "id": 1706326194,
+    "eventTime": "2024-01-27 03:29:54+00:00",
+    "avgBitrate": 2529922.7786150035,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2529922.7786150035,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2529922.7786150035
+  },
+  {
+    "id": 1706326201,
+    "eventTime": "2024-01-27 03:30:01+00:00",
+    "avgBitrate": 2662245.1982278274,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2662245.1982278274,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2662245.1982278274
+  },
+  {
+    "id": 1706326206,
+    "eventTime": "2024-01-27 03:30:06+00:00",
+    "avgBitrate": 2456298.435721852,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2456298.435721852,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2456298.435721852
+  },
+  {
+    "id": 1706326208,
+    "eventTime": "2024-01-27 03:30:08+00:00",
+    "avgBitrate": 2538567.104102275,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2538567.104102275,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2538567.104102275
+  },
+  {
+    "id": 1706326214,
+    "eventTime": "2024-01-27 03:30:14+00:00",
+    "avgBitrate": 2343032.1182390763,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2343032.1182390763,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2343032.1182390763
+  },
+  {
+    "id": 1706326219,
+    "eventTime": "2024-01-27 03:30:19+00:00",
+    "avgBitrate": 2525711.3331813626,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2525711.3331813626,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2525711.3331813626
+  },
+  {
+    "id": 1706326223,
+    "eventTime": "2024-01-27 03:30:23+00:00",
+    "avgBitrate": 2041578.681075369,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2041578.681075369,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2041578.681075369
+  },
+  {
+    "id": 1706326225,
+    "eventTime": "2024-01-27 03:30:25+00:00",
+    "avgBitrate": 2695204.628,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2695204.628,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2695204.628
+  },
+  {
+    "id": 1706326226,
+    "eventTime": "2024-01-27 03:30:26+00:00",
+    "avgBitrate": 2491257.5635977536,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2491257.5635977536,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2491257.5635977536
+  },
+  {
+    "id": 1706326229,
+    "eventTime": "2024-01-27 03:30:29+00:00",
+    "avgBitrate": 2683479.4400111823,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2683479.4400111823,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2683479.4400111823
+  },
+  {
+    "id": 1706326230,
+    "eventTime": "2024-01-27 03:30:30+00:00",
+    "avgBitrate": 2097488.134886972,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2097488.134886972,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2097488.134886972
+  },
+  {
+    "id": 1706326232,
+    "eventTime": "2024-01-27 03:30:32+00:00",
+    "avgBitrate": 2672267.595900154,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2672267.595900154,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2672267.595900154
+  },
+  {
+    "id": 1706326233,
+    "eventTime": "2024-01-27 03:30:33+00:00",
+    "avgBitrate": 2288458.348382499,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2288458.348382499,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2288458.348382499
+  },
+  {
+    "id": 1706326242,
+    "eventTime": "2024-01-27 03:30:42+00:00",
+    "avgBitrate": 2621971.4559212164,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2621971.4559212164,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2621971.4559212164
+  },
+  {
+    "id": 1706326247,
+    "eventTime": "2024-01-27 03:30:47+00:00",
+    "avgBitrate": 2639520.4779437548,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2639520.4779437548,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2639520.4779437548
+  },
+  {
+    "id": 1706326259,
+    "eventTime": "2024-01-27 03:30:59+00:00",
+    "avgBitrate": 2381261.5692523974,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2381261.5692523974,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2381261.5692523974
+  },
+  {
+    "id": 1706326261,
+    "eventTime": "2024-01-27 03:31:01+00:00",
+    "avgBitrate": 2668778.7695174958,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2668778.7695174958,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2668778.7695174958
+  },
+  {
+    "id": 1706326266,
+    "eventTime": "2024-01-27 03:31:06+00:00",
+    "avgBitrate": 2452062.0241931006,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2452062.0241931006,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2452062.0241931006
+  },
+  {
+    "id": 1706326268,
+    "eventTime": "2024-01-27 03:31:08+00:00",
+    "avgBitrate": 2541378.725743496,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2541378.725743496,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2541378.725743496
+  },
+  {
+    "id": 1706326271,
+    "eventTime": "2024-01-27 03:31:11+00:00",
+    "avgBitrate": 2803338.370426097,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2803338.370426097,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2803338.370426097
+  },
+  {
+    "id": 1706326273,
+    "eventTime": "2024-01-27 03:31:13+00:00",
+    "avgBitrate": 2321663.3703038427,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2321663.3703038427,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2321663.3703038427
+  },
+  {
+    "id": 1706326279,
+    "eventTime": "2024-01-27 03:31:19+00:00",
+    "avgBitrate": 2514103.488106983,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2514103.488106983,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2514103.488106983
+  },
+  {
+    "id": 1706326285,
+    "eventTime": "2024-01-27 03:31:25+00:00",
+    "avgBitrate": 2878364.4411088107,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2878364.4411088107,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2878364.4411088107
+  },
+  {
+    "id": 1706326286,
+    "eventTime": "2024-01-27 03:31:26+00:00",
+    "avgBitrate": 2531737.778,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2531737.778,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2531737.778
+  },
+  {
+    "id": 1706326289,
+    "eventTime": "2024-01-27 03:31:29+00:00",
+    "avgBitrate": 2664168.404759975,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2664168.404759975,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2664168.404759975
+  },
+  {
+    "id": 1706326290,
+    "eventTime": "2024-01-27 03:31:30+00:00",
+    "avgBitrate": 2015269.3112547114,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2015269.3112547114,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2015269.3112547114
+  },
+  {
+    "id": 1706326292,
+    "eventTime": "2024-01-27 03:31:32+00:00",
+    "avgBitrate": 2711366.4100818466,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2711366.4100818466,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2711366.4100818466
+  },
+  {
+    "id": 1706326307,
+    "eventTime": "2024-01-27 03:31:47+00:00",
+    "avgBitrate": 2501440.510247414,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2501440.510247414,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2501440.510247414
+  },
+  {
+    "id": 1706326312,
+    "eventTime": "2024-01-27 03:31:52+00:00",
+    "avgBitrate": 2505919.7003326225,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2505919.7003326225,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2505919.7003326225
+  },
+  {
+    "id": 1706326313,
+    "eventTime": "2024-01-27 03:31:53+00:00",
+    "avgBitrate": 2469602.4571784795,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2469602.4571784795,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2469602.4571784795
+  },
+  {
+    "id": 1706326314,
+    "eventTime": "2024-01-27 03:31:54+00:00",
+    "avgBitrate": 2515032.571325342,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2515032.571325342,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2515032.571325342
+  },
+  {
+    "id": 1706326318,
+    "eventTime": "2024-01-27 03:31:58+00:00",
+    "avgBitrate": 2390641.218911237,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2390641.218911237,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2390641.218911237
+  },
+  {
+    "id": 1706326321,
+    "eventTime": "2024-01-27 03:32:01+00:00",
+    "avgBitrate": 2651335.617,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2651335.617,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2651335.617
+  },
+  {
+    "id": 1706326326,
+    "eventTime": "2024-01-27 03:32:06+00:00",
+    "avgBitrate": 2449028.3747835117,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2449028.3747835117,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2449028.3747835117
+  },
+  {
+    "id": 1706326331,
+    "eventTime": "2024-01-27 03:32:11+00:00",
+    "avgBitrate": 2779194.0458447463,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2779194.0458447463,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2779194.0458447463
+  },
+  {
+    "id": 1706326337,
+    "eventTime": "2024-01-27 03:32:17+00:00",
+    "avgBitrate": 2653665.958680636,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2653665.958680636,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2653665.958680636
+  },
+  {
+    "id": 1706326339,
+    "eventTime": "2024-01-27 03:32:19+00:00",
+    "avgBitrate": 2522758.192932997,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2522758.192932997,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2522758.192932997
+  },
+  {
+    "id": 1706326341,
+    "eventTime": "2024-01-27 03:32:21+00:00",
+    "avgBitrate": 2505331.6644865326,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2505331.6644865326,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2505331.6644865326
+  },
+  {
+    "id": 1706326343,
+    "eventTime": "2024-01-27 03:32:23+00:00",
+    "avgBitrate": 2063126.8252254636,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2063126.8252254636,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2063126.8252254636
+  },
+  {
+    "id": 1706326346,
+    "eventTime": "2024-01-27 03:32:26+00:00",
+    "avgBitrate": 2525388.6136332946,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2525388.6136332946,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2525388.6136332946
+  },
+  {
+    "id": 1706326353,
+    "eventTime": "2024-01-27 03:32:33+00:00",
+    "avgBitrate": 2408539.851326091,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2408539.851326091,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2408539.851326091
+  },
+  {
+    "id": 1706326355,
+    "eventTime": "2024-01-27 03:32:35+00:00",
+    "avgBitrate": 2381057.425908076,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2381057.425908076,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2381057.425908076
+  },
+  {
+    "id": 1706326358,
+    "eventTime": "2024-01-27 03:32:38+00:00",
+    "avgBitrate": 2619129.575733541,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2619129.575733541,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2619129.575733541
+  },
+  {
+    "id": 1706326362,
+    "eventTime": "2024-01-27 03:32:42+00:00",
+    "avgBitrate": 2603010.6858613715,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2603010.6858613715,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2603010.6858613715
+  },
+  {
+    "id": 1706326364,
+    "eventTime": "2024-01-27 03:32:44+00:00",
+    "avgBitrate": 2299768.462226125,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2299768.462226125,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2299768.462226125
+  },
+  {
+    "id": 1706326367,
+    "eventTime": "2024-01-27 03:32:47+00:00",
+    "avgBitrate": 2470865.2943466357,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2470865.2943466357,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2470865.2943466357
+  },
+  {
+    "id": 1706326372,
+    "eventTime": "2024-01-27 03:32:52+00:00",
+    "avgBitrate": 2524254.436414648,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2524254.436414648,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2524254.436414648
+  },
+  {
+    "id": 1706326374,
+    "eventTime": "2024-01-27 03:32:54+00:00",
+    "avgBitrate": 2480446.1920463676,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2480446.1920463676,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2480446.1920463676
+  },
+  {
+    "id": 1706326389,
+    "eventTime": "2024-01-27 03:33:09+00:00",
+    "avgBitrate": 2421323.831348423,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2421323.831348423,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2421323.831348423
+  },
+  {
+    "id": 1706326393,
+    "eventTime": "2024-01-27 03:33:13+00:00",
+    "avgBitrate": 2340836.2834081715,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2340836.2834081715,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2340836.2834081715
+  },
+  {
+    "id": 1706326397,
+    "eventTime": "2024-01-27 03:33:17+00:00",
+    "avgBitrate": 2666812.677,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2666812.677,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2666812.677
+  },
+  {
+    "id": 1706326399,
+    "eventTime": "2024-01-27 03:33:19+00:00",
+    "avgBitrate": 2530284.9367129332,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2530284.9367129332,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2530284.9367129332
+  },
+  {
+    "id": 1706326401,
+    "eventTime": "2024-01-27 03:33:21+00:00",
+    "avgBitrate": 2512120.0267695226,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2512120.0267695226,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2512120.0267695226
+  },
+  {
+    "id": 1706326405,
+    "eventTime": "2024-01-27 03:33:25+00:00",
+    "avgBitrate": 2687649.2260574414,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2687649.2260574414,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2687649.2260574414
+  },
+  {
+    "id": 1706326409,
+    "eventTime": "2024-01-27 03:33:29+00:00",
+    "avgBitrate": 2634896.5835814592,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2634896.5835814592,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2634896.5835814592
+  },
+  {
+    "id": 1706326412,
+    "eventTime": "2024-01-27 03:33:32+00:00",
+    "avgBitrate": 2727318.1280270685,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2727318.1280270685,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2727318.1280270685
+  },
+  {
+    "id": 1706326413,
+    "eventTime": "2024-01-27 03:33:33+00:00",
+    "avgBitrate": 2260026.6246886873,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2260026.6246886873,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2260026.6246886873
+  },
+  {
+    "id": 1706326415,
+    "eventTime": "2024-01-27 03:33:35+00:00",
+    "avgBitrate": 2521919.907352034,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2521919.907352034,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2521919.907352034
+  },
+  {
+    "id": 1706326418,
+    "eventTime": "2024-01-27 03:33:38+00:00",
+    "avgBitrate": 2606380.6920810933,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2606380.6920810933,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2606380.6920810933
+  },
+  {
+    "id": 1706326422,
+    "eventTime": "2024-01-27 03:33:42+00:00",
+    "avgBitrate": 2619794.2690417566,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2619794.2690417566,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2619794.2690417566
+  },
+  {
+    "id": 1706326432,
+    "eventTime": "2024-01-27 03:33:52+00:00",
+    "avgBitrate": 2435849.524543941,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2435849.524543941,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2435849.524543941
+  },
+  {
+    "id": 1706326433,
+    "eventTime": "2024-01-27 03:33:53+00:00",
+    "avgBitrate": 2619716.383369033,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2619716.383369033,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2619716.383369033
+  },
+  {
+    "id": 1706326438,
+    "eventTime": "2024-01-27 03:33:58+00:00",
+    "avgBitrate": 2379774.3253082796,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2379774.3253082796,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2379774.3253082796
+  },
+  {
+    "id": 1706326441,
+    "eventTime": "2024-01-27 03:34:01+00:00",
+    "avgBitrate": 2651454.6973719043,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2651454.6973719043,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2651454.6973719043
+  },
+  {
+    "id": 1706326446,
+    "eventTime": "2024-01-27 03:34:06+00:00",
+    "avgBitrate": 2461393.7649013777,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2461393.7649013777,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2461393.7649013777
+  },
+  {
+    "id": 1706326448,
+    "eventTime": "2024-01-27 03:34:08+00:00",
+    "avgBitrate": 2544484.5775277363,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2544484.5775277363,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2544484.5775277363
+  },
+  {
+    "id": 1706326451,
+    "eventTime": "2024-01-27 03:34:11+00:00",
+    "avgBitrate": 2809840.263471199,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2809840.263471199,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2809840.263471199
+  },
+  {
+    "id": 1706326453,
+    "eventTime": "2024-01-27 03:34:13+00:00",
+    "avgBitrate": 2334658.5677537713,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2334658.5677537713,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2334658.5677537713
+  },
+  {
+    "id": 1706326459,
+    "eventTime": "2024-01-27 03:34:19+00:00",
+    "avgBitrate": 2574594.674578867,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2574594.674578867,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2574594.674578867
+  },
+  {
+    "id": 1706326461,
+    "eventTime": "2024-01-27 03:34:21+00:00",
+    "avgBitrate": 2615073.3132000854,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2615073.3132000854,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2615073.3132000854
+  },
+  {
+    "id": 1706326462,
+    "eventTime": "2024-01-27 03:34:22+00:00",
+    "avgBitrate": 2020108.8955350441,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2020108.8955350441,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2020108.8955350441
+  },
+  {
+    "id": 1706326469,
+    "eventTime": "2024-01-27 03:34:29+00:00",
+    "avgBitrate": 2787087.282390625,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2787087.282390625,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2787087.282390625
+  },
+  {
+    "id": 1706326470,
+    "eventTime": "2024-01-27 03:34:30+00:00",
+    "avgBitrate": 2071895.2737611623,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2071895.2737611623,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2071895.2737611623
+  },
+  {
+    "id": 1706326475,
+    "eventTime": "2024-01-27 03:34:35+00:00",
+    "avgBitrate": 2554555.845994033,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2554555.845994033,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2554555.845994033
+  },
+  {
+    "id": 1706326482,
+    "eventTime": "2024-01-27 03:34:42+00:00",
+    "avgBitrate": 2623812.524170905,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2623812.524170905,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2623812.524170905
+  },
+  {
+    "id": 1706326484,
+    "eventTime": "2024-01-27 03:34:44+00:00",
+    "avgBitrate": 2118243.0070263636,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2118243.0070263636,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2118243.0070263636
+  },
+  {
+    "id": 1706326493,
+    "eventTime": "2024-01-27 03:34:53+00:00",
+    "avgBitrate": 2492976.7040827326,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2492976.7040827326,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2492976.7040827326
+  },
+  {
+    "id": 1706326494,
+    "eventTime": "2024-01-27 03:34:54+00:00",
+    "avgBitrate": 2497659.027279045,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2497659.027279045,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2497659.027279045
+  },
+  {
+    "id": 1706326498,
+    "eventTime": "2024-01-27 03:34:58+00:00",
+    "avgBitrate": 2389183.298830724,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2389183.298830724,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2389183.298830724
+  },
+  {
+    "id": 1706326506,
+    "eventTime": "2024-01-27 03:35:06+00:00",
+    "avgBitrate": 2453650.278870248,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2453650.278870248,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2453650.278870248
+  },
+  {
+    "id": 1706326508,
+    "eventTime": "2024-01-27 03:35:08+00:00",
+    "avgBitrate": 2544653.1240647435,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2544653.1240647435,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2544653.1240647435
+  },
+  {
+    "id": 1706326511,
+    "eventTime": "2024-01-27 03:35:11+00:00",
+    "avgBitrate": 2784820.2764659408,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2784820.2764659408,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2784820.2764659408
+  },
+  {
+    "id": 1706326513,
+    "eventTime": "2024-01-27 03:35:13+00:00",
+    "avgBitrate": 2322368.537525592,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2322368.537525592,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2322368.537525592
+  },
+  {
+    "id": 1706326517,
+    "eventTime": "2024-01-27 03:35:17+00:00",
+    "avgBitrate": 2664874.756052338,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2664874.756052338,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2664874.756052338
+  },
+  {
+    "id": 1706326519,
+    "eventTime": "2024-01-27 03:35:19+00:00",
+    "avgBitrate": 2526499.6166071435,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2526499.6166071435,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2526499.6166071435
+  },
+  {
+    "id": 1706326521,
+    "eventTime": "2024-01-27 03:35:21+00:00",
+    "avgBitrate": 2502292.627377814,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2502292.627377814,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2502292.627377814
+  },
+  {
+    "id": 1706326522,
+    "eventTime": "2024-01-27 03:35:22+00:00",
+    "avgBitrate": 2064154.0928850546,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2064154.0928850546,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2064154.0928850546
+  },
+  {
+    "id": 1706326525,
+    "eventTime": "2024-01-27 03:35:25+00:00",
+    "avgBitrate": 2705126.0966305695,
+    "channelName": "qDSnbdUXIwe3",
+    "MaxBitrate": 2705126.0966305695,
+    "metricName": "IngestVideoBitrate",
+    "minBitrate": 2705126.0966305695
+  }
+]
