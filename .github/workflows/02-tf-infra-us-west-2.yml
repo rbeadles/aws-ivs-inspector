@@ -1,0 +1,97 @@
+name: 02:AWS Infra us-west-2
+
+on: workflow_dispatch
+
+env:
+  TF_VAR_region: "us-west-2"
+  TF_VAR_project_name: ${{ secrets.IVS_PROJECT_NAME }}
+  TF_VAR_account_id: ${{ secrets.AWS_ACCOUNT_ID }}
+  TF_LOG: INFO
+  AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
+  AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
+  AWS_S3_BUCKET_FOR_TF_STATE: ${{ secrets.AWS_S3_BUCKET_FOR_TF_STATE }}
+  tmpJson: $(mktemp)
+  envVarsPath: ./web-application/src/config/env.json
+
+jobs:
+  terraform_for_infra:
+    runs-on: ubuntu-latest
+    environment: terraform_admin
+
+    steps:
+      - name: Checkout the repository to the runner
+        uses: actions/checkout@v4
+
+      - name: Setup Terraform with specific version on the runner
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.8.2
+
+      - name: Terraform Init
+        id: init
+        run: |
+          cd terraform-infra
+          terraform fmt
+          terraform init \
+           -backend-config="bucket=$AWS_S3_BUCKET_FOR_TF_STATE" \
+           -backend-config="key=infra/$TF_VAR_region/terraform.tfstate" \
+           -backend-config="region=us-west-2" \
+           -reconfigure
+
+      - name: Terraform Validate
+        id: validate
+        run: |
+          cd terraform-infra
+          terraform validate
+
+      - name: Terraform Plan
+        id: plan
+        run: |
+          cd terraform-infra
+          terraform plan -no-color -input=false
+        continue-on-error: true
+
+      - name: Terraform Apply
+        id: apply
+        run: |
+          cd terraform-infra
+          terraform apply -auto-approve -input=false
+
+      - name: Terraform Output
+        id: output
+        run: |
+          cd terraform-infra
+          echo "api_ids=$(terraform output -json api_ids)" >> $GITHUB_OUTPUT
+
+    outputs:
+      api_ids: ${{ steps.output.outputs.api_ids }}
+
+  update_environment_variables:
+    name: "Adding API IDs into Env Var file"
+    runs-on: ubuntu-latest
+    environment: terraform_admin
+    needs: terraform_for_infra
+    steps:
+      - name: Checkout the repositoring to the runner
+        uses: actions/checkout@v4
+
+      - name: build API data
+        id: build_api_data
+        run: |
+          api_values=$(jq --arg region "$TF_VAR_region" '.[$region]' <<< "${{needs.terraform_for_infra.outputs.api_ids}}")
+          jq --arg region "$TF_VAR_region" --argjson values "$api_values" '.apis[$region] = $values' "$envVarsPath" > "$tmpJson" && mv "$tmpJson" "$envVarsPath"
+          cat $envVarsPath
+
+      - name: Git Commit
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add $envVarsPath
+          git commit --allow-empty -m "update environment variables"
+
+      - name: Git Push
+        uses: ad-m/github-push-action@v0.8.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
+          force: true
