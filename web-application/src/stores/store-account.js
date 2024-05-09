@@ -1,7 +1,7 @@
 import { defineStore } from "pinia";
 import { api } from "boot/axios";
 import { Notify } from "quasar";
-import { useCommonStore } from "./store-common";
+import { useCommonStore } from "stores/store-common";
 import envVars from "src/config/env.json";
 
 const commonStore = useCommonStore();
