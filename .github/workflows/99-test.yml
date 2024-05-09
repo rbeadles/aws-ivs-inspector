@@ -111,7 +111,7 @@ jobs:
       # - name: Deploy to Amplify
       #   run: |
       #     amplify pull --appId $AWS_AMPLIFY_APP_ID --envName backend
-      #     amplify publish --appId $AWS_AMPLIFY_APP_ID --branch ${{ github.ref }} --envName backend
+      #     amplify publish --appId $AWS_AMPLIFY_APP_ID --branch ${{ github.ref_name }} --envName backend
       #   env:
       #     AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
       #     AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
@@ -157,4 +157,4 @@ jobs:
       #     existing_env_vars=$(aws amplify get-app --app-id $AWS_AMPLIFY_APP_ID | jq '.app.environmentVariables')
       #     echo "$existing_env_vars"
       #     aws amplify update-app --app-id $AWS_AMPLIFY_APP_ID --environment-variables "${test_json}"
-      #     # aws amplify start-job --app-id $AWS_AMPLIFY_APP_ID --branch-name ${{ github.ref }} --job-type RELEASE
+      #     # aws amplify start-job --app-id $AWS_AMPLIFY_APP_ID --branch-name ${{ github.ref_name }} --job-type RELEASE
