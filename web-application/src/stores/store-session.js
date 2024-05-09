@@ -3,7 +3,7 @@ import { api } from "boot/axios";
 import { Notify } from "quasar";
 import { useChannelStore } from "stores/store-channel";
 import { useCommonStore } from "./store-common";
-import envVars from "config/env.json";
+import envVars from "src/config/env.json";
 
 const channelStore = useChannelStore();
 const commonStore = useCommonStore();
