@@ -17,6 +17,9 @@ export const useAccountStore = defineStore("AccountStore", {
       console.log(envVars);
       try {
         console.log(serviceCode, ivsRegion);
+        console.log(
+          `https://${envVars.apis[ivsRegion].rest}.execute-api.${ivsRegion}.amazonaws.com/ivs/get-quotas`
+        );
         const response = await api.get(
           `https://${envVars.apis[ivsRegion].rest}.execute-api.${ivsRegion}.amazonaws.com/ivs/get-quotas`,
           {

@@ -10,7 +10,7 @@ export default defineComponent({
 
   setup() {
     onMounted(() => {
-      console.log("env var:", JSON.parse(Object.values(import.meta.env)[0]));
+      console.log("env var:", import.meta.env);
     });
   },
 });
