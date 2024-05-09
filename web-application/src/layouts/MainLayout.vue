@@ -65,38 +65,61 @@
       :behavior="$q.screen.lt.sm ? 'mobile' : 'desktop'"
       bordered
     >
-      <q-list>
-        <q-item clickable class="q-px-md q-py-md">
+      <q-list class="column col full-height">
+        <q-item clickable class="col-auto q-px-md q-py-sm" style="height: 56px">
           <q-item-section avatar>
             <q-icon name="o_account_circle" />
           </q-item-section>
 
           <q-item-section>
-            <q-item-label>Authorised User</q-item-label>
+            <q-item-label> {{ user?.username }} </q-item-label>
+            <q-item-label caption lines="1">
+              {{ user?.signInDetails?.loginId }}
+            </q-item-label>
           </q-item-section>
         </q-item>
 
         <q-separator />
 
-        <navigation
-          v-for="navigation in navigations"
-          :key="navigation.title"
-          v-bind="navigation"
-        />
+        <div class="col">
+          <navigation
+            class="col"
+            v-for="link in navigation"
+            :key="link.title"
+            v-bind="link"
+          />
+        </div>
+
+        <q-separator />
+
+        <q-item clickable class="col-auto q-pa-md" @click="signOut()">
+          <q-item-section avatar>
+            <q-icon name="logout" />
+          </q-item-section>
+
+          <q-item-section>
+            <q-item-label> Logout </q-item-label>
+          </q-item-section>
+        </q-item>
       </q-list>
     </q-drawer>
 
     <q-page-container>
+      <!-- {{ (user, route) }} -->
       <router-view />
     </q-page-container>
   </q-layout>
 </template>
 
 <script>
-import { computed, defineComponent, ref } from "vue";
+import { computed, defineComponent, ref, onMounted, toRefs, watch } from "vue";
 import { useRoute, useRouter } from "vue-router";
+
 import { useAccountStore } from "src/stores/store-account";
 import { useCommonStore } from "src/stores/store-common";
+import { useAuthStore } from "src/stores/store-auth";
+import { useAuthenticator } from "@aws-amplify/ui-vue";
+
 import Navigation from "src/components/HomeComponents/Navigation.vue";
 import envVars from "src/config/env.json";
 
@@ -108,8 +131,12 @@ export default defineComponent({
   },
 
   setup() {
+    const authStore = useAuthStore();
     const accountStore = useAccountStore();
     const commonStore = useCommonStore();
+    // const auth = useAuthenticator();
+    const { route, user, signOut, auth } = toRefs(useAuthenticator());
+
     const navigationList = computed(() => [
       {
         title: "Dashboard",
@@ -166,8 +193,30 @@ export default defineComponent({
       });
     };
 
+    watch(user, (current, old) => {
+      // console.log(old);
+      // console.log(current);
+      if (!current) {
+        $router.push({ name: "Auth" });
+      }
+    });
+
+    onMounted(() => {
+      console.log("user: ", !user.value);
+      // if (!user?.value) {
+      //   $router.push({ name: "Auth" });
+      // }
+      // authStore.isUserSignedIn().then((res) => {
+      //   console.log("isUserSignedIn res: ", res);
+      // });
+    });
+
     return {
-      navigations: navigationList,
+      auth,
+      user,
+      route,
+      signOut,
+      navigation: navigationList,
       miniState: ref(true),
       drawer,
       toggleLeftDrawer() {
@@ -177,7 +226,6 @@ export default defineComponent({
       accountId,
       region,
       channelId,
-
       ivsRegions,
 
       goToChannel,

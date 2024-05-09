@@ -103,18 +103,3 @@ resource "aws_api_gateway_method_settings" "get_method_settings" {
     throttling_rate_limit  = 9999
   }
 }
-
-resource "aws_api_gateway_usage_plan" "usage_plan" {
-  name         = "${var.project_name}-usage-plan"
-  product_code = var.project_name
-
-  api_stages {
-    api_id = aws_api_gateway_rest_api.rest_api.id
-    stage  = aws_api_gateway_stage.stage.stage_name
-  }
-
-  throttle_settings {
-    burst_limit = 4999
-    rate_limit  = 9999
-  }
-}
