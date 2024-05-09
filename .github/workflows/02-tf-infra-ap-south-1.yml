@@ -78,6 +78,8 @@ jobs:
       - name: build API data
         id: build_api_data
         run: |
+          echo "${{ github.ref }}"
+          echo "${{ github.ref_name }}"
           api_values=$(jq --arg region "$TF_VAR_region" '.[$region]' <<< "${{needs.terraform_for_infra.outputs.api_ids}}")
           jq --arg region "$TF_VAR_region" --argjson values "$api_values" '.apis[$region] = $values' "$envVarsPath" > "$tmpJson" && mv "$tmpJson" "$envVarsPath"
           cat $envVarsPath
@@ -87,7 +89,6 @@ jobs:
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add $envVarsPath
-          git checkout dev
           git commit --allow-empty -m "update environment variables"
 
       - name: Git Push
