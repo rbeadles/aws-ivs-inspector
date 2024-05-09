@@ -44,32 +44,32 @@ jobs:
           cd terraform-infra
           terraform destroy -auto-approve -input=false
 
-  terraform_for_amplify:
-    runs-on: ubuntu-latest
-    environment: terraform_admin
+  # terraform_for_amplify:
+  #   runs-on: ubuntu-latest
+  #   environment: terraform_admin
 
-    steps:
-      - name: Checkout the repository to the runner
-        uses: actions/checkout@v4
+  #   steps:
+  #     - name: Checkout the repository to the runner
+  #       uses: actions/checkout@v4
 
-      - name: Setup Terraform with specific version on the runner
-        uses: hashicorp/setup-terraform@v3
-        with:
-          terraform_version: 1.8.2
+  #     - name: Setup Terraform with specific version on the runner
+  #       uses: hashicorp/setup-terraform@v3
+  #       with:
+  #         terraform_version: 1.8.2
 
-      - name: Terraform Init
-        id: init
-        run: |
-          cd terraform-amplify
-          terraform fmt
-          terraform init \
-           -backend-config="bucket=$AWS_S3_BUCKET_FOR_TF_STATE" \
-           -backend-config="key=amplify/$AWS_AMPLIFY_DEPLOYED_REGION/terraform.tfstate" \
-           -backend-config="region=us-west-2" \
-           -reconfigure
+  #     - name: Terraform Init
+  #       id: init
+  #       run: |
+  #         cd terraform-amplify
+  #         terraform fmt
+  #         terraform init \
+  #          -backend-config="bucket=$AWS_S3_BUCKET_FOR_TF_STATE" \
+  #          -backend-config="key=amplify/$AWS_AMPLIFY_DEPLOYED_REGION/terraform.tfstate" \
+  #          -backend-config="region=us-west-2" \
+  #          -reconfigure
 
-      - name: Terraform Destroy
-        id: destroy
-        run: |
-          cd terraform-amplify
-          terraform destroy -auto-approve -input=false
+  #     - name: Terraform Destroy
+  #       id: destroy
+  #       run: |
+  #         cd terraform-amplify
+  #         terraform destroy -auto-approve -input=false
