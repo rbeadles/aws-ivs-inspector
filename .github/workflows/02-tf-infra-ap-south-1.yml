@@ -184,13 +184,13 @@ jobs:
 
           current_env_vars=$(aws amplify get-app --app-id $AWS_AMPLIFY_APP_ID | jq '.app.environmentVariables')
           echo $current_env_vars
-          envVarToUpdate=$(jq -R . <<< "${{needs.terraform_for_infra.outputs.api_ids}}")
+          api_values=$(jq --arg region "$TF_VAR_region" '.[$region]' <<< "${{needs.terraform_for_infra.outputs.api_ids}}")
           echo $envVarToUpdate
-          # envVarToUpdate=$(jq --arg region "$TF_VAR_region" --arg values "$api_values" '.[$region] = $values' <<< "$current_env_vars" > "$tmpJson" && mv "$tmpJson" "$current_env_vars")
+          jq --arg region "$TF_VAR_region" --arg values "$api_values" '.[$region] = $values' <<< "$current_env_vars" > "$tmpJson" && mv "$tmpJson" "$current_env_vars"
           # echo $tmpJson
           # envVarToUpdate=$(jq '.app.environmentVariables' <<< $envVarToUpdate)
-          # echo $envVarToUpdate
-          aws amplify update-app --app-id $AWS_AMPLIFY_APP_ID --environment-variables "$envVarToUpdate"
+          echo $current_env_vars
+          aws amplify update-app --app-id $AWS_AMPLIFY_APP_ID --environment-variables $TF_VAR_region="$current_env_vars"
 
       # - name: Add env var to Amplify
       #   env:
