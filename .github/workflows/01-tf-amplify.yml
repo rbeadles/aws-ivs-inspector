@@ -32,6 +32,9 @@ jobs:
         id: init
         run: |
           cd terraform-amplify
+          echo $AWS_S3_BUCKET_FOR_TF_STATE
+          echo $TF_VAR_region
+          echo $AWS_S3_BUCKET_FOR_TF_STATE_REGION
           terraform fmt
           terraform init \
            -backend-config="bucket=$AWS_S3_BUCKET_FOR_TF_STATE" \
