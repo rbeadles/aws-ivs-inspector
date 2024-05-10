@@ -177,6 +177,10 @@ jobs:
 
       - name: amplify env vars update using AWS CLI
         run: |
+          aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
+          aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
+          aws configure set region $AWS_AMPLIFY_APP_REGION
+
           # amplify_app=$(aws amplify get-app --app-id $AWS_AMPLIFY_APP_ID)
           amplify_app=$(python3 -c 'import json,sys;JSON=json.load(sys.stdin);print(JSON["app"]["environmentVariables"]);' <<< $(aws amplify get-app --app-id $AWS_AMPLIFY_APP_ID))
           echo $amplify_app
@@ -190,9 +194,6 @@ jobs:
           # echo $current_env_vars
           # cat $current_env_vars
 
-          # aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
-          # aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
-          # aws configure set region $AWS_AMPLIFY_APP_REGION
           # aws amplify update-app --app-id $AWS_AMPLIFY_APP_ID --environment-variables $TF_VAR_region="$api_values"
 
       # - name: Add env var to Amplify
