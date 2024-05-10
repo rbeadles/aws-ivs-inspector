@@ -110,7 +110,7 @@ jobs:
 
       - name: amplify env vars update using AWS CLI
         run: |
-          api_values=$(jq --arg region "$TF_VAR_region" '.[$region]' | jq -c | jq -R <<< "${{needs.terraform_for_infra.outputs.api_ids}}")
+          api_values=$(jq --arg region "$TF_VAR_region" '.[$region]' <<< "${{needs.terraform_for_infra.outputs.api_ids}}" | jq -c | jq -R)
           # api_values=$(echo $api_values )
           echo $api_values
           aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
