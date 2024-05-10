@@ -57,11 +57,11 @@ jobs:
       #     terraform plan -no-color -input=false
       #   continue-on-error: true
 
-      - name: Terraform Apply
-        id: apply
-        run: |
-          cd terraform-infra
-          terraform apply -auto-approve -input=false
+      # - name: Terraform Apply
+      #   id: apply
+      #   run: |
+      #     cd terraform-infra
+      #     terraform apply -auto-approve -input=false
 
       - name: Terraform Output
         id: output
@@ -181,8 +181,8 @@ jobs:
           aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
           aws configure set region $AWS_AMPLIFY_APP_REGION
 
-          # amplify_app=$(aws amplify get-app --app-id $AWS_AMPLIFY_APP_ID)
-          amplify_app=$(python3 -c 'import json,sys;JSON=json.load(sys.stdin);print(JSON["app"]["environmentVariables"]);' <<< $(aws amplify get-app --app-id $AWS_AMPLIFY_APP_ID))
+          amplify_app=$(aws amplify get-app --app-id $AWS_AMPLIFY_APP_ID)
+          # amplify_app=$(python3 -c 'import json,sys;JSON=json.load(sys.stdin);print(JSON["app"]["environmentVariables"]);' <<< $(aws amplify get-app --app-id $AWS_AMPLIFY_APP_ID))
           echo $amplify_app
 
           current_env_vars=$(jq '.app.environmentVariables' <<< "$amplify_app")
