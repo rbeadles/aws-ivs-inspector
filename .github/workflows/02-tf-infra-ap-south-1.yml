@@ -191,7 +191,7 @@ jobs:
           api_values=$(jq --arg region "$TF_VAR_region" '.[$region]' <<< "${{needs.terraform_for_infra.outputs.api_ids}}")
           api_values=$(echo $api_values | jq -c | jq -R)
           echo $api_values
-          jq --arg region "$TF_VAR_region" --arg values "$api_values" '.[$region] = $values' <<< "$current_env_vars" > "$tmpJson" && mv "$tmpJson" "$current_env_vars"
+          jq --arg region "$TF_VAR_region" --arg values "$api_values" '.{$region} = $values' <<< "$current_env_vars" > "$tmpJson" && mv "$tmpJson" "$current_env_vars"
           echo $current_env_vars
           # cat $current_env_vars
 
