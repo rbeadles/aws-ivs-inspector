@@ -183,9 +183,7 @@ jobs:
           aws configure set region $AWS_AMPLIFY_APP_REGION
 
           current_env_vars=$(aws amplify get-app --app-id $AWS_AMPLIFY_APP_ID | jq '.app.environmentVariables')
-          # current_env_vars=$(jq '.app.environmentVariables' <<< "$amplify_app")
-          # echo $current_env_vars
-          echo $amplify_app
+          echo $current_env_vars
           api_values=$(jq --arg region "$TF_VAR_region" .[$region] <<< "${{needs.terraform_for_infra.outputs.api_ids}}" | jq -c | jq -R)
           echo $api_values
           envVarToUpdate=$(jq --arg region "$TF_VAR_region" --arg values "$api_values" '.[$region] = $values' <<< "$current_env_vars" > "$tmpJson" && mv "$tmpJson" "$current_env_vars")
