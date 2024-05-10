@@ -36,49 +36,49 @@ jobs:
           echo $TF_VAR_region | sed 's/ //g'
           echo $AWS_S3_BUCKET_FOR_TF_STATE_REGION | sed 's/ //g'
           terraform fmt
-  #         terraform init \
-  #          -backend-config="bucket=$AWS_S3_BUCKET_FOR_TF_STATE" \
-  #          -backend-config="key=amplify/$TF_VAR_region/terraform.tfstate" \
-  #          -backend-config="region=$AWS_S3_BUCKET_FOR_TF_STATE_REGION" \
+          terraform init \
+           -backend-config="bucket=$AWS_S3_BUCKET_FOR_TF_STATE" \
+           -backend-config="key=amplify/$TF_VAR_region/terraform.tfstate" \
+           -backend-config="region=$AWS_S3_BUCKET_FOR_TF_STATE_REGION" \
 
-  #     - name: Terraform Validate
-  #       id: validate
-  #       run: |
-  #         cd terraform-amplify
-  #         terraform validate
+      - name: Terraform Validate
+        id: validate
+        run: |
+          cd terraform-amplify
+          terraform validate
 
-  #     - name: Terraform Plan
-  #       id: plan
-  #       run: |
-  #         cd terraform-amplify
-  #         terraform plan -no-color -input=false
-  #       continue-on-error: true
+      - name: Terraform Plan
+        id: plan
+        run: |
+          cd terraform-amplify
+          terraform plan -no-color -input=false
+        continue-on-error: true
 
-  #     - name: Terraform Apply
-  #       id: apply
-  #       run: |
-  #         cd terraform-amplify
-  #         terraform apply -auto-approve -input=false
+      - name: Terraform Apply
+        id: apply
+        run: |
+          cd terraform-amplify
+          terraform apply -auto-approve -input=false
 
-  #     - name: Terraform Output
-  #       id: output
-  #       run: |
-  #         cd terraform-amplify
-  #         echo "amplify_app_id=$(terraform output -raw amplify_app_id)" >> $GITHUB_OUTPUT
+      - name: Terraform Output
+        id: output
+        run: |
+          cd terraform-amplify
+          echo "amplify_app_id=$(terraform output -raw amplify_app_id)" >> $GITHUB_OUTPUT
 
-  #   outputs:
-  #     amplify_app_id: ${{ steps.output.outputs.amplify_app_id }}
+    outputs:
+      amplify_app_id: ${{ steps.output.outputs.amplify_app_id }}
 
-  # add_environment_variable:
-  #   name: "Adding Amplify App ID into GH Env Var"
-  #   runs-on: ubuntu-latest
-  #   environment: ivs_inspector_backend
-  #   needs: terraform_for_amplify
-  #   steps:
-  #     - name: Checkout the repository to the runner
-  #       uses: actions/checkout@v4
+  add_environment_variable:
+    name: "Adding Amplify App ID into GH Env Var"
+    runs-on: ubuntu-latest
+    environment: ivs_inspector_backend
+    needs: terraform_for_amplify
+    steps:
+      - name: Checkout the repository to the runner
+        uses: actions/checkout@v4
 
-  #     - name: "add to github env variable"
-  #       run: |
-  #         echo "app_id:: ${{needs.terraform_for_amplify.outputs.amplify_app_id}}"
-  #         gh variable set amplify_app_id --body "${{needs.terraform_for_amplify.outputs.amplify_app_id}}" --env ivs_inspector_backend
+      - name: "add to github env variable"
+        run: |
+          echo "app_id:: ${{needs.terraform_for_amplify.outputs.amplify_app_id}}"
+          gh variable set amplify_app_id --body "${{needs.terraform_for_amplify.outputs.amplify_app_id}}" --env ivs_inspector_backend
