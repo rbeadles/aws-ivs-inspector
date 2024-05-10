@@ -190,7 +190,7 @@ jobs:
           # echo $tmpJson
           # envVarToUpdate=$(jq '.app.environmentVariables' <<< $envVarToUpdate)
           # echo $envVarToUpdate
-          aws amplify update-app --app-id $AWS_AMPLIFY_APP_ID --environment-variables $envVarToUpdate
+          aws amplify update-app --app-id $AWS_AMPLIFY_APP_ID --environment-variables "$envVarToUpdate"
 
       # - name: Add env var to Amplify
       #   env:
