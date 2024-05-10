@@ -16,26 +16,26 @@
 
 ![01-PersonalAccessToken-using-Classic.png](documentation/screenshots/01-PersonalAccessToken-using-Classic.png)
 
-Assign the following permission and save.
+3.1.) Assign the following permission and save.
 
 ![02-AddFollowingPermissions.png](documentation/screenshots/02-AddFollowingPermissions.png)
 
 4.) Repository Workflow Permission:
-a. Navigate to IVS Inspector repository > `Settings` > `Actions` (left side drawer) > `General`
-b. Select the `Read and write permissions` in the Workflow permissions and save it.
+4.1.) Navigate to IVS Inspector repository > `Settings` > `Actions` (left side drawer) > `General`
+4.2.) Select the `Read and write permissions` in the Workflow permissions and save it.
 
 ![alt text](https://github.com/sathia-s/aws-ivs-inspector/blob/main/prequisites/05-ProvideWorkflowPermissions.png?raw=true)
 
 5.) Create Environment:
-a. Navigate to IVS Inspector repository > `Settings` > `Environments`
-b. Click the `New environment` with the value `ivs_inspector_backend`.
+5.1.) Navigate to IVS Inspector repository > `Settings` > `Environments`
+5.2.) Click the `New environment` with the value `ivs_inspector_backend`.
 
 ![alt text](https://github.com/sathia-s/aws-ivs-inspector/blob/main/prequisites/03-AddNewEnvironment.png?raw=true)
 
 6.) Manually set the GitHub Actions Secrets:
-a. Navigate to IVS Inspector repository > `Settings` > `Environments`
-b. Hover and click the `ivs_inspector_backend`, which you just created at `step #5`.
-c. Click `Add environment secret` in Environment secrets
+6.1.) Navigate to IVS Inspector repository > `Settings` > `Environments`
+6.2.) Hover and click the `ivs_inspector_backend`, which you just created at `step #5`.
+6.3.) Click `Add environment secret` in Environment secrets
 
 | Name                              | Value                                                      |
 | :-------------------------------- | :--------------------------------------------------------- |
@@ -54,15 +54,15 @@ c. Click `Add environment secret` in Environment secrets
 
 ![alt text](https://github.com/sathia-s/aws-ivs-inspector/blob/main/prequisites/06-ClickTheRunWorkflowForEach.png?raw=true)
 
-01:AWS Amplify App (source: 01-tf-amplify.yml)
+7.1.) 01:AWS Amplify App (source: 01-tf-amplify.yml)
 
 > #### Note: If you're hosting the Web Application using Amplify to a desired region, you may update the value of `TF_VAR_region` in the workflow file `01-tf-amplify.yml` at `line #6`.
 
-02:AWS Infra ap-south-1 (source: 02-tf-infra.yml)
+7.2.) 02:AWS Infra ap-south-1 (source: 02-tf-infra.yml)
 
 > #### Note: If you're deploying infrastructure to another or additional region to inspect the IVS Channel resources, you may update the value of `TF_VAR_region` in the workflow file `02-tf-infra.yml` at the `line #6` for each run/region.
 
-03:AWS IVS Inspector web-app (source: 03-awscli-web.yml)
+7.3.) 03:AWS IVS Inspector web-app (source: 03-awscli-web.yml)
 
 > #### Note: Workflow `01-tf-amplify.yml` will automatically save the GitHub Actions Variable `AMPLIFY_APP_ID`, which is reused by another workflow `03-awscli-web.yml` for application deployment from GitHub using GitHub's `Personal Access Token`. Hence no action required adding the `AMPLIFY_APP_ID` in the environment variables.
 
@@ -84,4 +84,4 @@ Upon successful run of all three workflows
 
 :TODO: Question to the IVS team,
 
-1. should we consider duplicating the #02 workflow for multiple region deployment or advise the customers to rename the region from the existing file (02-tf-infra.yml). Please refer to `#7 > #02 > Note` in the installation.
+1. should we consider duplicating the #02 workflow for multiple region deployment or advise the customers to rename the region from the existing file (02-tf-infra.yml). Please refer to `#7 > #7.2 > Note` in the installation.
