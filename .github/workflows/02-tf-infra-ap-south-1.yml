@@ -17,7 +17,7 @@ env:
 jobs:
   terraform_for_infra:
     runs-on: ubuntu-latest
-    environment: terraform_admin
+    environment: ivs_inspector_backend
 
     steps:
       - name: Checkout the repository to the runner
@@ -70,7 +70,7 @@ jobs:
   update_environment_variables:
     name: "Adding API IDs into Env Var file"
     runs-on: ubuntu-latest
-    environment: terraform_admin
+    environment: ivs_inspector_backend
     needs: terraform_for_infra
     steps:
       - name: Checkout the repositoring to the runner

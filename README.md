@@ -32,7 +32,7 @@
 
 ![03-AddNewEnvironment.png](documentation/screenshots/03-AddNewEnvironment.png)
 
-6.) Manually set the GitHub Actions Secrets: <br>
+6.) Manually setting the GitHub Actions Secrets: <br>
 6.1.) Navigate to IVS Inspector repository > `Settings` > `Environments` <br>
 6.2.) Hover and click the `ivs_inspector_backend`, which you just created at `step #5` <br>
 6.3.) Click `Add environment secret` in Environment secrets. <br>
@@ -48,7 +48,7 @@
 | AWS_S3_BUCKET_FOR_TF_STATE_REGION | Region of the Bucket that store the Terraform state file   |
 | GH_PERSONAL_ACCESS_TOKEN          | Token that generated at #3                                 |
 
-![04-AddSecerts.png](documentation/screenshots/04-AddSecerts.png)
+![04-AddSecrets.png](documentation/screenshots/04-AddSecrets.png)
 
 7.) Click the RunWorkflow for each workflow in sequence,
 

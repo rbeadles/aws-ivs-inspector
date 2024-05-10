@@ -12,7 +12,7 @@ env:
 jobs:
   web-app:
     runs-on: ubuntu-latest
-    environment: terraform_admin
+    environment: ivs_inspector_backend
 
     steps:
       - name: Checkout the repositoring to the runner

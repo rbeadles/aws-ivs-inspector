@@ -1,28 +1,10 @@
 <template>
   <div class="col body-spacing">
-    <!-- <div class="q-pa-md text-body1">
-      {{ auth.authStatus }}
-    </div> -->
-
     <authenticator initial-state="signIn" :form-fields="formFields">
       <template v-slot:header>
         <div style="padding: var(--amplify-space-small); text-align: center">
-          <img class="amplify-image" alt="Amplify logo" src="/icons/ivs.png" />
+          <q-img width="100px" alt="Amplify logo" src="/icons/ivs.png" />
         </div>
-      </template>
-
-      <!-- <template v-slot:sign-in-header>
-        <h3
-          class="amplify-heading"
-          style="padding: var(--amplify-space-xl) 0 0 var(--amplify-space-xl)"
-        >
-          Sign in to your account
-        </h3>
-      </template> -->
-
-      <template v-slot="{ user, signOut }">
-        <h1>Hello {{ user.username }}!</h1>
-        <q-btn square outline rounded @click="signOut">Sign Out</q-btn>
       </template>
     </authenticator>
   </div>
@@ -82,3 +64,13 @@ export default defineComponent({
   },
 });
 </script>
+
+<style>
+.amplify-button--primary {
+  background: #ff9900;
+}
+
+.amplify-tabs__active {
+  border-color: #ff9900;
+}
+</style>

@@ -17,7 +17,7 @@ env:
 jobs:
   terraform_for_amplify:
     runs-on: ubuntu-latest
-    environment: terraform_admin
+    environment: ivs_inspector_backend
 
     steps:
       - name: Checkout the repository to the runner
@@ -69,7 +69,7 @@ jobs:
   add_environment_variable:
     name: "Adding Amplify App ID into GH Env Var"
     runs-on: ubuntu-latest
-    environment: terraform_admin
+    environment: ivs_inspector_backend
     needs: terraform_for_amplify
     steps:
       - name: Checkout the repository to the runner
@@ -78,4 +78,4 @@ jobs:
       - name: "add to github env variable"
         run: |
           echo "app_id:: ${{needs.terraform_for_amplify.outputs.amplify_app_id}}"
-          gh variable set amplify_app_id --body "${{needs.terraform_for_amplify.outputs.amplify_app_id}}" --env terraform_admin
+          gh variable set amplify_app_id --body "${{needs.terraform_for_amplify.outputs.amplify_app_id}}" --env ivs_inspector_backend
