@@ -20,22 +20,22 @@
 
 ![02-AddFollowingPermissions.png](documentation/screenshots/02-AddFollowingPermissions.png)
 
-4.) Repository Workflow Permission:
-4.1.) Navigate to IVS Inspector repository > `Settings` > `Actions` (left side drawer) > `General`
+4.) Repository Workflow Permission: <br>
+4.1.) Navigate to IVS Inspector repository > `Settings` > `Actions` (left side drawer) > `General` <br>
 4.2.) Select the `Read and write permissions` in the Workflow permissions and save it.
 
-![alt text](https://github.com/sathia-s/aws-ivs-inspector/blob/main/prequisites/05-ProvideWorkflowPermissions.png?raw=true)
+![05-ProvideWorkflowPermissions.png](documentation/screenshot/05-ProvideWorkflowPermissions.png)
 
 5.) Create Environment: <br>
-5.1.)** Navigate to IVS Inspector repository > `Settings` > `Environments` <br>
-5.2.)** Click the `New environment` with the value `ivs_inspector_backend`.
+5.1.) Navigate to IVS Inspector repository > `Settings` > `Environments` <br>
+5.2.) Click the `New environment` with the value `ivs_inspector_backend`.
 
-![alt text](https://github.com/sathia-s/aws-ivs-inspector/blob/main/prequisites/03-AddNewEnvironment.png?raw=true)
+![03-AddNewEnvironment.png](documentation/screenshot/03-AddNewEnvironment.png)
 
-6.) Manually set the GitHub Actions Secrets:
-6.1.) Navigate to IVS Inspector repository > `Settings` > `Environments`
-6.2.) Hover and click the `ivs_inspector_backend`, which you just created at `step #5`.
-6.3.) Click `Add environment secret` in Environment secrets
+6.) Manually set the GitHub Actions Secrets: <br>
+6.1.) Navigate to IVS Inspector repository > `Settings` > `Environments` <br>
+6.2.) Hover and click the `ivs_inspector_backend`, which you just created at `step #5` <br>
+6.3.) Click `Add environment secret` in Environment secrets. <br>
 
 | Name                              | Value                                                      |
 | :-------------------------------- | :--------------------------------------------------------- |
@@ -48,11 +48,11 @@
 | AWS_S3_BUCKET_FOR_TF_STATE_REGION | Region of the Bucket that store the Terraform state file   |
 | GH_PERSONAL_ACCESS_TOKEN          | Token that generated at #3                                 |
 
-![alt text](https://github.com/sathia-s/aws-ivs-inspector/blob/main/prequisites/04-AddSecerts.png?raw=true)
+![04-AddSecerts.png](documentation/screenshot/04-AddSecerts.png)
 
 7.) Click the RunWorkflow for each workflow in sequence,
 
-![alt text](https://github.com/sathia-s/aws-ivs-inspector/blob/main/prequisites/06-ClickTheRunWorkflowForEach.png?raw=true)
+![06-ClickTheRunWorkflowForEach.png](documentation/screenshot/06-ClickTheRunWorkflowForEach.png)
 
 7.1.) 01:AWS Amplify App (source: 01-tf-amplify.yml)
 
