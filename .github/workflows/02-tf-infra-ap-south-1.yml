@@ -178,8 +178,8 @@ jobs:
       - name: amplify env vars update using AWS CLI
         run: |
           # amplify_app=$(aws amplify get-app --app-id $AWS_AMPLIFY_APP_ID)
-          # echo $amplify_app
-          python3 -c 'import json,sys;JSON=json.load(sys.stdin);print(JSON["cities"][0]["name"]);print(JSON["otherinfo"]["nickname"]);' <<< $(aws amplify get-app --app-id $AWS_AMPLIFY_APP_ID)
+          amplify_app=$(python3 -c 'import json,sys;JSON=json.load(sys.stdin);print(JSON["app"]["environmentVariables"]);' <<< $(aws amplify get-app --app-id $AWS_AMPLIFY_APP_ID))
+          echo $amplify_app
 
           current_env_vars=$(jq '.app.environmentVariables' <<< "$amplify_app")
           echo $current_env_vars
