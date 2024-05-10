@@ -1,4 +1,4 @@
-name: 04:test
+name: 05:test
 
 on:
   workflow_dispatch

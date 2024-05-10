@@ -1,6 +1,10 @@
 name: 04:AWS Amplify destroy
 
-on: workflow_dispatch
+on:
+  #workflow_dispatch
+  push:
+    branches:
+      - dev
 
 env:
   AWS_AMPLIFY_APP_REGION: "us-east-2"
