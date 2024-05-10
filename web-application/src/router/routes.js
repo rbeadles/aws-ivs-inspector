@@ -11,10 +11,17 @@ const routes = [
     component: () => import("src/layouts/MainLayout.vue"),
     children: [
       {
+        name: "Settings",
+        path: "/account/:account_id/settings",
+        component: () => import("src/pages/Settings.vue"),
+      },
+
+      {
         name: "Dashboard",
         path: "/account/:account_id/region/:region/dashboard",
         component: () => import("src/pages/Dashboard.vue"),
       },
+
       {
         name: "Channels",
         path: "/account/:account_id/region/:region/channels",

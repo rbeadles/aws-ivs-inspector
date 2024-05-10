@@ -11,8 +11,9 @@ env:
   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
   AWS_S3_BUCKET_FOR_TF_STATE: ${{ secrets.AWS_S3_BUCKET_FOR_TF_STATE }}
   AWS_S3_BUCKET_FOR_TF_STATE_REGION: ${{ secrets.AWS_S3_BUCKET_FOR_TF_STATE_REGION }}
+  AWS_AMPLIFY_APP_ID: ${{vars.AMPLIFY_APP_ID}}
   tmpJson: $(mktemp)
-  envVarsPath: ./web-application/src/config/env.json
+  envVarsPath: ./web-application/.env
 
 jobs:
   terraform_for_infra:
@@ -67,7 +68,7 @@ jobs:
     outputs:
       api_ids: ${{ steps.output.outputs.api_ids }}
 
-  update_environment_variables:
+  update_webapp_repo_env_vars:
     name: "Adding API IDs into Env Var file"
     runs-on: ubuntu-latest
     environment: ivs_inspector_backend
@@ -96,3 +97,20 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: ${{ github.ref }}
           force: true
+
+  update_amplify_env_vars:
+    name: "Adding API IDs into Amplify Env Var"
+    runs-on: ubuntu-latest
+    environment: ivs_inspector_backend
+    needs: terraform_for_infra
+    steps:
+      - name: Checkout the repositoring to the runner
+        uses: actions/checkout@v4
+
+      - name: amplify env vars update using AWS CLI
+        run: |
+          api_values=$(jq --arg region "$TF_VAR_region" '.[$region]' <<< "${{needs.terraform_for_infra.outputs.api_ids}}")
+          aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
+          aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
+          aws configure set region "ap-south-1"
+          aws amplify update-app --app-id $AWS_AMPLIFY_APP_ID --environment-variables $api_values

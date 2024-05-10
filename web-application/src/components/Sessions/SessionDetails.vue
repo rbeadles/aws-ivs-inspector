@@ -24,7 +24,7 @@
           <!-- {{ sessionMetrics }} -->
 
           <q-card
-            class="relative-positio full-width"
+            class="relative-position full-width"
             style="height: 360px"
             flat
           >
@@ -88,7 +88,7 @@
         </q-scroll-area>
       </div>
 
-      <q-separator vertical />
+      <!-- <q-separator vertical />
 
       <div class="col-3" style="min-width: 300px">
         <q-scroll-area
@@ -102,7 +102,7 @@
           </q-item>
           <q-separator spaced />
         </q-scroll-area>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>

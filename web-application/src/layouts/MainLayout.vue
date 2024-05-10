@@ -92,6 +92,20 @@
 
         <q-separator />
 
+        <q-item
+          clickable
+          class="col-auto q-pa-md"
+          @click="redirectTo('Settings')"
+        >
+          <q-item-section avatar>
+            <q-icon name="settings" />
+          </q-item-section>
+
+          <q-item-section>
+            <q-item-label> Settings </q-item-label>
+          </q-item-section>
+        </q-item>
+
         <q-item clickable class="col-auto q-pa-md" @click="signOut()">
           <q-item-section avatar>
             <q-icon name="logout" />
@@ -193,11 +207,15 @@ export default defineComponent({
       });
     };
 
+    const redirectTo = (page) => {
+      $router.push({ name: page });
+    };
+
     watch(user, (current, old) => {
       // console.log(old);
       // console.log(current);
       if (!current) {
-        $router.push({ name: "Auth" });
+        $router.push({ name: "Auth", params: { account_id: accountId } });
       }
     });
 
@@ -230,7 +248,7 @@ export default defineComponent({
 
       goToChannel,
       changeRegion,
-      pageName: ref($route.name),
+      redirectTo,
     };
   },
 });
