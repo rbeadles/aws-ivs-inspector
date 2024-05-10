@@ -24,13 +24,13 @@
 4.1.) Navigate to IVS Inspector repository > `Settings` > `Actions` (left side drawer) > `General` <br>
 4.2.) Select the `Read and write permissions` in the Workflow permissions and save it.
 
-![05-ProvideWorkflowPermissions.png](documentation/screenshot/05-ProvideWorkflowPermissions.png)
+![05-ProvideWorkflowPermissions.png](documentation/screenshots/05-ProvideWorkflowPermissions.png)
 
 5.) Create Environment: <br>
 5.1.) Navigate to IVS Inspector repository > `Settings` > `Environments` <br>
 5.2.) Click the `New environment` with the value `ivs_inspector_backend`.
 
-![03-AddNewEnvironment.png](documentation/screenshot/03-AddNewEnvironment.png)
+![03-AddNewEnvironment.png](documentation/screenshots/03-AddNewEnvironment.png)
 
 6.) Manually set the GitHub Actions Secrets: <br>
 6.1.) Navigate to IVS Inspector repository > `Settings` > `Environments` <br>
@@ -48,11 +48,11 @@
 | AWS_S3_BUCKET_FOR_TF_STATE_REGION | Region of the Bucket that store the Terraform state file   |
 | GH_PERSONAL_ACCESS_TOKEN          | Token that generated at #3                                 |
 
-![04-AddSecerts.png](documentation/screenshot/04-AddSecerts.png)
+![04-AddSecerts.png](documentation/screenshots/04-AddSecerts.png)
 
 7.) Click the RunWorkflow for each workflow in sequence,
 
-![06-ClickTheRunWorkflowForEach.png](documentation/screenshot/06-ClickTheRunWorkflowForEach.png)
+![06-ClickTheRunWorkflowForEach.png](documentation/screenshots/06-ClickTheRunWorkflowForEach.png)
 
 7.1.) 01:AWS Amplify App (source: 01-tf-amplify.yml)
 
