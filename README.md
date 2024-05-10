@@ -14,27 +14,39 @@
 
 3.) GitHub Permissions: Generate the GitHub personal token under user profile https://github.com/settings/tokens
 
-![alt text](https://github.com/sathia-s/aws-ivs-inspector/blob/main/prequisites/01-PersonalAccessToken-using-Classic.png?raw=true)
+![01-PersonalAccessToken-using-Classic.png](documentation/screenshots/01-PersonalAccessToken-using-Classic.png)
 
 Assign the following permission and save.
 
-![alt text](https://github.com/sathia-s/aws-ivs-inspector/blob/main/prequisites/02-AddFollowingPermissions.png?raw=true)
+![02-AddFollowingPermissions.png](documentation/screenshots/02-AddFollowingPermissions.png)
 
 4.) Repository Workflow Permission:
+a. Navigate to IVS Inspector repository > `Settings` > `Actions` (left side drawer) > `General`
+b. Select the `Read and write permissions` in the Workflow permissions and save it.
 
 ![alt text](https://github.com/sathia-s/aws-ivs-inspector/blob/main/prequisites/05-ProvideWorkflowPermissions.png?raw=true)
 
 5.) Create Environment:
+a. Navigate to IVS Inspector repository > `Settings` > `Environments`
+b. Click the `New environment` with the value `ivs_inspector_backend`.
 
 ![alt text](https://github.com/sathia-s/aws-ivs-inspector/blob/main/prequisites/03-AddNewEnvironment.png?raw=true)
 
 6.) Manually set the GitHub Actions Secrets:
-`AWS_ACCESS_KEY_ID`
-`AWS_ACCOUNT_ID`
-`AWS_S3_BUCKET_FOR_TF_STATE`
-`AWS_SECRET_ACCESS_KEY`
-`GH_PERSONAL_ACCESS_TOKEN`
-`IVS_PROJECT_NAME`
+a. Navigate to IVS Inspector repository > `Settings` > `Environments`
+b. Hover and click the `ivs_inspector_backend`, which you just created at `step #5`.
+c. Click `Add environment secret` in Environment secrets
+
+| Name                              | Value                                                      |
+| :-------------------------------- | :--------------------------------------------------------- |
+| IVS_PROJECT_NAME                  | Default to `ivs-inspector` but you can define your own     |
+| AWS_ACCOUNT_ID                    | Your AWS Account ID                                        |
+| AWS_AWS_AMPLIFY_DEPLOYED_REGION   | Deploy the web application to a single region              |
+| AWS_ACCESS_KEY_ID                 | Temporary AWS Access key with Administrative access        |
+| AWS_SECRET_ACCESS_KEY             | Temporary AWS Secret Access key with Administrative access |
+| AWS_S3_BUCKET_FOR_TF_STATE        | Bucket that store the Terraform state file                 |
+| AWS_S3_BUCKET_FOR_TF_STATE_REGION | Region of the Bucket that store the Terraform state file   |
+| GH_PERSONAL_ACCESS_TOKEN          | Token that generated at #3                                 |
 
 ![alt text](https://github.com/sathia-s/aws-ivs-inspector/blob/main/prequisites/04-AddSecerts.png?raw=true)
 

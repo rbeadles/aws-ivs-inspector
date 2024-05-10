@@ -3,14 +3,15 @@ name: 01:AWS Amplify App
 on: workflow_dispatch
 
 env:
-  TF_VAR_region: "us-east-2"
+  TF_VAR_region: ${{ secrets.AWS_AMPLIFY_DEPLOYED_REGION }}
   TF_VAR_project_name: ${{ secrets.IVS_PROJECT_NAME }}
   TF_VAR_repository: ${{ github.server_url }}/${{ github.repository }}
   TF_VAR_token: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
   TF_LOG: INFO
-  AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
-  AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
+  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
   AWS_S3_BUCKET_FOR_TF_STATE: ${{ secrets.AWS_S3_BUCKET_FOR_TF_STATE }}
+  AWS_S3_BUCKET_FOR_TF_STATE_REGION: ${{ secrets.AWS_S3_BUCKET_FOR_TF_STATE_REGION }}
   GH_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
 
 jobs:
@@ -35,7 +36,7 @@ jobs:
           terraform init \
            -backend-config="bucket=$AWS_S3_BUCKET_FOR_TF_STATE" \
            -backend-config="key=amplify/$TF_VAR_region/terraform.tfstate" \
-           -backend-config="region=us-west-2"
+           -backend-config="region=$AWS_S3_BUCKET_FOR_TF_STATE_REGION" \
 
       - name: Terraform Validate
         id: validate

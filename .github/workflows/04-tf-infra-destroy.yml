@@ -4,14 +4,15 @@ on: workflow_dispatch
 
 env:
   TF_VAR_region: "us-east-1"
-  AWS_AMPLIFY_DEPLOYED_REGION: "us-east-2"
+  AWS_AMPLIFY_APP_REGION: ${{ secrets.AWS_AMPLIFY_DEPLOYED_REGION }}
   TF_VAR_repository: ${{ github.server_url }}/${{ github.repository }}
   TF_VAR_account_id: ${{ secrets.AWS_ACCOUNT_ID }}
   TF_VAR_token: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
   TF_LOG: INFO
-  AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
-  AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
+  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
   AWS_S3_BUCKET_FOR_TF_STATE: ${{ secrets.AWS_S3_BUCKET_FOR_TF_STATE }}
+  AWS_S3_BUCKET_FOR_TF_STATE_REGION: ${{ secrets.AWS_S3_BUCKET_FOR_TF_STATE_REGION }}
 
 jobs:
   terraform_for_infra:
@@ -35,7 +36,7 @@ jobs:
           terraform init \
            -backend-config="bucket=$AWS_S3_BUCKET_FOR_TF_STATE" \
            -backend-config="key=infra/$TF_VAR_region/terraform.tfstate" \
-           -backend-config="region=us-west-2" \
+           -backend-config="region=$AWS_S3_BUCKET_FOR_TF_STATE_REGION" \
            -reconfigure
 
       - name: Terraform Destroy
@@ -64,8 +65,8 @@ jobs:
           terraform fmt
           terraform init \
            -backend-config="bucket=$AWS_S3_BUCKET_FOR_TF_STATE" \
-           -backend-config="key=amplify/$AWS_AMPLIFY_DEPLOYED_REGION/terraform.tfstate" \
-           -backend-config="region=us-west-2" \
+           -backend-config="key=amplify/$AWS_AMPLIFY_APP_REGION/terraform.tfstate" \
+           -backend-config="region=$AWS_S3_BUCKET_FOR_TF_STATE_REGION" \
            -reconfigure
 
       - name: Terraform Destroy
