@@ -17,6 +17,7 @@ env:
   AWS_AMPLIFY_APP_ID: ${{vars.AMPLIFY_APP_ID}}
   AWS_AMPLIFY_APP_REGION: "us-east-2"
   tmpJson: $(mktemp)
+  tmpCurrentEnvVars: $(mktemp)
   envVarsPath: ./web-application/.env
 
 jobs:
@@ -185,16 +186,16 @@ jobs:
           # amplify_app=$(python3 -c 'import json,sys;JSON=json.load(sys.stdin);print(JSON["app"]["environmentVariables"]);' <<< $(aws amplify get-app --app-id $AWS_AMPLIFY_APP_ID))
           echo $amplify_app
 
-          current_env_vars=$(jq '.app.environmentVariables' <<< "$amplify_app")
-          echo $current_env_vars
+          jq '.app.environmentVariables' <<< "$amplify_app" > $tmpCurrentEnvVars
+          echo $tmpCurrentEnvVars
           api_values=$(jq --arg region "$TF_VAR_region" '.[$region]' <<< "${{needs.terraform_for_infra.outputs.api_ids}}")
           api_values=$(echo $api_values | jq -c | jq -R)
           echo $api_values
-          jq --arg region "$TF_VAR_region" --arg values "$api_values" '$region = $values' "$current_env_vars" > "$tmpJson" && mv "$tmpJson" "$current_env_vars"
-          echo $current_env_vars
-          # cat $current_env_vars
+          jq --arg region "$TF_VAR_region" --arg values "$api_values" '$region = $values' "$tmpCurrentEnvVars" > "$tmpJson" && mv "$tmpJson" "$tmpCurrentEnvVars"
+          echo $tmpCurrentEnvVars
+          cat $tmpCurrentEnvVars
 
-          # aws amplify update-app --app-id $AWS_AMPLIFY_APP_ID --environment-variables $TF_VAR_region="$api_values"
+          aws amplify update-app --app-id $AWS_AMPLIFY_APP_ID --environment-variables $TF_VAR_region="$tmpCurrentEnvVars"
 
       # - name: Add env var to Amplify
       #   env:
