@@ -3,7 +3,7 @@ name: 01:AWS Amplify App
 on: workflow_dispatch
 
 env:
-  TF_VAR_region: "us-east-2"
+  TF_VAR_region: us-east-2
   TF_VAR_project_name: ${{ secrets.IVS_PROJECT_NAME }}
   TF_VAR_repository: ${{ github.server_url }}/${{ github.repository }}
   TF_VAR_token: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
