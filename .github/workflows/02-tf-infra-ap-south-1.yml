@@ -191,8 +191,8 @@ jobs:
           envVarToUpdate=$(jq --arg region "$TF_VAR_region" --arg values "$api_values" '.app.environmentVariables[$region] = $values' <<< "$amplify_app")
 
           # > "$tmpJson" && mv "$tmpJson" "$amplify_app"
+          envVarToUpdate=$(jq '.app.environmentVariables' <<< $envVarToUpdate)
           echo $envVarToUpdate
-
           aws amplify update-app --app-id $AWS_AMPLIFY_APP_ID --environment-variables $envVarToUpdate
 
       # - name: Add env var to Amplify
