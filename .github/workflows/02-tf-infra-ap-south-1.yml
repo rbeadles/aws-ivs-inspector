@@ -189,7 +189,7 @@ jobs:
           jq --arg region "$TF_VAR_region" --arg values "$api_values" '.[$region] = $values' <<< "$current_env_vars" > "$tmpJson" && mv "$tmpJson" "$current_env_vars"
           # echo $tmpJson
           # envVarToUpdate=$(jq '.app.environmentVariables' <<< $envVarToUpdate)
-          $current_env_vars=$(echo $current_env_vars | jq -c | jq -R)
+          current_env_vars=$(echo $current_env_vars | jq -c | jq -R)
           echo $current_env_vars
           aws amplify update-app --app-id $AWS_AMPLIFY_APP_ID --environment-variables $TF_VAR_region="$current_env_vars"
 
