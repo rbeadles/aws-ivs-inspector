@@ -27,8 +27,8 @@
 ![alt text](https://github.com/sathia-s/aws-ivs-inspector/blob/main/prequisites/05-ProvideWorkflowPermissions.png?raw=true)
 
 5.) Create Environment:
-5.1.) Navigate to IVS Inspector repository > `Settings` > `Environments`
-5.2.) Click the `New environment` with the value `ivs_inspector_backend`.
+5.1.)** Navigate to IVS Inspector repository > `Settings` > `Environments`
+5.2.)** Click the `New environment` with the value `ivs_inspector_backend`.
 
 ![alt text](https://github.com/sathia-s/aws-ivs-inspector/blob/main/prequisites/03-AddNewEnvironment.png?raw=true)
 
