@@ -111,6 +111,70 @@ jobs:
       - name: Checkout the repositoring to the runner
         uses: actions/checkout@v4
 
+      - name: Install Amplify CLI
+        run: |
+          # cd web-application
+          npm install -g @aws-amplify/cli
+          # ls -lh
+
+          ENV_NAME="backend"
+
+          VUECONFIG="{\
+          \"SourceDir\":\"src\",\
+          \"DistributionDir\":\"dist/spa\",\
+          \"BuildCommand\":\"npm run build\",\
+          \"StartCommand\":\"npm run start\"\
+          }"
+
+          FRONTEND="{\
+          \"frontend\":\"javascript\",\
+          \"framework\":\"vue\",\
+          \"config\":$VUECONFIG\
+          }"
+
+          # note: session token cannot be passed in here
+          AWSCLOUDFORMATIONCONFIG="{\
+          \"configLevel\":\"project\",\
+          \"useProfile\":false,\
+          \"accessKeyId\":\"$AWS_ACCESS_KEY_ID\",\
+          \"secretAccessKey\":\"$AWS_SECRET_ACCESS_KEY\",\
+          \"region\":\"ap-south-1\"\
+          }"
+
+          AMPLIFY="{\
+          \"projectName\":\"Inspector\",\
+          \"envName\":\"$ENV_NAME\",\
+          \"defaultEditor\":\"code\"\
+          }"
+
+          PROVIDERS="{\
+          \"awscloudformation\":$AWSCLOUDFORMATIONCONFIG\
+          }"
+
+          # echo "Initializing Amplify project for env: $ENV_NAME"
+
+          amplify init \
+          --amplify $AMPLIFY \
+          --frontend $FRONTEND \
+          --providers $PROVIDERS \
+          --yes
+
+          # echo "Pull Amplify project for env: $ENV_NAME"
+          # amplify pull --appId $AWS_AMPLIFY_APP_ID --providers $PROVIDERS
+
+          # # echo "amplify hosting add for env: $ENV_NAME"
+          # # amplify add hosting
+
+          # echo "Publish Amplify project for env: $ENV_NAME"
+          # amplify publish --appId $AWS_AMPLIFY_APP_ID --providers $PROVIDERS
+
+      - name: Configure Amplify
+        run: |
+          amplify configure --appId $AWS_AMPLIFY_APP_ID --yes
+        env:
+          AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
+          AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
+
       - name: amplify env vars update using AWS CLI
         run: |
           amplify_app=$(aws amplify get-app --app-id $AWS_AMPLIFY_APP_ID)
@@ -123,77 +187,10 @@ jobs:
           echo $current_env_vars
           cat $current_env_vars
 
-          # api_values=$(jq --arg region "$TF_VAR_region" '.[$region]' <<< "${{needs.terraform_for_infra.outputs.api_ids}}")
-          # api_values=$(echo $api_values | jq -c | jq -R)
-          # echo $api_values
           aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
           aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
           aws configure set region $AWS_AMPLIFY_APP_REGION
           aws amplify update-app --app-id $AWS_AMPLIFY_APP_ID --environment-variables $TF_VAR_region="$api_values"
-
-      # - name: Install Amplify CLI
-      #   run: |
-      #     # cd web-application
-      #     npm install -g @aws-amplify/cli
-      #     # ls -lh
-
-      #     ENV_NAME="backend"
-
-      #     VUECONFIG="{\
-      #     \"SourceDir\":\"src\",\
-      #     \"DistributionDir\":\"dist/spa\",\
-      #     \"BuildCommand\":\"npm run build\",\
-      #     \"StartCommand\":\"npm run start\"\
-      #     }"
-
-      #     FRONTEND="{\
-      #     \"frontend\":\"javascript\",\
-      #     \"framework\":\"vue\",\
-      #     \"config\":$VUECONFIG\
-      #     }"
-
-      #     # note: session token cannot be passed in here
-      #     AWSCLOUDFORMATIONCONFIG="{\
-      #     \"configLevel\":\"project\",\
-      #     \"useProfile\":false,\
-      #     \"accessKeyId\":\"$AWS_ACCESS_KEY_ID\",\
-      #     \"secretAccessKey\":\"$AWS_SECRET_ACCESS_KEY\",\
-      #     \"region\":\"ap-south-1\"\
-      #     }"
-
-      #     AMPLIFY="{\
-      #     \"projectName\":\"Inspector\",\
-      #     \"envName\":\"$ENV_NAME\",\
-      #     \"defaultEditor\":\"code\"\
-      #     }"
-
-      #     PROVIDERS="{\
-      #     \"awscloudformation\":$AWSCLOUDFORMATIONCONFIG\
-      #     }"
-
-      #     # echo "Initializing Amplify project for env: $ENV_NAME"
-
-      #     amplify init \
-      #     --amplify $AMPLIFY \
-      #     --frontend $FRONTEND \
-      #     --providers $PROVIDERS \
-      #     --yes
-
-      #     # echo "Pull Amplify project for env: $ENV_NAME"
-      #     # amplify pull --appId $AWS_AMPLIFY_APP_ID --providers $PROVIDERS
-
-      #     # # echo "amplify hosting add for env: $ENV_NAME"
-      #     # # amplify add hosting
-
-      #     # echo "Publish Amplify project for env: $ENV_NAME"
-      #     # amplify publish --appId $AWS_AMPLIFY_APP_ID --providers $PROVIDERS
-
-      # - name: Configure Amplify
-      #   run: |
-      #     amplify configure --appId $AWS_AMPLIFY_APP_ID --yes
-      #   env:
-      #     AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
-      #     AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
 
       # - name: Add env var to Amplify
       #   env:
