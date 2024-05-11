@@ -189,7 +189,8 @@ jobs:
           # jq --arg region "$TF_VAR_region" --arg values "$current_env_vars" '.[$region] = $values' <<< "$api_values" > "$tmpJson" && mv "$tmpJson" "$current_env_vars"
           # echo $current_env_vars
 
-          jq -s --arg env1 $current_env_vars --arg env2 $api_values 'add'
+          jq -s --arg env1 $current_env_vars --arg env2 $api_values '.' > combined.json
+          cat combined.json
           # envVarToUpdate=$(jq '.app.environmentVariables' <<< $envVarToUpdate)
           # env_var_string=$(jq -R $current_env_vars)
           # echo $env_var_string
