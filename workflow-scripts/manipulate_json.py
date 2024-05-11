@@ -14,8 +14,8 @@ api_values = sys.argv[3]
 # print("region:", region)
 # print("region type:", type(region))
  
-compiled_env_vars.update(existing_env_vars)
-print(compiled_env_vars)
-compiled_env_vars.update({[region]: api_values})
-print(compiled_env_vars)
+# compiled_env_vars.update(existing_env_vars)
+# print(compiled_env_vars)
+existing_env_vars[region] = api_values
+print(existing_env_vars)
 
