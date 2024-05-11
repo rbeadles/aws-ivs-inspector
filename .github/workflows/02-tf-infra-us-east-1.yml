@@ -118,12 +118,12 @@ jobs:
           aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
           aws configure set region $AWS_AMPLIFY_APP_REGION
 
-      - name: Get Amplify App data and New API values
-        run: |
-          current_env_vars=$(aws amplify get-app --app-id $AWS_AMPLIFY_APP_ID | jq '.app.environmentVariables' | jq '@json')
-          # echo $current_env_vars
-          api_values=$(jq --arg region "$TF_VAR_region" '.[$region]' <<< "${{needs.terraform_for_infra.outputs.api_ids}}" | jq '@json')
-          # echo $api_values
+      # - name: Get Amplify App data and New API values
+      #   run: |
+      #     current_env_vars=$(aws amplify get-app --app-id $AWS_AMPLIFY_APP_ID | jq '.app.environmentVariables' | jq '@json')
+      #     # echo $current_env_vars
+      #     api_values=$(jq --arg region "$TF_VAR_region" '.[$region]' <<< "${{needs.terraform_for_infra.outputs.api_ids}}" | jq '@json')
+      #     # echo $api_values
 
       - name: Setup Python Version
         uses: actions/setup-python@v2
@@ -135,9 +135,11 @@ jobs:
 
       - name: Execute Python script # Run the script.py file to manipulate the json
         run: |
-          echo $TF_VAR_region
+          current_env_vars=$(aws amplify get-app --app-id $AWS_AMPLIFY_APP_ID | jq '.app.environmentVariables')
           echo $current_env_vars
+          api_values=$(jq --arg region "$TF_VAR_region" '.[$region]' <<< "${{needs.terraform_for_infra.outputs.api_ids}}" | jq '@json')
           echo $api_values
+          echo $TF_VAR_region
           final_env_var=$(python3 ./workflow-scripts/manipulate_json.py $current_env_vars $TF_VAR_region $api_values)
 
       - name: Update Amplify App Environment Variables
