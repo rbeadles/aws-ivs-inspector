@@ -128,6 +128,6 @@ jobs:
           echo "$(jq --arg region "$TF_VAR_region" --arg env2 $api_values '. + {($region): $env2}' <<< "$current_env_vars")" > "$tmpJson"
           # echo $(cat current_env_vars.json) | jq '@json' > $final_env_var
 
-          echo $tmpJson
+          mv $tmpJson $current_env_vars
 
-          aws amplify update-app --app-id $AWS_AMPLIFY_APP_ID --environment-variables $tmpJson
+          aws amplify update-app --app-id $AWS_AMPLIFY_APP_ID --environment-variables $current_env_vars
