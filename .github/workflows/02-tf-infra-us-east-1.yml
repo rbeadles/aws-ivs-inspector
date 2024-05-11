@@ -126,12 +126,12 @@ jobs:
       #     # echo $api_values
 
       - name: Setup Python Version
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v5
         with:
-          python-version: 3.8 # Install the python version needed
+          python-version: 3.10 # Install the python version needed
 
-      - name: Install Python dependencies
-        run: python -m pip install --upgrade pip requests # Install the dependencies (if needed)
+      # - name: Install Python dependencies
+      #   run: python -m pip install --upgrade pip requests # Install the dependencies (if needed)
 
       - name: Execute Python script # Run the script.py file to manipulate the json
         run: |
@@ -140,7 +140,7 @@ jobs:
           api_values=$(jq --arg region "$TF_VAR_region" '.[$region]' <<< "${{needs.terraform_for_infra.outputs.api_ids}}")
           echo $api_values
           echo $TF_VAR_region
-          # python3 ./workflow-scripts/manipulate_json.py "$current_env_vars" $TF_VAR_region $api_values
+          python3 ./workflow-scripts/manipulate_json.py "$current_env_vars" $TF_VAR_region $api_values
           final_env_var=$(python3 ./workflow-scripts/manipulate_json.py "$current_env_vars" $TF_VAR_region $api_values)
           aws amplify update-app --app-id $AWS_AMPLIFY_APP_ID --environment-variables "$final_env_var"
       # - name: Update Amplify App Environment Variables
