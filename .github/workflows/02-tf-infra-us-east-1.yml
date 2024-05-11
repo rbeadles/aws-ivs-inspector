@@ -131,4 +131,4 @@ jobs:
 
           # mv $tmpJson $current_env_vars
 
-          # aws amplify update-app --app-id $AWS_AMPLIFY_APP_ID --environment-variables $final_env_var
+          aws amplify update-app --app-id $AWS_AMPLIFY_APP_ID --environment-variables $(cat current_env_vars.json)
