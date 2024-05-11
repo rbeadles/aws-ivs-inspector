@@ -17,6 +17,7 @@ api_values = json.loads(sys.argv[3])
 # compiled_env_vars.update(existing_env_vars)
 # print(compiled_env_vars)
 existing_env_vars[region] = api_values
+existing_env_vars["VITE_REGIONS"] = list(existing_env_vars.keys())
 
 
 # print(existing_env_vars)
