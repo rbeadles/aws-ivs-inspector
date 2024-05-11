@@ -1,10 +1,10 @@
 name: 02:AWS Infra ap-south-1
 
 on:
-  workflow_dispatch
-  # push:
-  #   branches:
-  #     - dev
+  # workflow_dispatch
+  push:
+    branches:
+      - dev
 
 env:
   TF_VAR_region: "ap-south-1"
@@ -18,7 +18,6 @@ env:
   AWS_AMPLIFY_APP_ID: ${{vars.AMPLIFY_APP_ID}}
   AWS_AMPLIFY_APP_REGION: "us-east-2"
   tmpJson: $(mktemp)
-  tmpCurrentEnvVars: $(mktemp)
   envVarsPath: ./web-application/.env
 
 jobs:
@@ -46,24 +45,24 @@ jobs:
            -backend-config="region=$AWS_S3_BUCKET_FOR_TF_STATE_REGION" \
            -reconfigure
 
-      # - name: Terraform Validate
-      #   id: validate
-      #   run: |
-      #     cd terraform-infra
-      #     terraform validate
+      - name: Terraform Validate
+        id: validate
+        run: |
+          cd terraform-infra
+          terraform validate
 
-      # - name: Terraform Plan
-      #   id: plan
-      #   run: |
-      #     cd terraform-infra
-      #     terraform plan -no-color -input=false
-      #   continue-on-error: true
+      - name: Terraform Plan
+        id: plan
+        run: |
+          cd terraform-infra
+          terraform plan -no-color -input=false
+        continue-on-error: true
 
-      # - name: Terraform Apply
-      #   id: apply
-      #   run: |
-      #     cd terraform-infra
-      #     terraform apply -auto-approve -input=false
+      - name: Terraform Apply
+        id: apply
+        run: |
+          cd terraform-infra
+          terraform apply -auto-approve -input=false
 
       - name: Terraform Output
         id: output
@@ -86,7 +85,7 @@ jobs:
       - name: build API data
         id: build_api_data
         run: |
-          api_values=$(jq --arg region "$TF_VAR_region" '.[$region]' <<< "${{needs.terraform_for_infra.outputs.api_ids}}")
+          api_values=$(jq --arg region "$TF_VAR_region" '.[$region]' <<< "${{needs.terraform_for_infra.outputs.api_ids}}" | jq '@json')
           jq --arg region "$TF_VAR_region" --arg values "$api_values" '$region = $values' "$envVarsPath" > "$tmpJson" && mv "$tmpJson" "$envVarsPath"
           cat $envVarsPath
 
@@ -113,99 +112,20 @@ jobs:
       - name: Checkout the repositoring to the runner
         uses: actions/checkout@v4
 
-      # - name: Install Amplify CLI
-      #   run: |
-      #     # cd web-application
-      #     npm install -g @aws-amplify/cli
-      #     # ls -lh
-
-      #     ENV_NAME="backend"
-
-      #     VUECONFIG="{\
-      #     \"SourceDir\":\"src\",\
-      #     \"DistributionDir\":\"dist/spa\",\
-      #     \"BuildCommand\":\"npm run build\",\
-      #     \"StartCommand\":\"npm run start\"\
-      #     }"
-
-      #     FRONTEND="{\
-      #     \"frontend\":\"javascript\",\
-      #     \"framework\":\"vue\",\
-      #     \"config\":$VUECONFIG\
-      #     }"
-
-      #     # note: session token cannot be passed in here
-      #     AWSCLOUDFORMATIONCONFIG="{\
-      #     \"configLevel\":\"project\",\
-      #     \"useProfile\":false,\
-      #     \"accessKeyId\":\"$AWS_ACCESS_KEY_ID\",\
-      #     \"secretAccessKey\":\"$AWS_SECRET_ACCESS_KEY\",\
-      #     \"region\":\"ap-south-1\"\
-      #     }"
-
-      #     AMPLIFY="{\
-      #     \"projectName\":\"Inspector\",\
-      #     \"envName\":\"$ENV_NAME\",\
-      #     \"defaultEditor\":\"code\"\
-      #     }"
-
-      #     PROVIDERS="{\
-      #     \"awscloudformation\":$AWSCLOUDFORMATIONCONFIG\
-      #     }"
-
-      #     # echo "Initializing Amplify project for env: $ENV_NAME"
-
-      #     amplify init \
-      #     --amplify $AMPLIFY \
-      #     --frontend $FRONTEND \
-      #     --providers $PROVIDERS \
-      #     --yes
-
-      #     # echo "Pull Amplify project for env: $ENV_NAME"
-      #     # amplify pull --appId $AWS_AMPLIFY_APP_ID --providers $PROVIDERS
-
-      #     # # echo "amplify hosting add for env: $ENV_NAME"
-      #     # # amplify add hosting
-
-      #     # echo "Publish Amplify project for env: $ENV_NAME"
-      #     # amplify publish --appId $AWS_AMPLIFY_APP_ID --providers $PROVIDERS
-
-      # - name: Configure Amplify
-      #   run: |
-      #     amplify configure --appId $AWS_AMPLIFY_APP_ID --yes
-      #   env:
-      #     AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
-      #     AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
-
-      - name: amplify env vars update using AWS CLI
+      - name: Configure AWS CLI
         run: |
           aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
           aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
           aws configure set region $AWS_AMPLIFY_APP_REGION
 
+      - name: Setup Python Version
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.9 # Install the python version needed
+
+      - name: Execute Python script # Run the manipulate_json.py file to manipulate the json
+        run: |
           current_env_vars=$(aws amplify get-app --app-id $AWS_AMPLIFY_APP_ID | jq '.app.environmentVariables')
-          echo $current_env_vars
           api_values=$(jq --arg region "$TF_VAR_region" '.[$region]' <<< "${{needs.terraform_for_infra.outputs.api_ids}}" | jq '@json')
-          echo $api_values
-          jq --arg region "$TF_VAR_region" --arg env2 $api_values '.[$region] = $env2' <<< $current_env_vars > "$tmpJson" && mv "$tmpJson" "$api_values"
-
-          # jq -r --arg region "$TF_VAR_region" --arg values "$current_env_vars" '.[$region] = $values' <<< "$api_values" > "$tmpJson" && mv "$tmpJson" "$current_env_vars"
-          echo $api_values
-
-          # jq -rs --arg env1 $current_env_vars --arg env2 $api_values '.'
-          # cat combined.json
-          # envVarToUpdate=$(jq '.app.environmentVariables' <<< $envVarToUpdate)
-          # env_var_string=$(jq -R $current_env_vars)
-          # echo $env_var_string
-          aws amplify update-app --app-id $AWS_AMPLIFY_APP_ID --environment-variables $TF_VAR_region=$api_values
-
-      # - name: Add env var to Amplify
-      #   env:
-      #     AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
-      #     AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
-      #   run: |
-      #     api_values=$(jq --arg region "$TF_VAR_region" '.[$region]' <<< "${{needs.terraform_for_infra.outputs.api_ids}}")
-      #     api_values=$(echo $api_values | jq -c | jq -R)
-      #     echo $api_values
-      #     # amplify pull --appId $AWS_AMPLIFY_APP_ID --envName backend
-      #     # amplify publish --appId $AWS_AMPLIFY_APP_ID --branch ${{ github.ref_name }} --envName backend
+          final_env_var=$(python3 ./workflow-scripts/manipulate_json.py "$current_env_vars" $TF_VAR_region "$api_values")
+          aws amplify update-app --app-id $AWS_AMPLIFY_APP_ID --environment-variables "$final_env_var"
