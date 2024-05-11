@@ -17,8 +17,9 @@ api_values = json.loads(sys.argv[3])
 # compiled_env_vars.update(existing_env_vars)
 # print(compiled_env_vars)
 existing_env_vars[region] = api_values
-region_keys = [k for k in existing_env_vars.keys() if 'VITE_API_' in k]
-existing_env_vars["VITE_REGIONS"] = ','.join(list(region_keys))
+region_keys = list(map(lambda x: x.replace("VITE_API_", ""), [k for k in existing_env_vars.keys() if "VITE_API_" in k]))
+
+existing_env_vars["VITE_REGIONS"] = ",".join(region_keys)
 
 print(json.dumps(existing_env_vars))
 
