@@ -125,7 +125,7 @@ jobs:
           # echo $api_values
           # jq --arg region "$TF_VAR_region" --arg env2 $api_values '. + {heading: {user: [$username]}}' sample.json
 
-          echo "$(jq --arg region "$TF_VAR_region" --arg env2 $api_values '. + {($region): $env2}' <<< "$current_env_vars")" > current_env_vars.json
+          echo "$(jq --arg region "$TF_VAR_region" --arg values $api_values '.[$region] = $values' <<< "$current_env_vars")" > current_env_vars.json
           cat current_env_vars.json
           # echo $(cat current_env_vars.json) | jq '@json' > $final_env_var
 
