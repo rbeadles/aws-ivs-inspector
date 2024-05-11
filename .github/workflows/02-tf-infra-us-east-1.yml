@@ -132,7 +132,7 @@ jobs:
           echo $api_values          
           ls -l
 
-          echo $api_values | python3 ./manipulate_json.py
+          echo $api_values | python3 ./workflow-scripts/manipulate_json.py
 
       # - name: amplify env vars update using AWS CLI
       #   run: |
