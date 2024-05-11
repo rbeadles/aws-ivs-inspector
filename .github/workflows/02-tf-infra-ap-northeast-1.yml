@@ -1,20 +1,20 @@
 name: 02:AWS Infra ap-northeast-1
 
 on:
-  # workflow_dispatch
-  push:
-    branches:
-      - dev
+  workflow_dispatch
+  # push:
+  #   branches:
+  #     - dev
 
 env:
   TF_VAR_region: "ap-northeast-1"
-  TF_VAR_project_name: ${{ secrets.IVS_PROJECT_NAME }}
+  TF_VAR_project_name: ${{ vars.IVS_PROJECT_NAME }}
   TF_VAR_account_id: ${{ secrets.AWS_ACCOUNT_ID }}
   TF_LOG: INFO
   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
   AWS_S3_BUCKET_FOR_TF_STATE: ${{ secrets.AWS_S3_BUCKET_FOR_TF_STATE }}
-  AWS_S3_BUCKET_FOR_TF_STATE_REGION: ${{ secrets.AWS_S3_BUCKET_FOR_TF_STATE_REGION }}
+  AWS_S3_BUCKET_FOR_TF_STATE_REGION: ${{ vars.AWS_S3_BUCKET_FOR_TF_STATE_REGION }}
   AWS_AMPLIFY_APP_ID: ${{vars.AMPLIFY_APP_ID}}
   AWS_AMPLIFY_APP_REGION: "us-east-2"
   tmpJson: $(mktemp)
