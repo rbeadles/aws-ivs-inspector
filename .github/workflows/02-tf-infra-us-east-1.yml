@@ -45,24 +45,24 @@ jobs:
            -backend-config="region=$AWS_S3_BUCKET_FOR_TF_STATE_REGION" \
            -reconfigure
 
-      - name: Terraform Validate
-        id: validate
-        run: |
-          cd terraform-infra
-          terraform validate
+      # - name: Terraform Validate
+      #   id: validate
+      #   run: |
+      #     cd terraform-infra
+      #     terraform validate
 
-      - name: Terraform Plan
-        id: plan
-        run: |
-          cd terraform-infra
-          terraform plan -no-color -input=false
-        continue-on-error: true
+      # - name: Terraform Plan
+      #   id: plan
+      #   run: |
+      #     cd terraform-infra
+      #     terraform plan -no-color -input=false
+      #   continue-on-error: true
 
-      - name: Terraform Apply
-        id: apply
-        run: |
-          cd terraform-infra
-          terraform apply -auto-approve -input=false
+      # - name: Terraform Apply
+      #   id: apply
+      #   run: |
+      #     cd terraform-infra
+      #     terraform apply -auto-approve -input=false
 
       - name: Terraform Output
         id: output
