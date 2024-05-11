@@ -1,3 +1,5 @@
-import sys, json; 
+import sys, json;
 
-print(json.load(sys.stdin))
+print(sys.argv)
+
+# print(json.load(sys.stdin))
