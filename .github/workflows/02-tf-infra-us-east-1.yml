@@ -112,7 +112,15 @@ jobs:
       - name: Checkout the repositoring to the runner
         uses: actions/checkout@v4
 
-      - name: amplify env vars update using AWS CLI
+      - name: Setup Python Version
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8 # Install the python version needed
+
+      - name: Install Python dependencies
+        run: python -m pip install --upgrade pip requests # Install the dependencies (if needed)
+
+      - name: Execute Python script # Run the script.py file to get the latest data
         run: |
           aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
           aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
@@ -121,12 +129,28 @@ jobs:
           current_env_vars=$(aws amplify get-app --app-id $AWS_AMPLIFY_APP_ID | jq '.app.environmentVariables')
           echo $current_env_vars
           api_values=$(jq --arg region "$TF_VAR_region" '.[$region]' <<< "${{needs.terraform_for_infra.outputs.api_ids}}" | jq '@json')
-          echo $api_values
+          echo $api_values          
+          ls -l
 
           echo $api_values | python3 ./manipulate_json.py
 
-          # jq --arg region "$TF_VAR_region" --arg values $api_values '.[$region] = $values' <<< "$current_env_vars" > "$tmpJson" && mv "$tmpJson" "$envVarsPath1"
-          # cat envVarsPath1
-          # echo $(cat envVarsPath1) > $final_env_var
-          # echo $final_env_var
-          # aws amplify update-app --app-id $AWS_AMPLIFY_APP_ID --environment-variables $final_env_var
+      # - name: amplify env vars update using AWS CLI
+      #   run: |
+      #     aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
+      #     aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
+      #     aws configure set region $AWS_AMPLIFY_APP_REGION
+
+      #     current_env_vars=$(aws amplify get-app --app-id $AWS_AMPLIFY_APP_ID | jq '.app.environmentVariables')
+      #     echo $current_env_vars
+      #     api_values=$(jq --arg region "$TF_VAR_region" '.[$region]' <<< "${{needs.terraform_for_infra.outputs.api_ids}}" | jq '@json')
+      #     echo $api_values
+
+      #     ls -l
+
+      #     echo $api_values | python3 ./manipulate_json.py
+
+      #     # jq --arg region "$TF_VAR_region" --arg values $api_values '.[$region] = $values' <<< "$current_env_vars" > "$tmpJson" && mv "$tmpJson" "$envVarsPath1"
+      #     # cat envVarsPath1
+      #     # echo $(cat envVarsPath1) > $final_env_var
+      #     # echo $final_env_var
+      #     # aws amplify update-app --app-id $AWS_AMPLIFY_APP_ID --environment-variables $final_env_var
