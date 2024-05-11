@@ -1,4 +1,4 @@
-VITE_REGION=us-east-2
-VITE_IDENTITY_POOL_ID=us-east-2:dfdb4142-886b-4627-b335-518e351554d1
-VITE_USER_POOL_ID=us-east-2_YeJ9I720e
-VITE_APP_CLIENT_ID=5thucl8u7kkin6e9dj9i1c1n5r
+{
+  "ap-south-1": "{\"get_live_streams\":\"o2dlbu7568\",\"get_session_events\":\"h5tf6cy8wg\",\"rest\":\"04srv2e1h4\"}",
+  "us-east-1": "\"{\\\"get_live_streams\\\":\\\"ibpl8qbsr6\\\",\\\"get_session_events\\\":\\\"83m3sp0dv0\\\",\\\"rest\\\":\\\"deodbryop6\\\"}\""
+}
