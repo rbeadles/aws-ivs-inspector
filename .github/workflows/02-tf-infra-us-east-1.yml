@@ -122,8 +122,9 @@ jobs:
           echo $current_env_vars
           api_values=$(jq --arg region "$TF_VAR_region" '.[$region]' <<< "${{needs.terraform_for_infra.outputs.api_ids}}" | jq '@json')
           echo $api_values
+          # jq --arg region "$TF_VAR_region" --arg env2 $api_values '. + {heading: {user: [$username]}}' sample.json
 
-          jq --arg region "$TF_VAR_region" --arg env2 $api_values '.[$region] = $env2' >> "$tmpJson" && mv "$tmpJson" "$current_env_vars"
+          jq --arg region "$TF_VAR_region" --arg env2 $api_values '.[$region] = $env2' <<< "$current_env_vars"
           echo $current_env_vars
-          echo $tmpJson
+
           aws amplify update-app --app-id $AWS_AMPLIFY_APP_ID --environment-variables $current_env_vars
