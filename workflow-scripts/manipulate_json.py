@@ -1,3 +1,3 @@
 import sys, json; 
 
-print(json.load(sys.stdin)['api'])
+print(json.load(sys.stdin))
