@@ -41,7 +41,7 @@
 | :-------------------------------- | :--------------------------------------------------------- |
 | IVS_PROJECT_NAME                  | Default to `ivs-inspector` but you can define your own     |
 | AWS_ACCOUNT_ID                    | Your AWS Account ID                                        |
-| AWS_AWS_AMPLIFY_DEPLOYED_REGION   | Deploy the web application to a single region              |
+| AWS_AMPLIFY_DEPLOYED_REGION       | Deploy the web application to a single region              |
 | AWS_ACCESS_KEY_ID                 | Temporary AWS Access key with Administrative access        |
 | AWS_SECRET_ACCESS_KEY             | Temporary AWS Secret Access key with Administrative access |
 | AWS_S3_BUCKET_FOR_TF_STATE        | Bucket that store the Terraform state file                 |
