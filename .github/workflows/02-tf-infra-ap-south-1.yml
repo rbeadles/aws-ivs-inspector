@@ -182,7 +182,8 @@ jobs:
           aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
           aws configure set region $AWS_AMPLIFY_APP_REGION
 
-          current_env_vars=$(aws amplify get-app --app-id $AWS_AMPLIFY_APP_ID | jq '.app.environmentVariables' | jq -r)
+          current_env_vars=$(aws amplify get-app --app-id $AWS_AMPLIFY_APP_ID | jq '.app.environmentVariables')
+          current_env_vars=$(jq -R . <<< $current_env_vars)
           echo $current_env_vars
           api_values=$(jq -R . <<< "${{needs.terraform_for_infra.outputs.api_ids}}")
           echo $api_values
