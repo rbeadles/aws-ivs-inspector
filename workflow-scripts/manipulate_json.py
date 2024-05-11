@@ -6,4 +6,3 @@ api_values = sys.argv[3]
 existing_env_vars[region] = api_values
 
 print(existing_env_vars)
-

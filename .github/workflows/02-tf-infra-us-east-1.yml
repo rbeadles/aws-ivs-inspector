@@ -112,6 +112,19 @@ jobs:
       - name: Checkout the repositoring to the runner
         uses: actions/checkout@v4
 
+      - name: Configure AWS CLI
+        run: |
+          aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
+          aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
+          aws configure set region $AWS_AMPLIFY_APP_REGION
+
+      - name: Get Amplify App data and New API values
+        run: |
+          current_env_vars=$(aws amplify get-app --app-id $AWS_AMPLIFY_APP_ID | jq '.app.environmentVariables' | jq '@json')
+          # echo $current_env_vars
+          api_values=$(jq --arg region "$TF_VAR_region" '.[$region]' <<< "${{needs.terraform_for_infra.outputs.api_ids}}" | jq '@json')
+          # echo $api_values
+
       - name: Setup Python Version
         uses: actions/setup-python@v2
         with:
@@ -120,21 +133,13 @@ jobs:
       - name: Install Python dependencies
         run: python -m pip install --upgrade pip requests # Install the dependencies (if needed)
 
-      - name: Execute Python script # Run the script.py file to get the latest data
-        run: |
-          aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
-          aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
-          aws configure set region $AWS_AMPLIFY_APP_REGION
+      - name: Execute Python script # Run the script.py file to manipulate the json
+        run: final_env_var=$(python3 ./workflow-scripts/manipulate_json.py $current_env_vars $TF_VAR_region $api_values)
 
-          current_env_vars=$(aws amplify get-app --app-id $AWS_AMPLIFY_APP_ID | jq '.app.environmentVariables' | jq '@json')
-          # echo $current_env_vars
-          api_values=$(jq --arg region "$TF_VAR_region" '.[$region]' <<< "${{needs.terraform_for_infra.outputs.api_ids}}" | jq '@json')
-          # echo $api_values
+      - name: Update Amplify App Environment Variables
+        run: aws amplify update-app --app-id $AWS_AMPLIFY_APP_ID --environment-variables $final_env_var
 
-          final_env_var=$(python3 ./workflow-scripts/manipulate_json.py $current_env_vars $TF_VAR_region $api_values)
-          aws amplify update-app --app-id $AWS_AMPLIFY_APP_ID --environment-variables $final_env_var
-
-      # - name: amplify env vars update using AWS CLI
+        # - name: amplify env vars update using AWS CLI
       #   run: |
       #     aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
       #     aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
