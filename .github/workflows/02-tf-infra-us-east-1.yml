@@ -127,11 +127,11 @@ jobs:
           aws configure set region $AWS_AMPLIFY_APP_REGION
 
           current_env_vars=$(aws amplify get-app --app-id $AWS_AMPLIFY_APP_ID | jq '.app.environmentVariables' | jq '@json')
-          echo $current_env_vars
+          # echo $current_env_vars
           api_values=$(jq --arg region "$TF_VAR_region" '.[$region]' <<< "${{needs.terraform_for_infra.outputs.api_ids}}" | jq '@json')
-          echo $api_values
+          # echo $api_values
 
-          python3 ./workflow-scripts/manipulate_json.py $current_env_vars $api_values
+          python3 ./workflow-scripts/manipulate_json.py $current_env_vars $TF_VAR_region $api_values
 
       # - name: amplify env vars update using AWS CLI
       #   run: |
