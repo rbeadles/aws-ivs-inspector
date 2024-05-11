@@ -141,11 +141,11 @@ jobs:
           echo $api_values
           echo $TF_VAR_region
           final_env_var=$(python3 ./workflow-scripts/manipulate_json.py "$current_env_vars" $TF_VAR_region $api_values)
+          aws amplify update-app --app-id $AWS_AMPLIFY_APP_ID --environment-variables $final_env_var
+      # - name: Update Amplify App Environment Variables
+      #   run: aws amplify update-app --app-id $AWS_AMPLIFY_APP_ID --environment-variables $final_env_var
 
-      - name: Update Amplify App Environment Variables
-        run: aws amplify update-app --app-id $AWS_AMPLIFY_APP_ID --environment-variables $final_env_var
-
-        # - name: amplify env vars update using AWS CLI
+      # - name: amplify env vars update using AWS CLI
       #   run: |
       #     aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
       #     aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
