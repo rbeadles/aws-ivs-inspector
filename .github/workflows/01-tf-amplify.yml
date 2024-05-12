@@ -80,6 +80,7 @@ jobs:
 
       - name: "add to github env variable"
         run: |
+          echo "cognito_ids:: ${{ needs.terraform_for_amplify.outputs.cognito_ids }}"
           echo "app_id:: ${{ needs.terraform_for_amplify.outputs.amplify_app_id }}"
           gh variable set amplify_app_id --body "${{ needs.terraform_for_amplify.outputs.amplify_app_id }}" --env ivs_inspector_backend
     outputs:
@@ -110,6 +111,7 @@ jobs:
         run: |
           current_env_vars=$(aws amplify get-app --app-id "${{ needs.adding_environment_variable.outputs.amplify_app_id }}" | jq '.app.environmentVariables')
           cognito_vars=$(jq '.' <<< "${{ needs.adding_environment_variable.outputs.cognito_ids }}")
+          echo $cognito_vars
           final_env_var=$(python3 ./workflow-scripts/manipulate_cognito_vars.py "$current_env_vars" "$cognito_vars")
           aws amplify update-app --app-id "${{ needs.adding_environment_variable.outputs.amplify_app_id }}" --environment-variables "$final_env_var"
 
