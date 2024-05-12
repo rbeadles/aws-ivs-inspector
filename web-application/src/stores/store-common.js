@@ -4,7 +4,7 @@ const envVars = import.meta.env;
 
 export const useCommonStore = defineStore("CommonStore", {
   state: () => ({
-    regions: envVars.VITE_REGIONS.split(","),
+    regions: envVars.VITE_IVS_REGIONS.split(","),
     thumbStyle: {
       right: "0px",
       borderRadius: "7px",
