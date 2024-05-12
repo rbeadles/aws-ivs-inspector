@@ -125,7 +125,7 @@ jobs:
         run: |
           pip install python-dotenv
           current_env_vars=$(aws amplify get-app --app-id $AWS_AMPLIFY_APP_ID | jq '.app.environmentVariables')
-          python3 ./workflow-scripts/object_to_key_value.py "$current_env_vars"
+          python3 ./workflow-scripts/generate.env.py "$current_env_vars"
           mv ./.env $envVarsPath
 
       - name: Git Commit

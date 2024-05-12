@@ -95,6 +95,7 @@ jobs:
 
       - name: Execute Python script # Run the manipulate_apis_vars.py file to manipulate the json
         run: |
+          pip install python-dotenv
           current_env_vars=$(aws amplify get-app --app-id $AWS_AMPLIFY_APP_ID | jq '.app.environmentVariables')
           api_vars=$(jq --arg region "$TF_VAR_region" '.[$region]' <<< "${{needs.terraform_for_infra.outputs.api_ids}}" | jq '@json')
           final_env_var=$(python3 ./workflow-scripts/manipulate_apis_vars.py "$current_env_vars" "VITE_API_${TF_VAR_region}" "$api_vars")
@@ -115,19 +116,24 @@ jobs:
           aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
           aws configure set region $AWS_AMPLIFY_APP_REGION
 
-      - name: build API data
-        id: build_api_data
+      - name: Setup Python Version
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.9 # Install the python version needed
+
+      - name: Execute Python script # Run the manipulate_apis_vars.py file to manipulate the json
         run: |
+          pip install python-dotenv
           current_env_vars=$(aws amplify get-app --app-id $AWS_AMPLIFY_APP_ID | jq '.app.environmentVariables')
-          jq -r 'to_entries|map("\(.key)=\(.value|tostring)")|.[]' <<< $current_env_vars  > $envVarsPath
-          cat $envVarsPath
+          python3 ./workflow-scripts/generate.env.py "$current_env_vars"
+          mv ./.env $envVarsPath
 
       - name: Git Commit
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add $envVarsPath
-          git commit --allow-empty -m "update environment variables"
+          git add -f $envVarsPath
+          git commit --allow-empty -m "adding environment variables for localhost access"
 
       - name: Git Push
         uses: ad-m/github-push-action@v0.8.0
