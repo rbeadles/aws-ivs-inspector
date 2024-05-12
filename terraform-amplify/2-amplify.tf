@@ -16,12 +16,12 @@ resource "aws_amplify_app" "app" {
   #   framework                   = var.framework
   # }
 
-  environment_variables = {
-    REGION           = var.region
-    USER_POOL_ID     = "${aws_cognito_user_pool.user_pool.id}"
-    IDENTITY_POOL_ID = "${aws_cognito_identity_pool.identity_pool.id}"
-    APP_CLIENT_ID    = "${aws_cognito_user_pool_client.user_pool_client.id}"
-  }
+  # environment_variables = {
+  #   REGION           = var.region
+  #   USER_POOL_ID     = "${aws_cognito_user_pool.user_pool.id}"
+  #   IDENTITY_POOL_ID = "${aws_cognito_identity_pool.identity_pool.id}"
+  #   APP_CLIENT_ID    = "${aws_cognito_user_pool_client.user_pool_client.id}"
+  # }
 
   # The default rewrites and redirects added by the Amplify Console.
   custom_rule {

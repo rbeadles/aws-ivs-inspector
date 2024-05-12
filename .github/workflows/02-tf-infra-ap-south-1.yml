@@ -85,8 +85,8 @@ jobs:
       - name: build API data
         id: build_api_data
         run: |
-          api_values=$(jq --arg region "$TF_VAR_region" '.[$region]' <<< "${{needs.terraform_for_infra.outputs.api_ids}}" | jq '@json')
-          jq --arg region "$TF_VAR_region" --arg values "$api_values" '$region = $values' "$envVarsPath" > "$tmpJson" && mv "$tmpJson" "$envVarsPath"
+          api_vars=$(jq --arg region "$TF_VAR_region" '.[$region]' <<< "${{needs.terraform_for_infra.outputs.api_ids}}" | jq '@json')
+          jq --arg region "$TF_VAR_region" --arg values "$api_vars" '$region = $values' "$envVarsPath" > "$tmpJson" && mv "$tmpJson" "$envVarsPath"
           cat $envVarsPath
 
       - name: Git Commit
@@ -123,9 +123,9 @@ jobs:
         with:
           python-version: 3.9 # Install the python version needed
 
-      - name: Execute Python script # Run the manipulate_json.py file to manipulate the json
+      - name: Execute Python script # Run the manipulate_apis_vars.py file to manipulate the json
         run: |
           current_env_vars=$(aws amplify get-app --app-id $AWS_AMPLIFY_APP_ID | jq '.app.environmentVariables')
-          api_values=$(jq --arg region "$TF_VAR_region" '.[$region]' <<< "${{needs.terraform_for_infra.outputs.api_ids}}" | jq '@json')
-          final_env_var=$(python3 ./workflow-scripts/manipulate_json.py "$current_env_vars" "VITE_API_${TF_VAR_region}" "$api_values")
+          api_vars=$(jq --arg region "$TF_VAR_region" '.[$region]' <<< "${{needs.terraform_for_infra.outputs.api_ids}}" | jq '@json')
+          final_env_var=$(python3 ./workflow-scripts/manipulate_apis_vars.py "$current_env_vars" "VITE_API_${TF_VAR_region}" "$api_vars")
           aws amplify update-app --app-id $AWS_AMPLIFY_APP_ID --environment-variables "$final_env_var"

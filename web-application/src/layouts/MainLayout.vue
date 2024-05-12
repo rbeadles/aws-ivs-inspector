@@ -179,7 +179,7 @@ export default defineComponent({
     const accountId = computed(() => envVars.account_id);
     const region = ref($route.params.region);
     const channelId = ref(null);
-    const ivsRegions = computed(() => Object.keys(envVars.apis));
+    const ivsRegions = computed(() => commonStore.regions);
 
     const goToChannel = () => {
       if (channelId.value.length) {

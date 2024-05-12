@@ -11,11 +11,12 @@
 </template>
 
 <script>
-import { defineComponent, toRefs, watch } from "vue";
+import { computed, defineComponent, toRefs, watch } from "vue";
 import { useRouter } from "vue-router";
 import { Authenticator, useAuthenticator } from "@aws-amplify/ui-vue";
 import envVars from "src/config/env.json";
 import "@aws-amplify/ui-vue/styles.css";
+import { useCommonStore } from "src/stores/store-common";
 
 export default defineComponent({
   name: "UserAuthentication",
@@ -23,6 +24,8 @@ export default defineComponent({
   setup() {
     const { route, user, auth } = toRefs(useAuthenticator());
     const $router = useRouter();
+
+    const commonStore = useCommonStore();
 
     const formFields = {
       signUp: {
@@ -51,7 +54,7 @@ export default defineComponent({
       if (currentValue?.userId) {
         const params = {
           account_id: envVars.account_id,
-          region: Object.keys(envVars.apis)[0],
+          region: commonStore.regions[0],
         };
         $router.push({ name: "Dashboard", params: params });
       }

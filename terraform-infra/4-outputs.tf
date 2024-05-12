@@ -5,6 +5,7 @@ output "api_ids" {
       get_session_events : module.aws-infra.get_session_events_api_id,
       get_live_streams : module.aws-infra.get_live_streams_api_id
     }
+    TF_account_id : var.account_id
   })
 }
 

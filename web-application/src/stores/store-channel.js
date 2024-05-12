@@ -2,7 +2,8 @@ import { defineStore } from "pinia";
 import { api } from "boot/axios";
 import { Notify } from "quasar";
 import { useCommonStore } from "./store-common";
-import envVars from "src/config/env.json";
+
+const envVars = import.meta.env;
 
 const commonStore = useCommonStore();
 
@@ -19,8 +20,14 @@ export const useChannelStore = defineStore("ChannelStore", {
     async getChannels(ivsRegion) {
       try {
         console.log("getting channel list", ivsRegion);
+        const apis = JSON.parse(
+          envVars[`VITE_API_${ivsRegion}`].replaceAll("\\", "")
+        );
+
+        console.log(apis);
+
         const response = await api.get(
-          `https://${envVars.apis[ivsRegion].rest}.execute-api.${ivsRegion}.amazonaws.com/ivs/list-channels`,
+          `https://${apis.rest}.execute-api.${ivsRegion}.amazonaws.com/ivs/list-channels`,
           {
             params: {
               nextToken: this.channelsNextToken[ivsRegion] || "",
@@ -56,8 +63,12 @@ export const useChannelStore = defineStore("ChannelStore", {
       console.log(channelArn);
 
       try {
+        const apis = JSON.parse(
+          envVars[`VITE_API_${ivsRegion}`].replaceAll("\\", "")
+        );
+
         const response = await api.get(
-          `https://${envVars.apis[ivsRegion].rest}.execute-api.${ivsRegion}.amazonaws.com/ivs/get-channel`,
+          `https://${apis.rest}.execute-api.${ivsRegion}.amazonaws.com/ivs/get-channel`,
           {
             params: {
               channelArn: channelArn,
@@ -103,8 +114,12 @@ export const useChannelStore = defineStore("ChannelStore", {
     async listStreamSessions(channelArn, channelId, ivsRegion) {
       console.log("getting stream sessions:", channelArn, channelId, ivsRegion);
       try {
+        const apis = JSON.parse(
+          envVars[`VITE_API_${ivsRegion}`].replaceAll("\\", "")
+        );
+
         const response = await api.get(
-          `https://${envVars.apis[ivsRegion].rest}.execute-api.${ivsRegion}.amazonaws.com/ivs/list-stream-sessions`,
+          `https://${apis.rest}.execute-api.${ivsRegion}.amazonaws.com/ivs/list-stream-sessions`,
           {
             params: {
               channelArn: channelArn,
