@@ -69,7 +69,7 @@ jobs:
       amplify_app_id: ${{ steps.output.outputs.amplify_app_id }}
       cognito_ids: ${{ steps.output.outputs.cognito_ids }}
 
-  add_environment_variable:
+  adding_environment_variable:
     name: "Adding Amplify App ID into GH Env Var"
     runs-on: ubuntu-latest
     environment: ivs_inspector_backend
@@ -87,7 +87,7 @@ jobs:
     name: "Adding API IDs into Amplify Env Var"
     runs-on: ubuntu-latest
     environment: ivs_inspector_backend
-    needs: terraform_for_amplify
+    needs: adding_environment_variable
     steps:
       - name: Checkout the repositoring to the runner
         uses: actions/checkout@v4
@@ -110,8 +110,8 @@ jobs:
           final_env_var=$(python3 ./workflow-scripts/manipulate_cognito_vars.py "$current_env_vars" "$cognito_vars")
           aws amplify update-app --app-id "${{needs.terraform_for_amplify.outputs.amplify_app_id}}" --environment-variables "$final_env_var"
 
-  update_webapp_repo_env_vars:
-    name: "Adding API IDs into Env Var file"
+  generating_webapp_repo_env_vars:
+    name: "generating .env in repo"
     runs-on: ubuntu-latest
     environment: ivs_inspector_backend
     needs: update_amplify_env_vars
