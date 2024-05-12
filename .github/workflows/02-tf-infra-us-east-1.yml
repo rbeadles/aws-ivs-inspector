@@ -122,8 +122,7 @@ jobs:
           # for s in $(echo $values | jq -r "current_env_vars|map(\"\(.key)=\(.value|tostring)\")|.[]" ); do
           #     export $s
           # done
-          echo $current_env_vars
-          echo $current_env_vars > $envVarsPath
+          jq -r 'to_entries|map("\(.key)=\(.value|tostring)")|.[]' <<< $current_env_vars  > $envVarsPath
 
           # jq --arg region "$TF_VAR_region" --arg values "$api_vars" '$region = $values' "$envVarsPath" > "$tmpJson" && mv "$tmpJson" "$envVarsPath"
           cat $envVarsPath
