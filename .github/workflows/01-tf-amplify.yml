@@ -67,6 +67,7 @@ jobs:
 
     outputs:
       amplify_app_id: ${{ steps.output.outputs.amplify_app_id }}
+      cognito_ids: ${{ steps.output.outputs.cognito_ids }}
 
   add_environment_variable:
     name: "Adding Amplify App ID into GH Env Var"
@@ -104,8 +105,10 @@ jobs:
 
       - name: Execute Python script # Run the manipulate_cognito_vars.py file to manipulate the json
         run: |
-          current_env_vars=$(aws amplify get-app --app-id $AWS_AMPLIFY_APP_ID | jq '.app.environmentVariables')
+          current_env_vars=$(aws amplify get-app --app-id "${{needs.terraform_for_amplify.outputs.amplify_app_id}}" | jq '.app.environmentVariables')
+          echo $current_env_vars
           cognito_vars=$(jq '.' <<< "${{needs.terraform_for_amplify.outputs.cognito_ids}}" | jq '@json')
+          echo $cognito_vars
           python3 ./workflow-scripts/manipulate_cognito_vars.py "$current_env_vars" "$cognito_vars"
           # final_env_var=$(python3 ./workflow-scripts/manipulate_cognito_vars.py "$current_env_vars" "$cognito_vars")
-          # aws amplify update-app --app-id $AWS_AMPLIFY_APP_ID --environment-variables "$final_env_var"
+          # aws amplify update-app --app-id "${{needs.terraform_for_amplify.outputs.amplify_app_id}}" --environment-variables "$final_env_var"
