@@ -1,10 +1,10 @@
 name: 02:AWS Infra ap-northeast-1
 
 on:
-  # workflow_dispatch
-  push:
-    branches:
-      - dev
+  workflow_dispatch
+  # push:
+  #   branches:
+  #     - dev
 
 env:
   TF_VAR_region: "ap-northeast-1"
