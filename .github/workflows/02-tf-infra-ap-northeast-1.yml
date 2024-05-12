@@ -16,7 +16,7 @@ env:
   AWS_S3_BUCKET_FOR_TF_STATE: ${{ secrets.AWS_S3_BUCKET_FOR_TF_STATE }}
   AWS_S3_BUCKET_FOR_TF_STATE_REGION: ${{ vars.AWS_S3_BUCKET_FOR_TF_STATE_REGION }}
   AWS_AMPLIFY_APP_ID: ${{vars.AMPLIFY_APP_ID}}
-  AWS_AMPLIFY_APP_REGION: "us-east-2"
+  AWS_AMPLIFY_APP_REGION: ${{vars.AWS_AMPLIFY_DEPLOYED_REGION}}
   tmpJson: $(mktemp)
   envVarsPath: ./web-application/.env
 
@@ -109,17 +109,17 @@ jobs:
       - name: Checkout the repositoring to the runner
         uses: actions/checkout@v4
 
+      - name: Configure AWS CLI
+        run: |
+          aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
+          aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
+          aws configure set region $AWS_AMPLIFY_APP_REGION
+
       - name: build API data
         id: build_api_data
         run: |
           current_env_vars=$(aws amplify get-app --app-id $AWS_AMPLIFY_APP_ID | jq '.app.environmentVariables')
-          # for s in $(echo $values | jq -r "current_env_vars|map(\"\(.key)=\(.value|tostring)\")|.[]" ); do
-          #     export $s
-          # done
-          echo $current_env_vars
-          echo $current_env_vars > envVarsPath
-
-          # jq --arg region "$TF_VAR_region" --arg values "$api_vars" '$region = $values' "$envVarsPath" > "$tmpJson" && mv "$tmpJson" "$envVarsPath"
+          jq -r 'to_entries|map("\(.key)=\(.value|tostring)")|.[]' <<< $current_env_vars  > $envVarsPath
           cat $envVarsPath
 
       - name: Git Commit
