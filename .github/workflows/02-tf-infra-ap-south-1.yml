@@ -124,12 +124,11 @@ jobs:
       - name: Execute Python script # Run the manipulate_apis_vars.py file to manipulate the json
         run: |
           pip install python-dotenv
-          ls -la
           current_env_vars=$(aws amplify get-app --app-id $AWS_AMPLIFY_APP_ID | jq '.app.environmentVariables')
           python3 ./workflow-scripts/object_to_key_value.py "$current_env_vars"
           ls -la
           cat ./.env
-          mv ./.env envVarsPath
+          mv ./.env $envVarsPath
 
       - name: Git Commit
         run: |
