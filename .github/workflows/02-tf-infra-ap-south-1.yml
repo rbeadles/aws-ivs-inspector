@@ -119,19 +119,21 @@ jobs:
         id: build_api_data
         run: |
           current_env_vars=$(aws amplify get-app --app-id $AWS_AMPLIFY_APP_ID | jq '.app.environmentVariables')
-          jq -r 'to_entries|map("\(.key)=\(.value|tostring)")|.[]' <<< $current_env_vars  > $envVarsPath
+          # jq -r 'to_entries|map("\(.key)=\(.value|tostring)")|.[]' <<< $current_env_vars  > $envVarsPath
+          jq 'with_entries(.key |= "x_" + .)' <<< $current_env_vars  > $envVarsPath
+
           cat $envVarsPath
 
-      - name: Git Commit
-        run: |
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          git add $envVarsPath
-          git commit --allow-empty -m "update environment variables"
+      # - name: Git Commit
+      #   run: |
+      #     git config --local user.email "github-actions[bot]@users.noreply.github.com"
+      #     git config --local user.name "github-actions[bot]"
+      #     git add $envVarsPath
+      #     git commit --allow-empty -m "update environment variables"
 
-      - name: Git Push
-        uses: ad-m/github-push-action@v0.8.0
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.ref }}
-          force: true
+      # - name: Git Push
+      #   uses: ad-m/github-push-action@v0.8.0
+      #   with:
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      #     branch: ${{ github.ref }}
+      #     force: true
