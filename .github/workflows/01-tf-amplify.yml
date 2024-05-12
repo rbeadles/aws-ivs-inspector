@@ -106,10 +106,7 @@ jobs:
       - name: Execute Python script # Run the manipulate_cognito_vars.py file to manipulate the json
         run: |
           current_env_vars=$(aws amplify get-app --app-id "${{needs.terraform_for_amplify.outputs.amplify_app_id}}" | jq '.app.environmentVariables')
-          echo $current_env_vars
           cognito_vars=$(jq '.' <<< "${{needs.terraform_for_amplify.outputs.cognito_ids}}")
-          echo $cognito_vars
-          # python3 ./workflow-scripts/manipulate_cognito_vars.py "$current_env_vars" "$cognito_vars"
           final_env_var=$(python3 ./workflow-scripts/manipulate_cognito_vars.py "$current_env_vars" "$cognito_vars")
           aws amplify update-app --app-id "${{needs.terraform_for_amplify.outputs.amplify_app_id}}" --environment-variables "$final_env_var"
 
@@ -128,19 +125,24 @@ jobs:
           aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
           aws configure set region $AWS_AMPLIFY_APP_REGION
 
-      - name: build API data
-        id: build_api_data
+      - name: Setup Python Version
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.9 # Install the python version needed
+
+      - name: Execute Python script # Run the manipulate_apis_vars.py file to manipulate the json
         run: |
+          pip install python-dotenv
           current_env_vars=$(aws amplify get-app --app-id $AWS_AMPLIFY_APP_ID | jq '.app.environmentVariables')
-          jq -r 'to_entries|map("\(.key)=\(.value|tostring)")|.[]' <<< $current_env_vars  > $envVarsPath
-          cat $envVarsPath
+          python3 ./workflow-scripts/generate.env.py "$current_env_vars"
+          mv ./.env $envVarsPath
 
       - name: Git Commit
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add $envVarsPath
-          git commit --allow-empty -m "update environment variables"
+          git add -f $envVarsPath
+          git commit --allow-empty -m "adding environment variables for localhost access"
 
       - name: Git Push
         uses: ad-m/github-push-action@v0.8.0
