@@ -1,10 +1,10 @@
 name: 02:AWS Infra ap-south-1
 
 on:
-  # workflow_dispatch
-  push:
-    branches:
-      - dev
+  workflow_dispatch
+  # push:
+  #   branches:
+  #     - dev
 
 env:
   TF_VAR_region: "ap-south-1"
@@ -45,24 +45,24 @@ jobs:
            -backend-config="region=$AWS_S3_BUCKET_FOR_TF_STATE_REGION" \
            -reconfigure
 
-      # - name: Terraform Validate
-      #   id: validate
-      #   run: |
-      #     cd terraform-infra
-      #     terraform validate
+      - name: Terraform Validate
+        id: validate
+        run: |
+          cd terraform-infra
+          terraform validate
 
-      # - name: Terraform Plan
-      #   id: plan
-      #   run: |
-      #     cd terraform-infra
-      #     terraform plan -no-color -input=false
-      #   continue-on-error: true
+      - name: Terraform Plan
+        id: plan
+        run: |
+          cd terraform-infra
+          terraform plan -no-color -input=false
+        continue-on-error: true
 
-      # - name: Terraform Apply
-      #   id: apply
-      #   run: |
-      #     cd terraform-infra
-      #     terraform apply -auto-approve -input=false
+      - name: Terraform Apply
+        id: apply
+        run: |
+          cd terraform-infra
+          terraform apply -auto-approve -input=false
 
       - name: Terraform Output
         id: output
@@ -126,8 +126,6 @@ jobs:
           pip install python-dotenv
           current_env_vars=$(aws amplify get-app --app-id $AWS_AMPLIFY_APP_ID | jq '.app.environmentVariables')
           python3 ./workflow-scripts/object_to_key_value.py "$current_env_vars"
-          ls -la
-          cat ./.env
           mv ./.env $envVarsPath
 
       - name: Git Commit

@@ -12,5 +12,3 @@ for k,v in existing_env_vars.items():
         set_key(dotenv_path=env_file_path, key_to_set=f"VITE_{k}", value_to_set=v)
     else:
         set_key(dotenv_path=env_file_path, key_to_set=k, value_to_set=v)
-        
-# print(env_file_path)
