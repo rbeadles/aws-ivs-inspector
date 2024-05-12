@@ -95,6 +95,7 @@ jobs:
 
       - name: Execute Python script # Run the manipulate_apis_vars.py file to manipulate the json
         run: |
+          pip install python-dotenv
           current_env_vars=$(aws amplify get-app --app-id $AWS_AMPLIFY_APP_ID | jq '.app.environmentVariables')
           api_vars=$(jq --arg region "$TF_VAR_region" '.[$region]' <<< "${{needs.terraform_for_infra.outputs.api_ids}}" | jq '@json')
           final_env_var=$(python3 ./workflow-scripts/manipulate_apis_vars.py "$current_env_vars" "VITE_API_${TF_VAR_region}" "$api_vars")
@@ -115,13 +116,25 @@ jobs:
           aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
           aws configure set region $AWS_AMPLIFY_APP_REGION
 
-      - name: build API data
-        id: build_api_data
-        run: |
-          current_env_vars=$(aws amplify get-app --app-id $AWS_AMPLIFY_APP_ID | jq '.app.environmentVariables')
-          jq -r 'to_entries|map("\(.key|= if . == VITE_* then . else "VITE_" + . end)=\(.value|tostring)")|.[]' <<< $current_env_vars  > $envVarsPath
+      - name: Setup Python Version
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.9 # Install the python version needed
 
-          cat $envVarsPath
+      - name: Execute Python script # Run the manipulate_apis_vars.py file to manipulate the json
+        run: |
+          pip install python-dotenv
+          ls -l
+          current_env_vars=$(aws amplify get-app --app-id $AWS_AMPLIFY_APP_ID | jq '.app.environmentVariables')
+          python3 ./workflow-scripts/object_to_key_value.py "$current_env_vars"
+          ls -l
+          cat ./.env
+
+      #     # final_env_var=$(python3 ./workflow-scripts/manipulate_apis_vars.py "$current_env_vars" "VITE_API_${TF_VAR_region}" "$api_vars")
+
+      #     # jq -r 'to_entries|map("\(.key |= if has('VITE_') then . else . + [$order] end)=\(.value|tostring)")|.[]' <<< $current_env_vars  > $envVarsPath
+
+      #     cat $envVarsPath
 
       # - name: Git Commit
       #   run: |
