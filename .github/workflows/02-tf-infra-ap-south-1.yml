@@ -119,8 +119,7 @@ jobs:
         id: build_api_data
         run: |
           current_env_vars=$(aws amplify get-app --app-id $AWS_AMPLIFY_APP_ID | jq '.app.environmentVariables')
-          # jq -r 'to_entries|map("\(.key)=\(.value|tostring)")|.[]' <<< $current_env_vars  > $envVarsPath
-          jq 'with_entries(.key |= "x_" + .)' <<< $current_env_vars  > $envVarsPath
+          jq -r 'to_entries|map("\(.key|= if . == VITE_* then . else "VITE_" + . end)=\(.value|tostring)")|.[]' <<< $current_env_vars  > $envVarsPath
 
           cat $envVarsPath
 
