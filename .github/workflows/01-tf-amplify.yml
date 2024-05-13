@@ -18,6 +18,7 @@ env:
   AWS_AMPLIFY_APP_ID: ${{ vars.AWS_AMPLIFY_APP_ID }}
   AWS_AMPLIFY_APP_REGION: ${{ vars.AWS_AMPLIFY_DEPLOYED_REGION }}
   GH_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
+  envVarsPath: ./web-application/.env
 
 jobs:
   terraform_for_amplify:
@@ -115,7 +116,7 @@ jobs:
         run: |
           current_env_vars=$(aws amplify get-app --app-id "${{ needs.adding_environment_variable.outputs.amplify_app_id }}" | jq '.app.environmentVariables')
           cognito_vars=$(jq '.' <<< "${{ needs.adding_environment_variable.outputs.cognito_ids }}")
-          echo $cognito_vars
+          # echo $cognito_vars
           # python3 ./workflow-scripts/manipulate_cognito_vars.py "$current_env_vars" "$cognito_vars"
           final_env_var=$(python3 ./workflow-scripts/manipulate_cognito_vars.py "$current_env_vars" "$cognito_vars")
           aws amplify update-app --app-id "${{ needs.adding_environment_variable.outputs.amplify_app_id }}" --environment-variables "$final_env_var"
@@ -145,6 +146,8 @@ jobs:
           pip install python-dotenv
           current_env_vars=$(aws amplify get-app --app-id $AWS_AMPLIFY_APP_ID | jq '.app.environmentVariables')
           python3 ./workflow-scripts/generate.env.py "$current_env_vars"
+          pwd
+          ls -la
           mv ./.env $envVarsPath
 
       - name: Git Commit
