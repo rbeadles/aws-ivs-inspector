@@ -1,6 +1,9 @@
 name: 01:AWS Amplify App
 
-on: workflow_dispatch
+on: #workflow_dispatch
+  push:
+    branches:
+      - dev
 
 env:
   TF_VAR_region: ${{ vars.AWS_AMPLIFY_DEPLOYED_REGION }}
@@ -113,7 +116,7 @@ jobs:
           cognito_vars=$(jq '.' <<< "${{ needs.adding_environment_variable.outputs.cognito_ids }}")
           echo $cognito_vars
           final_env_var=$(python3 ./workflow-scripts/manipulate_cognito_vars.py "$current_env_vars" "$cognito_vars")
-          aws amplify update-app --app-id "${{ needs.adding_environment_variable.outputs.amplify_app_id }}" --environment-variables "$final_env_var"
+          # aws amplify update-app --app-id "${{ needs.adding_environment_variable.outputs.amplify_app_id }}" --environment-variables "$final_env_var"
 
   generating_webapp_repo_env_vars:
     name: "generating .env in repo"
