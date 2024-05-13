@@ -15,13 +15,10 @@ def assign_cognito_vars():
 
 
 if existing_env_vars == None:
-    print(type(existing_env_vars))
     existing_env_vars = {}
-    print(type(existing_env_vars))
-    # assign_cognito_vars()
+    assign_cognito_vars()
     
 else:
-    print(type(existing_env_vars))
     assign_cognito_vars()
 
 print(json.dumps(existing_env_vars))
