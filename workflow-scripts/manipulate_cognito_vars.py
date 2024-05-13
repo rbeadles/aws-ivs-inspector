@@ -8,9 +8,18 @@ print("existing_env_vars type: ", type(existing_env_vars))
 print("cognito_vars: ", cognito_vars)
 print("cognito_vars type: ", type(cognito_vars))
 
-for key, value in cognito_vars.items():
-    print(key, value)
-    existing_env_vars[key] = value
+def assign_cognito_vars():
+    for key, value in cognito_vars.items():
+        print(key, value)
+        existing_env_vars[key] = value
+
+
+if type(existing_env_vars) == "NoneType":
+    existing_env_vars = {}
+    assign_cognito_vars()
+    
+else:
+    assign_cognito_vars()
 
 print(json.dumps(existing_env_vars))
 
