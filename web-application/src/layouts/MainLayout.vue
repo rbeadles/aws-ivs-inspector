@@ -119,7 +119,9 @@
     </q-drawer>
 
     <q-page-container>
-      <!-- {{ (user, route) }} -->
+      <!-- {{ route }}
+      <br />
+      {{ user }} -->
       <router-view />
     </q-page-container>
   </q-layout>
@@ -212,21 +214,28 @@ export default defineComponent({
     };
 
     watch(user, (current, old) => {
-      // console.log(old);
-      // console.log(current);
+      console.log("user old:", old);
+      console.log("user current:", current);
       if (!current) {
-        $router.push({ name: "Auth", params: { account_id: accountId } });
+        $router.push({ name: "Auth" });
+      }
+    });
+
+    watch(route, (current, old) => {
+      console.log("route old:", old);
+      console.log("route current:", current);
+      if (current == "signOut") {
+        $router.push({ name: "Auth" });
       }
     });
 
     onMounted(() => {
-      console.log("user: ", !user.value);
-      // if (!user?.value) {
-      //   $router.push({ name: "Auth" });
-      // }
-      // authStore.isUserSignedIn().then((res) => {
-      //   console.log("isUserSignedIn res: ", res);
-      // });
+      console.log("user State at auth:", user.value);
+      console.log("user State at store:", authStore.userState);
+      if (!authStore.userState) {
+        console.log("user State is null");
+        $router.push({ name: "Auth" });
+      }
     });
 
     return {

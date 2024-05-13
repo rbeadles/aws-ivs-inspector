@@ -11,21 +11,22 @@
 </template>
 
 <script>
-import { computed, defineComponent, toRefs, watch } from "vue";
+import { defineComponent, toRefs, watch } from "vue";
 import { useRouter } from "vue-router";
 import { Authenticator, useAuthenticator } from "@aws-amplify/ui-vue";
 import envVars from "src/config/env.json";
 import "@aws-amplify/ui-vue/styles.css";
 import { useCommonStore } from "src/stores/store-common";
+import { useAuthStore } from "src/stores/store-auth";
 
 export default defineComponent({
   name: "UserAuthentication",
   components: { Authenticator },
   setup() {
+    const commonStore = useCommonStore();
+    const authStore = useAuthStore();
     const { route, user, auth } = toRefs(useAuthenticator());
     const $router = useRouter();
-
-    const commonStore = useCommonStore();
 
     const formFields = {
       signUp: {
@@ -48,10 +49,11 @@ export default defineComponent({
     };
 
     watch(user, (currentValue, oldValue) => {
-      console.log(currentValue);
-      console.log(oldValue);
+      console.log("currentValue:", currentValue);
+      console.log("oldValue:", oldValue);
 
       if (currentValue?.userId) {
+        authStore.setUserState(currentValue);
         const params = {
           account_id: envVars.account_id,
           region: commonStore.regions[0],
