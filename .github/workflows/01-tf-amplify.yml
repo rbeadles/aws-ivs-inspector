@@ -15,6 +15,7 @@ env:
   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
   AWS_S3_BUCKET_FOR_TF_STATE: ${{ secrets.AWS_S3_BUCKET_FOR_TF_STATE }}
   AWS_S3_BUCKET_FOR_TF_STATE_REGION: ${{ vars.AWS_S3_BUCKET_FOR_TF_STATE_REGION }}
+  AWS_AMPLIFY_APP_ID: ${{ vars.AWS_AMPLIFY_APP_ID }}
   AWS_AMPLIFY_APP_REGION: ${{ vars.AWS_AMPLIFY_DEPLOYED_REGION }}
   GH_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
 
@@ -85,7 +86,7 @@ jobs:
         run: |
           echo "cognito_ids:: ${{ needs.terraform_for_amplify.outputs.cognito_ids }}"
           echo "app_id:: ${{ needs.terraform_for_amplify.outputs.amplify_app_id }}"
-          gh variable set amplify_app_id --body "${{ needs.terraform_for_amplify.outputs.amplify_app_id }}" --env ivs_inspector_backend
+          gh variable set AWS_AMPLIFY_APP_ID --body "${{ needs.terraform_for_amplify.outputs.amplify_app_id }}" --env ivs_inspector_backend
     outputs:
       amplify_app_id: ${{ needs.terraform_for_amplify.outputs.amplify_app_id }}
       cognito_ids: ${{ needs.terraform_for_amplify.outputs.cognito_ids }}
@@ -115,7 +116,8 @@ jobs:
           current_env_vars=$(aws amplify get-app --app-id "${{ needs.adding_environment_variable.outputs.amplify_app_id }}" | jq '.app.environmentVariables')
           cognito_vars=$(jq '.' <<< "${{ needs.adding_environment_variable.outputs.cognito_ids }}")
           echo $cognito_vars
-          final_env_var=$(python3 ./workflow-scripts/manipulate_cognito_vars.py "$current_env_vars" "$cognito_vars")
+          python3 ./workflow-scripts/manipulate_cognito_vars.py "$current_env_vars" "$cognito_vars"
+          # final_env_var=$(python3 ./workflow-scripts/manipulate_cognito_vars.py "$current_env_vars" "$cognito_vars")
           # aws amplify update-app --app-id "${{ needs.adding_environment_variable.outputs.amplify_app_id }}" --environment-variables "$final_env_var"
 
   generating_webapp_repo_env_vars:
