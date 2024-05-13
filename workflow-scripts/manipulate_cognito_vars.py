@@ -14,7 +14,7 @@ def assign_cognito_vars():
         existing_env_vars[key] = value
 
 
-if type(existing_env_vars) == "NoneType":
+if existing_env_vars == "None":
     existing_env_vars = {}
     assign_cognito_vars()
     
