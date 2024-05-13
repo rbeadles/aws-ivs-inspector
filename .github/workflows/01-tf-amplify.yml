@@ -116,9 +116,9 @@ jobs:
           current_env_vars=$(aws amplify get-app --app-id "${{ needs.adding_environment_variable.outputs.amplify_app_id }}" | jq '.app.environmentVariables')
           cognito_vars=$(jq '.' <<< "${{ needs.adding_environment_variable.outputs.cognito_ids }}")
           echo $cognito_vars
-          python3 ./workflow-scripts/manipulate_cognito_vars.py "$current_env_vars" "$cognito_vars"
-          # final_env_var=$(python3 ./workflow-scripts/manipulate_cognito_vars.py "$current_env_vars" "$cognito_vars")
-          # aws amplify update-app --app-id "${{ needs.adding_environment_variable.outputs.amplify_app_id }}" --environment-variables "$final_env_var"
+          # python3 ./workflow-scripts/manipulate_cognito_vars.py "$current_env_vars" "$cognito_vars"
+          final_env_var=$(python3 ./workflow-scripts/manipulate_cognito_vars.py "$current_env_vars" "$cognito_vars")
+          aws amplify update-app --app-id "${{ needs.adding_environment_variable.outputs.amplify_app_id }}" --environment-variables "$final_env_var"
 
   generating_webapp_repo_env_vars:
     name: "generating .env in repo"
