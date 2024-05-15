@@ -6,7 +6,7 @@ api_values = json.loads(sys.argv[3])
 account_id = json.loads(sys.argv[4])
  
 existing_env_vars[region] = api_values
-existing_env_vars["VITE_ACCOUNT_ID"] = account_id
+existing_env_vars["VITE_ACCOUNT_ID"] = str(account_id)
 
 region_keys = list(map(lambda x: x.replace("VITE_API_", ""), [k for k in existing_env_vars.keys() if "VITE_API_" in k]))
 existing_env_vars["VITE_IVS_REGIONS"] = ",".join(region_keys)
