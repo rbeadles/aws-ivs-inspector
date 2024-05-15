@@ -7,7 +7,7 @@
         </q-item-section>
 
         <q-item-section class="col-12 col-sm-auto">
-          <q-item-label> Setting CCV </q-item-label>
+          <q-item-label> Coming Soon </q-item-label>
         </q-item-section>
       </div>
       <q-separator />
