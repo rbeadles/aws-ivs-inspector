@@ -55,7 +55,7 @@ export default defineComponent({
       if (currentValue?.userId) {
         authStore.setUserState(currentValue);
         const params = {
-          account_id: envVars.account_id,
+          account_id: commonStore.account_id,
           region: commonStore.regions[0],
         };
         $router.push({ name: "Dashboard", params: params });

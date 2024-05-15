@@ -178,7 +178,7 @@ export default defineComponent({
     const $router = useRouter();
     const drawer = ref(false);
 
-    const accountId = computed(() => envVars.account_id);
+    const accountId = computed(() => commonStore.account_id);
     const region = ref($route.params.region);
     const channelId = ref(null);
     const ivsRegions = computed(() => commonStore.regions);
