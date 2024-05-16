@@ -15,9 +15,10 @@ resource "aws_amplify_app" "app" {
 }
 
 resource "aws_amplify_branch" "branch" {
-  app_id      = aws_amplify_app.app.id
-  branch_name = var.branch_name
-  framework   = "Vue"
-  stage       = "PRODUCTION"
+  app_id            = aws_amplify_app.app.id
+  branch_name       = var.branch_name
+  enable_auto_build = false
+  framework         = "Vue"
+  stage             = "PRODUCTION"
 }
 
