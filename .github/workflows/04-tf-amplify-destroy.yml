@@ -1,11 +1,16 @@
-name: 04:AWS Infra destroy
+name: 04:AWS Amplify destroy
 
-on: workflow_dispatch
+on:
+  workflow_dispatch
+  # push:
+  #   branches:
+  #     - dev
 
 env:
-  TF_VAR_region: "ap-south-1"
+  TF_VAR_region: "us-east-2"
+  AWS_AMPLIFY_APP_REGION: ${{vars.AWS_AMPLIFY_DEPLOYED_REGION}}
   TF_VAR_repository: ${{ github.server_url }}/${{ github.repository }}
-  TF_VAR_account_id: ${{ secrets.AWS_ACCOUNT_ID }}
+  TF_VAR_token: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
   AWS_S3_BUCKET_FOR_TF_STATE: ${{ secrets.AWS_S3_BUCKET_FOR_TF_STATE }}
@@ -13,7 +18,7 @@ env:
   TF_LOG: INFO
 
 jobs:
-  terraform_for_infra:
+  terraform_for_amplify:
     runs-on: ubuntu-latest
     environment: ivs_inspector_backend
 
@@ -29,16 +34,16 @@ jobs:
       - name: Terraform Init
         id: init
         run: |
-          cd terraform-infra
+          cd terraform-amplify
           terraform fmt
           terraform init \
            -backend-config="bucket=$AWS_S3_BUCKET_FOR_TF_STATE" \
-           -backend-config="key=infra/$TF_VAR_region/terraform.tfstate" \
+           -backend-config="key=amplify/$AWS_AMPLIFY_APP_REGION/terraform.tfstate" \
            -backend-config="region=$AWS_S3_BUCKET_FOR_TF_STATE_REGION" \
            -reconfigure
 
       - name: Terraform Destroy
         id: destroy
         run: |
-          cd terraform-infra
+          cd terraform-amplify
           terraform destroy -auto-approve -input=false

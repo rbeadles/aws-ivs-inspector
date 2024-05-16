@@ -2,8 +2,8 @@ import { defineStore } from "pinia";
 import { api } from "boot/axios";
 import { Notify } from "quasar";
 import { useChannelStore } from "stores/store-channel";
-import { useCommonStore } from "./store-common";
-import envVars from "config/env.json";
+import { useCommonStore } from "stores/store-common";
+const envVars = import.meta.env;
 
 const channelStore = useChannelStore();
 const commonStore = useCommonStore();
@@ -23,8 +23,12 @@ export const useSessionStore = defineStore("SessionStore", {
     async listStreams(ivsRegion) {
       console.log("getting live streams", ivsRegion);
       try {
+        const apis = JSON.parse(
+          envVars[`VITE_API_${ivsRegion}`].replaceAll("\\", "")
+        );
+
         const response = await api.get(
-          `https://${envVars.apis[ivsRegion].rest}.execute-api.${ivsRegion}.amazonaws.com/ivs/list-streams`,
+          `https://${apis.rest}.execute-api.${ivsRegion}.amazonaws.com/ivs/list-streams`,
           {
             params: {
               nextToken: this.streamsNextToken[ivsRegion] || "",
@@ -71,8 +75,12 @@ export const useSessionStore = defineStore("SessionStore", {
     async getSession(streamId, channelArn, ivsRegion) {
       try {
         console.log(streamId, channelArn);
+        const apis = JSON.parse(
+          envVars[`VITE_API_${ivsRegion}`].replaceAll("\\", "")
+        );
+
         const response = await api.get(
-          `https://${envVars.apis[ivsRegion].rest}.execute-api.${ivsRegion}.amazonaws.com/ivs/get-session`,
+          `https://${apis.rest}.execute-api.${ivsRegion}.amazonaws.com/ivs/get-session`,
           {
             params: {
               stream_id: streamId,
@@ -106,8 +114,12 @@ export const useSessionStore = defineStore("SessionStore", {
     async getStream(streamId, channelArn, ivsRegion) {
       try {
         console.log(channelArn, streamId);
+        const apis = JSON.parse(
+          envVars[`VITE_API_${ivsRegion}`].replaceAll("\\", "")
+        );
+
         const response = await api.get(
-          `https://${envVars.apis[ivsRegion].rest}.execute-api.${ivsRegion}.amazonaws.com/ivs/get-stream`,
+          `https://${apis.rest}.execute-api.${ivsRegion}.amazonaws.com/ivs/get-stream`,
           {
             params: {
               channelArn: channelArn,
@@ -142,8 +154,12 @@ export const useSessionStore = defineStore("SessionStore", {
     async getIngestMetrics(streamId, channelId, ivsRegion) {
       try {
         console.log(streamId, channelId);
+        const apis = JSON.parse(
+          envVars[`VITE_API_${ivsRegion}`].replaceAll("\\", "")
+        );
+
         const response = await api.get(
-          `https://${envVars.apis[ivsRegion].rest}.execute-api.${ivsRegion}.amazonaws.com/ivs/get-ingest-metrics`,
+          `https://${apis.rest}.execute-api.${ivsRegion}.amazonaws.com/ivs/get-ingest-metrics`,
           {
             params: {
               stream_id: streamId,
@@ -175,8 +191,12 @@ export const useSessionStore = defineStore("SessionStore", {
     // websocket API
     async getSessionEvents(streamId, channelArn, ivsRegion) {
       try {
+        const apis = JSON.parse(
+          envVars[`VITE_API_${ivsRegion}`].replaceAll("\\", "")
+        );
+
         const ws = new WebSocket(
-          `wss://${envVars.apis[ivsRegion].get_session_events}.execute-api.${ivsRegion}.amazonaws.com/ivs`
+          `wss://${apis.get_session_events}.execute-api.${ivsRegion}.amazonaws.com/ivs`
         );
         ws.onopen = () => {
           console.log("open response:", ws);
@@ -219,8 +239,12 @@ export const useSessionStore = defineStore("SessionStore", {
     // websocket API
     async getLiveStreams(ivsRegion) {
       try {
+        const apis = JSON.parse(
+          envVars[`VITE_API_${ivsRegion}`].replaceAll("\\", "")
+        );
+        console.log(apis);
         const ws = new WebSocket(
-          `wss://${envVars.apis[ivsRegion].get_live_streams}.execute-api.${ivsRegion}.amazonaws.com/ivs`
+          `wss://${apis.get_live_streams}.execute-api.${ivsRegion}.amazonaws.com/ivs`
         );
         ws.onopen = () => {
           console.log("open response:", ws);
@@ -288,9 +312,13 @@ export const useSessionStore = defineStore("SessionStore", {
     getQuotaProvisioned(serviceCode, ivsRegion) {
       try {
         console.log(serviceCode);
+        const apis = JSON.parse(
+          envVars[`VITE_API_${ivsRegion}`].replaceAll("\\", "")
+        );
+
         api
           .get(
-            `https://${envVars.apis[ivsRegion].rest}.execute-api.${ivsRegion}.amazonaws.com/ivsQuotaProvisioned`,
+            `https://${apis.rest}.execute-api.${ivsRegion}.amazonaws.com/ivsQuotaProvisioned`,
             {
               params: {
                 serviceCode: serviceCode,

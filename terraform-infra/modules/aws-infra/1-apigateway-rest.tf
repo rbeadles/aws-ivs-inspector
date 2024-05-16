@@ -72,7 +72,6 @@ resource "aws_api_gateway_method_response" "method_response" {
 # deploy the API
 resource "aws_api_gateway_deployment" "deployment" {
   rest_api_id = aws_api_gateway_rest_api.rest_api.id
-  stage_name  = var.environment
   triggers = {
     redeployment = sha1(jsonencode(aws_api_gateway_rest_api.rest_api.body))
   }
@@ -86,4 +85,21 @@ resource "aws_api_gateway_deployment" "deployment" {
     aws_api_gateway_integration_response.integration_response,
     aws_api_gateway_method_response.method_response
   ]
+}
+
+resource "aws_api_gateway_stage" "stage" {
+  deployment_id = aws_api_gateway_deployment.deployment.id
+  rest_api_id   = aws_api_gateway_rest_api.rest_api.id
+  stage_name    = var.environment
+  depends_on    = [aws_api_gateway_deployment.deployment]
+}
+
+resource "aws_api_gateway_method_settings" "get_method_settings" {
+  rest_api_id = aws_api_gateway_rest_api.rest_api.id
+  stage_name  = aws_api_gateway_stage.stage.stage_name
+  method_path = "*/*"
+  settings {
+    throttling_burst_limit = 4999
+    throttling_rate_limit  = 9999
+  }
 }

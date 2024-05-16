@@ -2,8 +2,8 @@ import json, os
 import boto3
 
 print("Loading function")
-dynamodb = boto3.resource("dynamodb")
 
+dynamodb = boto3.resource("dynamodb")
 ivsClient = boto3.client("ivs")
 stream_state_events_table = dynamodb.Table(f"{os.environ['project_name']}-state-events")
 ingest_metrics_table = dynamodb.Table(f"{os.environ['project_name']}-ingest-metrics")

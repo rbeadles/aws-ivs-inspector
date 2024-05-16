@@ -1,47 +1,54 @@
 const routes = [
   {
+    name: "Auth",
+    path: "/auth",
+    component: () => import("src/pages/Auth.vue"),
+  },
+
+  {
+    name: "MainLayout",
     path: "/",
-    component: () => import("layouts/MainLayout.vue"),
+    component: () => import("src/layouts/MainLayout.vue"),
     children: [
       {
-        name: "Auth",
-        path: "auth",
-        component: () => import("src/pages/Auth.vue"),
+        name: "Settings",
+        path: "/account/:account_id/settings",
+        component: () => import("src/pages/Settings.vue"),
       },
 
       {
         name: "Dashboard",
-        path: "account/:account_id/region/:region/dashboard",
+        path: "/account/:account_id/region/:region/dashboard",
         component: () => import("src/pages/Dashboard.vue"),
       },
 
       {
         name: "Channels",
-        path: "account/:account_id/region/:region/channels",
+        path: "/account/:account_id/region/:region/channels",
         component: () => import("src/pages/Channels.vue"),
       },
 
       {
         name: "Live Channels",
-        path: "account/:account_id/region/:region/live_channels",
+        path: "/account/:account_id/region/:region/live_channels",
         component: () => import("src/pages/LiveChannels.vue"),
       },
 
       {
         name: "Channel Details",
-        path: "account/:account_id/region/:region/channel/:channel_id",
+        path: "/account/:account_id/region/:region/channel/:channel_id",
         component: () => import("src/components/Channels/ChannelDetails.vue"),
       },
 
       {
         name: "Sessions",
-        path: "account/:account_id/region/:region/channel/:channel_id/sessions",
+        path: "/account/:account_id/region/:region/channel/:channel_id/sessions",
         component: () => import("src/pages/Sessions.vue"),
       },
 
       {
         name: "Session Details",
-        path: "account/:account_id/region/:region/channel/:channel_id/session/:session_id",
+        path: "/account/:account_id/region/:region/channel/:channel_id/session/:session_id",
         component: () => import("src/components/Sessions/SessionDetails.vue"),
       },
     ],

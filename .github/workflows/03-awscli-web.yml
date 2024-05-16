@@ -3,15 +3,16 @@ name: 03:AWS IVS Inspector web-app
 on: workflow_dispatch
 
 env:
+  TF_VAR_region: ${{ vars.AWS_AMPLIFY_DEPLOYED_REGION }}
+  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  AWS_AMPLIFY_APP_ID: ${{ vars.AWS_AMPLIFY_APP_ID}}
   TF_LOG: INFO
-  AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
-  AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
-  AWS_AMPLIFY_APP_ID: ${{vars.AMPLIFY_APP_ID}}
 
 jobs:
   web-app:
     runs-on: ubuntu-latest
-    environment: terraform_admin
+    environment: ivs_inspector_backend
 
     steps:
       - name: Checkout the repositoring to the runner
@@ -21,5 +22,6 @@ jobs:
         run: |
           aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
           aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
-          aws configure set region "us-east-2"
-          aws amplify start-job --app-id $AWS_AMPLIFY_APP_ID --branch-name dev --job-type RELEASE --commit-message "commit from GitHub"
+          aws configure set region "$TF_VAR_region"
+          # aws amplify get-branch --app-id $AWS_AMPLIFY_APP_ID --branch-name ${{ github.ref_name }}
+          aws amplify start-job --app-id $AWS_AMPLIFY_APP_ID --branch-name ${{ github.ref_name }} --job-type RELEASE --commit-message "commit from GitHub"

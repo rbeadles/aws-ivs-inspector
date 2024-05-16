@@ -1,7 +1,11 @@
 import { defineStore } from "pinia";
 
+const envVars = import.meta.env;
+
 export const useCommonStore = defineStore("CommonStore", {
   state: () => ({
+    account_id: envVars.VITE_ACCOUNT_ID,
+    regions: envVars.VITE_IVS_REGIONS.split(","),
     thumbStyle: {
       right: "0px",
       borderRadius: "7px",
