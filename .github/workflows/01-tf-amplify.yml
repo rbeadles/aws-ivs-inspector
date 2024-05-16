@@ -11,7 +11,6 @@ env:
   TF_VAR_project_name: ${{ vars.IVS_PROJECT_NAME }}
   TF_VAR_repository: ${{ github.server_url }}/${{ github.repository }}
   TF_VAR_token: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
-  TF_LOG: ERROR
   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
   AWS_S3_BUCKET_FOR_TF_STATE: ${{ secrets.AWS_S3_BUCKET_FOR_TF_STATE }}
@@ -20,6 +19,7 @@ env:
   AWS_AMPLIFY_APP_REGION: ${{ vars.AWS_AMPLIFY_DEPLOYED_REGION }}
   GH_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
   envVarsPath: ./web-application/.env
+  TF_LOG: ERROR
 
 jobs:
   terraform_for_amplify:

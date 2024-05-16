@@ -11,11 +11,11 @@ env:
   AWS_AMPLIFY_APP_REGION: ${{vars.AWS_AMPLIFY_DEPLOYED_REGION}}
   TF_VAR_repository: ${{ github.server_url }}/${{ github.repository }}
   TF_VAR_token: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
-  TF_LOG: INFO
   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
   AWS_S3_BUCKET_FOR_TF_STATE: ${{ secrets.AWS_S3_BUCKET_FOR_TF_STATE }}
   AWS_S3_BUCKET_FOR_TF_STATE_REGION: ${{ vars.AWS_S3_BUCKET_FOR_TF_STATE_REGION }}
+  TF_LOG: INFO
 
 jobs:
   terraform_for_amplify:

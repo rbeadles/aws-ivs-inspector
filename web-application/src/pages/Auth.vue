@@ -12,12 +12,11 @@
 
 <script>
 import { defineComponent, toRefs, watch } from "vue";
-import { useRouter } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 import { Authenticator, useAuthenticator } from "@aws-amplify/ui-vue";
-import envVars from "src/config/env.json";
-import "@aws-amplify/ui-vue/styles.css";
 import { useCommonStore } from "src/stores/store-common";
 import { useAuthStore } from "src/stores/store-auth";
+import "@aws-amplify/ui-vue/styles.css";
 
 export default defineComponent({
   name: "UserAuthentication",
@@ -27,6 +26,7 @@ export default defineComponent({
     const authStore = useAuthStore();
     const { route, user, auth } = toRefs(useAuthenticator());
     const $router = useRouter();
+    const $route = useRoute();
 
     const formFields = {
       signUp: {
@@ -49,8 +49,11 @@ export default defineComponent({
     };
 
     watch(user, (currentValue, oldValue) => {
-      console.log("currentValue:", currentValue);
-      console.log("oldValue:", oldValue);
+      // console.log("currentValue:", currentValue);
+      // console.log("oldValue:", oldValue);
+      console.log("router:", $router);
+      console.log("route:", $route);
+      console.log("redirect:", $route.query.redirect);
 
       if (currentValue?.userId) {
         authStore.setUserState(currentValue);
@@ -58,7 +61,7 @@ export default defineComponent({
           account_id: commonStore.account_id,
           region: commonStore.regions[0],
         };
-        $router.push({ name: "Dashboard", params: params });
+        // $router.push({ name: "Dashboard", params: params });
       }
     });
 

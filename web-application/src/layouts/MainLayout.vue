@@ -205,7 +205,10 @@ export default defineComponent({
 
       $router.push({
         name: "Dashboard",
-        params: { account_id: accountId.value, region: region.value },
+        params: {
+          account_id: accountId.value,
+          region: region.value,
+        },
       });
     };
 
@@ -214,27 +217,37 @@ export default defineComponent({
     };
 
     watch(user, (current, old) => {
-      console.log("user old:", old);
-      console.log("user current:", current);
-      if (!current) {
-        $router.push({ name: "Auth" });
-      }
+      // console.log("user old:", old);
+      // console.log("user current:", current);
+      // console.log("route:", route);
+      // console.log("route:", $route);
+      // if (!current) {
+      //   // $router.push({ name: "Auth", redirect: { name: $route.name } });
+      // }
     });
 
-    watch(route, (current, old) => {
-      console.log("route old:", old);
-      console.log("route current:", current);
-      if (current == "signOut") {
-        $router.push({ name: "Auth" });
-      }
-    });
+    // watch(route, (current, old) => {
+    //   console.log("route old:", old);
+    //   console.log("route current:", current);
+    //   if (current == "signOut") {
+    //     $router.push({
+    //       name: "Auth",
+    //       redirect: { name: "Dashboard" },
+    //     });
+    //   }
+    // });
 
     onMounted(() => {
-      console.log("user State at auth:", user.value);
-      console.log("user State at store:", authStore.userState);
+      // console.log("user State at auth:", user.value);
+      // console.log("user State at store:", authStore.userState);
       if (!authStore.userState) {
-        console.log("user State is null");
-        $router.push({ name: "Auth" });
+        // console.log("user State is null");
+        console.log("route:", route);
+        console.log("route:", $route);
+        $router.push({
+          name: "Auth",
+          redirect: { name: "Dashboard" },
+        });
       }
     });
 

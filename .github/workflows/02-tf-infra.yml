@@ -1,16 +1,12 @@
-name: 02:AWS Infra ap-south-1
+name: 02:AWS Infra
 
 on:
   workflow_dispatch
-  # push:
-  #   branches:
-  #     - dev
 
 env:
   TF_VAR_region: "ap-south-1"
   TF_VAR_project_name: ${{ vars.IVS_PROJECT_NAME }}
   TF_VAR_account_id: ${{ secrets.AWS_ACCOUNT_ID }}
-  TF_LOG: INFO
   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
   AWS_S3_BUCKET_FOR_TF_STATE: ${{ secrets.AWS_S3_BUCKET_FOR_TF_STATE }}
@@ -19,6 +15,7 @@ env:
   AWS_AMPLIFY_APP_REGION: ${{vars.AWS_AMPLIFY_DEPLOYED_REGION}}
   tmpJson: $(mktemp)
   envVarsPath: ./web-application/.env
+  TF_LOG: INFO
 
 jobs:
   terraform_for_infra:
