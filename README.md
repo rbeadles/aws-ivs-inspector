@@ -28,15 +28,15 @@
 
 5.) Create Environment: <br>
 5.1.) Navigate to IVS Inspector repository > `Settings` > `Environments` <br>
-5.2.) Click the `New environment` with the value `ivs_inspector_backend`.
+5.2.) Click the `New environment` with the value `ivs_inspector_backend`. Please follow the same name.
 
 ![03-AddNewEnvironment.png](documentation/screenshots/03-AddNewEnvironment.png)
 
 6.) Manually setting the GitHub Actions Secrets: <br>
 6.1.) Navigate to IVS Inspector repository > `Settings` > `Environments` <br>
 6.2.) Hover and click the `ivs_inspector_backend`, which you just created at `step #5` <br>
-6.3.) Click `Add environment secret` in Environment secrets and add all `Secret` type. <br>
-6.4.) Click `Add environment variable` in Environment secrets and add all `Variable` type. <br>
+6.3.) Click `Add environment secret` in Environment secrets and add all `Secret` type. Please follow the same name. <br>
+6.4.) Click `Add environment variable` in Environment secrets and add all `Variable` type. Please follow the same name. <br>
 
 | Type     | Name                              | Value                                                      |
 | :------- | :-------------------------------- | :--------------------------------------------------------- |
@@ -51,17 +51,19 @@
 
 ![04-AddSecretsAndVariables.png](documentation/screenshots/04-AddSecretsAndVariables.png)
 
+> #### Note: the `AWS_AMPLIFY_APP_ID` in the Environment variable is added by the `01-tf-amplify.yml`. Hence no action required adding the `AMPLIFY_APP_ID` manually.
+
 7.) Click the RunWorkflow for each workflow in sequence,
 
 ![06-ClickTheRunWorkflowForEach.png](documentation/screenshots/06-ClickTheRunWorkflowForEach.png)
 
 7.1.) 01:AWS Amplify App (source: 01-tf-amplify.yml)
 
-> #### Note: If you're hosting the Web Application using Amplify to a desired region, you may update the value of `TF_VAR_region` in the workflow file `01-tf-amplify.yml` at `line #6`.
+> #### Note: If you're hosting the Web Application using Amplify to a desired region, you may update the value of `AWS_AMPLIFY_DEPLOYED_REGION` in the `Environment variable`.
 
-7.2.) 02:AWS Infra ap-south-1 (source: 02-tf-infra.yml)
+7.2.) 02:AWS Infra (source: 02-tf-infra.yml)
 
-> #### Note: If you're deploying infrastructure to another or additional region to inspect the IVS Channel resources, you may update the value of `TF_VAR_region` in the workflow file `02-tf-infra.yml` at the `line #6` for each run/region.
+> #### Note: If you're deploying infrastructure to another or additional region to inspect the IVS Channel resources, you may update the value of `TF_VAR_region` in the workflow file `02-tf-infra.yml` at the `line #6` for each run/region. And the edit can be done within the GitHub repo.
 
 7.3.) 03:AWS IVS Inspector web-app (source: 03-awscli-web.yml)
 
@@ -76,13 +78,11 @@ The default project name, `ivs-inspector,` inherits from the repository/project.
 Upon successful run of all three workflows
 
 1. navigate to AWS Console,
-2. switch to the region where the web application deployed,
+2. switch to the region where the web application (Amplify app) deployed,
 3. select Amplify service,
 4. select/enter the IVS Inspector App,
-5. under overview > Production branch, click the Domain; thats is the URL of the IVS Inspector application.
+5. under overview > Production branch, click the Domain (its a hyperlink); thats is the URL of the IVS Inspector application.
+
+![07-IvsInspectorAppLink.png](documentation/screenshots/07-IvsInspectorAppLink.png)
 
 :TODO: Provide details on how to use the web application.
-
-:TODO: Question to the IVS team,
-
-1. should we consider duplicating the #02 workflow for multiple region deployment or advise the customers to rename the region from the existing file (02-tf-infra.yml). Please refer to `#7 > #7.2 > Note` in the installation.
