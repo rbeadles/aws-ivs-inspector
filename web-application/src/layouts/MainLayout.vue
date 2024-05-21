@@ -106,7 +106,11 @@
           </q-item-section>
         </q-item>
 
-        <q-item clickable class="col-auto q-pa-md" @click="signOut()">
+        <q-item
+          clickable
+          class="col-auto q-pa-md"
+          @click="signOutAndRedirectTo"
+        >
           <q-item-section avatar>
             <q-icon name="logout" />
           </q-item-section>
@@ -216,40 +220,45 @@ export default defineComponent({
       $router.push({ name: page });
     };
 
+    const signOutAndRedirectTo = () => {
+      signOut.value();
+      $router.push({ name: "Auth" });
+    };
+
     watch(user, (current, old) => {
-      // console.log("user old:", old);
-      // console.log("user current:", current);
-      // console.log("route:", route);
+      console.log("user old:", old);
+      console.log("user current:", current);
+      console.log("route:", route.value);
       // console.log("route:", $route);
-      // if (!current) {
-      //   // $router.push({ name: "Auth", redirect: { name: $route.name } });
+      if (route.value == "signIn") {
+        $router.push({ name: "Auth", redirect: { name: $route.name } });
+      }
+    });
+
+    watch(route, (current, old) => {
+      console.log("route old:", old);
+      console.log("route current:", current);
+      // if (current == "signOut") {
+      //   $router.push({
+      //     name: "Auth",
+      //     redirect: { name: "Dashboard" },
+      //   });
       // }
     });
 
-    // watch(route, (current, old) => {
-    //   console.log("route old:", old);
-    //   console.log("route current:", current);
-    //   if (current == "signOut") {
-    //     $router.push({
-    //       name: "Auth",
-    //       redirect: { name: "Dashboard" },
-    //     });
+    // onMounted(() => {
+    //   // console.log("user State at auth:", user.value);
+    //   // console.log("user State at store:", authStore.userState);
+    //   if (!authStore.userState) {
+    //     // console.log("user State is null");
+    //     console.log("route:", route);
+    //     console.log("route:", $route);
+    //     // $router.push({
+    //     //   name: "Auth",
+    //     //   redirect: { name: "Dashboard" },
+    //     // });
     //   }
     // });
-
-    onMounted(() => {
-      // console.log("user State at auth:", user.value);
-      // console.log("user State at store:", authStore.userState);
-      if (!authStore.userState) {
-        // console.log("user State is null");
-        console.log("route:", route);
-        console.log("route:", $route);
-        $router.push({
-          name: "Auth",
-          redirect: { name: "Dashboard" },
-        });
-      }
-    });
 
     return {
       auth,
@@ -271,6 +280,7 @@ export default defineComponent({
       goToChannel,
       changeRegion,
       redirectTo,
+      signOutAndRedirectTo,
     };
   },
 });

@@ -51,9 +51,10 @@ export default defineComponent({
     watch(user, (currentValue, oldValue) => {
       // console.log("currentValue:", currentValue);
       // console.log("oldValue:", oldValue);
-      console.log("router:", $router);
-      console.log("route:", $route);
-      console.log("redirect:", $route.query.redirect);
+      // console.log("router:", $router);
+      console.log("route:", $route.name);
+      console.log("user:", user.value);
+      // console.log("redirect:", $route.query.redirect);
 
       if (currentValue?.userId) {
         authStore.setUserState(currentValue);
@@ -61,7 +62,7 @@ export default defineComponent({
           account_id: commonStore.account_id,
           region: commonStore.regions[0],
         };
-        // $router.push({ name: "Dashboard", params: params });
+        $router.push({ name: "Dashboard", params: params });
       }
     });
 
